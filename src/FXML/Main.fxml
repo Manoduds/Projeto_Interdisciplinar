@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Main">
+   <children>
+      <TableView layoutX="248.0" prefHeight="294.0" prefWidth="378.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C3" />
+            <TableColumn prefWidth="75.0" text="C4" />
+            <TableColumn prefWidth="75.0" text="C5" />
+        </columns>
+      </TableView>
+      <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="600.0" prefWidth="16.0" />
+      <Separator layoutX="4.0" layoutY="285.0" prefHeight="19.0" prefWidth="248.0" />
+      <Accordion prefHeight="294.0" prefWidth="248.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="185.0" prefWidth="248.0" text="Gastos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="246.0">
+                     <children>
+                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Adicionar" />
+                        <Button layoutX="-2.0" layoutY="50.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Alterar" />
+                        <Button layoutX="-2.0" layoutY="100.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Remover" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="195.0" prefWidth="248.0" text="Relatórios">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="111.0" prefWidth="248.0" text="Dados Cadastrais">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</AnchorPane>

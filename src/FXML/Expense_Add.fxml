@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controllers.Expense_Add">
+   <children>
+      <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="262.0" layoutY="294.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
+      <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="262.0" layoutY="188.0" prefHeight="80.0" prefWidth="200.0" promptText="Descrição" />
+      <ComboBox id="TxtPayment_Method" fx:id="TxtPayment_Method" focusTraversable="false" layoutX="538.0" layoutY="188.0" prefHeight="25.0" prefWidth="200.0" promptText="Forma de Pagamento" />
+      <ComboBox id="TxtFrequency" fx:id="TxtFrequency" focusTraversable="false" layoutX="538.0" layoutY="215.0" prefHeight="25.0" prefWidth="200.0" promptText="Frequência" />
+      <ComboBox id="TxtCategory" fx:id="TxtCategory" focusTraversable="false" layoutX="538.0" layoutY="243.0" prefHeight="25.0" prefWidth="200.0" promptText="Categoria" />
+      <DatePicker id="TxtExpense_Date" fx:id="TxtExpense_Date" focusTraversable="false" layoutX="538.0" layoutY="294.0" prefHeight="25.0" prefWidth="200.0" promptText="Data" />
+      <TextField id="TxtEstablishment_Name" fx:id="TxtEstablishment_Name" focusTraversable="false" layoutX="262.0" layoutY="340.0" prefHeight="25.0" prefWidth="200.0" promptText="Estabelecimento" />
+      <ComboBox id="TxtEstablishment_Nature" fx:id="TxtEstablishment_Nature" focusTraversable="false" layoutX="262.0" layoutY="387.0" prefHeight="25.0" prefWidth="200.0" promptText="Natureza" />
+      <TextField id="TxtCity" fx:id="TxtCity" focusTraversable="false" layoutX="538.0" layoutY="340.0" prefHeight="25.0" prefWidth="200.0" promptText="Cidade" />
+      <ComboBox id="TxtState" fx:id="TxtState" focusTraversable="false" layoutX="538.0" layoutY="387.0" prefHeight="25.0" prefWidth="200.0" promptText="Estado" />
+   </children>
+</AnchorPane>

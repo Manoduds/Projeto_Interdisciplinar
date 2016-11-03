@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+   <children>
+      <Button id="BtnLogin" fx:id="BtnLogin" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" onAction="#BtnLogin" text="Usuário Com Cadastro" />
+      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="186.0" mnemonicParsing="false" onAction="#BtnSignUp" text="Usuário Sem Cadastro" />
+      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="249.0" layoutY="232.0" mnemonicParsing="false" text="Sobre o Sistema" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="49.0" prefHeight="17.0" prefWidth="580.0" text="Pensando sobre o nome do sistema..." textAlignment="CENTER">
+         <font>
+            <Font name="Vivaldi Italic" size="48.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0" startX="0.4523809523809524">
+               <stops>
+                  <Stop color="#9a0000" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <effect>
+            <Reflection fraction="0.56" topOffset="-10.0" topOpacity="0.35" />
+         </effect>
+      </Label>
+      <Label id="Lbl1" fx:id="Lbl1" alignment="CENTER" focusTraversable="false" layoutX="11.0" layoutY="280.0" prefHeight="25.0" prefWidth="580.0" text="Desenvolvido por Matheus Bezerra e Paulo Fonseca." textAlignment="CENTER" visible="false" wrapText="true" />
+      <Label id="Lbl2" alignment="CENTER" focusTraversable="false" layoutX="10.0" layoutY="305.0" prefHeight="25.0" prefWidth="580.0" text="IFSP Campus Boituva, Projeto Interdisciplinar 2016.2." textAlignment="CENTER" visible="false" wrapText="true" />
+   </children>
+</AnchorPane>
