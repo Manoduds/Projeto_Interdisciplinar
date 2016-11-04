@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Account_Details">
+   <children>
+      <Button id="BtnSave" fx:id="BtnSave" layoutX="433.0" layoutY="461.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
+      <Button id="BtnMain" fx:id="BtnMain" layoutX="508.0" layoutY="517.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
+      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="360.0" layoutY="517.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
+      <TextField id="TxtAge" fx:id="TxtAge" alignment="CENTER" focusTraversable="false" layoutX="409.0" layoutY="233.0" promptText="Idade (somente números)" />
+      <TextField id="TxtEmail" fx:id="TxtEmail1" alignment="CENTER" focusTraversable="false" layoutX="409.0" layoutY="188.0" promptText="E-mail" />
+      <PasswordField id="TxtRepeatPassword" fx:id="TxtRepeatPassword" alignment="CENTER" focusTraversable="false" layoutX="410.0" layoutY="412.0" promptText="Repetir Senha" />
+      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="410.0" layoutY="369.0" promptText="Senha" />
+      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="410.0" layoutY="100.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
+      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="410.0" layoutY="323.0" promptText="Usuário" />
+      <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="409.0" layoutY="144.0" promptText="Nome" />
+      <Label layoutX="426.0" layoutY="283.0" text="Sexo" />
+      <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="483.0" layoutY="295.0" mnemonicParsing="false" text="Feminino" />
+      <RadioButton id="TxtM" fx:id="TxtM" focusTraversable="false" layoutX="483.0" layoutY="269.0" mnemonicParsing="false" text="Masculino" />
+   </children>
+</AnchorPane>

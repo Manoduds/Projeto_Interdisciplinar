@@ -18,13 +18,22 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author MSB
  */
-public class Login implements Initializable {
-        
+public class Expense_Edit implements Initializable {
+
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+    }    
+    
     @FXML
-    private void BtnLogin(ActionEvent event) throws IOException 
+    private void BtnMain(ActionEvent event) throws IOException 
     {
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
         Scene scene = new Scene(Login_Parent);
@@ -32,20 +41,5 @@ public class Login implements Initializable {
         app_stage.setScene(scene);
         app_stage.show();        
     }
-    
-    @FXML
-    private void BtnHome(ActionEvent event) throws IOException 
-    {
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
-        Scene scene = new Scene(Login_Parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.show();
-    }
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
 }

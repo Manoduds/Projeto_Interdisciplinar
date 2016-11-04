@@ -47,21 +47,25 @@ public class Home implements Initializable {
         app_stage.show();
     }
     
-    /*@FXML
-    private void LabelOn(ActionEvent event) throws IOException 
-    {
-        
-    }
-    
     @FXML
-    private void LabelOff(ActionEvent event) throws IOException 
+    private void BtnAddExpense(ActionEvent event) throws IOException 
     {
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/SignUp.fxml"));        
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Add.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
-        app_stage.show();
-    }*/
+        app_stage.show();        
+    }
+    
+    @FXML
+    private void BtnEditExpense(ActionEvent event) throws IOException 
+    {
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Edit.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.show();        
+    }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
