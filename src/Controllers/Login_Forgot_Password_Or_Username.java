@@ -21,12 +21,12 @@ import javafx.stage.Stage;
  *
  * @author MSB
  */
-public class Login implements Initializable {
+public class Login_Forgot_Password_Or_Username implements Initializable {
         
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -43,17 +43,9 @@ public class Login implements Initializable {
         app_stage.show();
     }
     
-    @FXML
-    private void HLForgot(ActionEvent event) throws IOException 
-    {
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Login_Forgot_Password_Or_Username.fxml"));        
-        Scene scene = new Scene(Login_Parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.show();
-    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
 }
