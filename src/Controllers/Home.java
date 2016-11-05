@@ -16,6 +16,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import objects.system_user;
 
 /**
  * FXML Controller class
@@ -69,7 +70,8 @@ public class Home implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+              String session = Login.session;
+
     }    
     
 }
