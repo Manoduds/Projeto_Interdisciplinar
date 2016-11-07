@@ -36,21 +36,21 @@ import objects.system_user;
  */
 public class SignUp implements Initializable {
 
-@FXML
+    @FXML
     private TextField TxtName;
-@FXML
+    @FXML
     private TextField TxtEmail;
-@FXML
+    @FXML
     private DatePicker TxtBirthDate;
-  @FXML
-  private TextField TxtUser;
-  @FXML
-  private TextField TxtPassword;
-  @FXML
-        private TextField TxtRepeatPassword;
-  @FXML
-  private  RadioButton TxtM;
-  @FXML
+    @FXML
+    private TextField TxtUser;
+    @FXML
+    private TextField TxtPassword;
+    @FXML
+    private TextField TxtRepeatPassword;
+    @FXML
+    private  RadioButton TxtM;
+    @FXML
         private RadioButton TxtF;
     /**
      * Initializes the controller class.

@@ -19,7 +19,7 @@
       <Button id="BtnHome" fx:id="BtnHome" focusTraversable="false" layoutX="305.0" layoutY="338.0" mnemonicParsing="false" onAction="#BtnHome" prefHeight="25.0" prefWidth="69.0" text="Voltar" />
       <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="403.0" layoutY="178.0" promptText="Senha" />
       <PasswordField id="TxtRepeatPassword" fx:id="TxtRepeatPassword" alignment="CENTER" focusTraversable="false" layoutX="403.0" layoutY="215.0" promptText="Repetir Senha" />
-      <TextField id="TxtEmail" fx:id="TxtEmail1" alignment="CENTER" focusTraversable="false" layoutX="57.0" layoutY="178.0" promptText="E-mail" />
+      <TextField id="TxtEmail" fx:id="TxtEmail" alignment="CENTER" focusTraversable="false" layoutX="57.0" layoutY="178.0" promptText="E-mail" />
       <ImageView id="Img3x4" fx:id="Img3x4" fitHeight="200.0" fitWidth="150.0" layoutX="224.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true" />
       <Separator layoutX="374.0" layoutY="106.0" orientation="VERTICAL" prefHeight="200.0" />
       <Separator layoutX="222.0" layoutY="108.0" orientation="VERTICAL" prefHeight="200.0" />
