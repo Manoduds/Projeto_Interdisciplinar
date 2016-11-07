@@ -33,7 +33,7 @@ public class PrjIdDAO {
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
-           ("INSERT INTO system_user(User_name, User_password,Email, birthdate, Sex, Username) values(?,?)");
+           ("INSERT INTO system_user(User, User_password,Email, birthdate, Sex, User_name) values(?,?,?,?,?,?)");
 
             ppStmt.setString(1, u.getUser_name());
             ppStmt.setString(2, u.getUser_Password());          
@@ -55,7 +55,7 @@ public class PrjIdDAO {
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
-            ("SELECT User_Name FROM system_user WHERE User_name = ? AND User_Password = ?");
+            ("SELECT User FROM system_user WHERE User_name = ? AND User_Password = ?");
             ppStmt.setString(1, u.getU_Name());
             ppStmt.setString(2, u.getUser_Password());          
             rs =   ppStmt.execute();
@@ -69,7 +69,7 @@ public class PrjIdDAO {
 
     public void SaveExpense(Expense e) 
     {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }      
 }
     

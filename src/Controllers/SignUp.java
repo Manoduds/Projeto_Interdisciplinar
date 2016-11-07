@@ -70,32 +70,39 @@ public class SignUp implements Initializable {
     {
         system_user u = new system_user();
         PrjIdBO b = new PrjIdBO();          
-        u.setUser_name(TxtName.getText());       
+        u.setUser_name(TxtName.getText()); 
+    
         u.setEmail(TxtEmail.getText());
         u.setU_Name(TxtUser.getText());
         u.setBirthdate( TxtBirthDate.getValue());
-       
+      
         if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText()))
         {       
             u.setUser_Password(TxtPassword.getText());
-            if(TxtM == null || TxtF == null)
+            if(TxtM != null || TxtF != null)
             {
                 if(TxtM != null)
                 {
-                    u.setSex("Masculino");
+                    u.setSex("M");
                 }
                 else
                 {
-                    u.setSex("Feminino");
+                    u.setSex("F");
                 }
                 b.SaveUser(u);
-                Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));
-                Scene scene = new Scene(Login_Parent);
+               Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
+               Scene scene = new Scene(Login_Parent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                app_stage.setScene(scene);
-                app_stage.show();
+        app_stage.setScene(scene);
+        app_stage.show();
             }
-       }      
+            else{
+                System.out.println("Retardado, errou o if");
+            }
+       }
+        else{
+        System.out.println("Retardado, errou o primeiro if");
+        }
     }
     
     @FXML

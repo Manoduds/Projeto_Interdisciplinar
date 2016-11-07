@@ -29,7 +29,7 @@ import objects.system_user;
 public class Login implements Initializable {
         
 @FXML
-    private TextField TxtName;
+    private TextField TxtUser;
 @FXML
     private TextField TxtPassword;
 
@@ -40,12 +40,12 @@ public class Login implements Initializable {
         
         system_user u = new system_user();
         PrjIdBO b = new PrjIdBO();
-        u.setU_Name(TxtName.getText());
+        u.setU_Name(TxtUser.getText());
           u.setUser_Password(TxtPassword.getText());
          boolean rs = b.compareUser(u);
         
         if( rs = true){
-            session = u.getUser_name();
+            session = u.getU_Name();
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -17,7 +17,9 @@ public class PrjIdBO {
     DAO.PrjIdDAO d = new PrjIdDAO();
     public void SaveUser(system_user u) 
     {   
+         System.out.println("Entrou no PrjIdBO");
        d.SaveUser(u);
+       System.out.println("passou pelo SaveUser");
     }
 
     public boolean compareUser(system_user u) 

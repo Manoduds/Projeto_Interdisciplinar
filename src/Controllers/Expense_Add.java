@@ -60,6 +60,9 @@ private DatePicker TxtExpense_Date;
     private void BtnSave(ActionEvent event) throws IOException{
         Expense e = new Expense();
         PrjIdBO b = new PrjIdBO();
+        
+        
+     
         e.setUserName(Login.session);
         e.setDescription(TxtDescription.getText());
         e.setCity(TxtCity.getText());
