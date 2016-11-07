@@ -48,7 +48,7 @@ public class Home implements Initializable {
         app_stage.show();
     }
     
-  
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
               String session = Login.session;

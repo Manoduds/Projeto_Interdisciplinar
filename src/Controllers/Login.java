@@ -45,7 +45,7 @@ public class Login implements Initializable {
          boolean rs = b.compareUser(u);
         
         if( rs = true){
-            session = u.getU_Name();
+        session = u.getU_Name();
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

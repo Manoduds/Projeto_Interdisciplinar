@@ -92,19 +92,17 @@ public class SignUp implements Initializable {
                 b.SaveUser(u);
                Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
                Scene scene = new Scene(Login_Parent);
-                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.show();
+               Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+               app_stage.setScene(scene);
+               app_stage.show();
             }
-            else{
-                System.out.println("Retardado, errou o if");
-            }
-       }
-        else{
-        System.out.println("Retardado, errou o primeiro if");
         }
+
+     
     }
     
+    
+
     @FXML
     private void BtnHome(ActionEvent event) throws IOException 
     {

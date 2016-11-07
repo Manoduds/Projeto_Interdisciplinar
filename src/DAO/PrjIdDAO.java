@@ -67,10 +67,11 @@ public class PrjIdDAO {
             return rs;
     }
 
-    public void SaveExpense(Expense e) 
-    {
+    public void SaveExpense(Expense e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
-    }      
+
 }
     
 
