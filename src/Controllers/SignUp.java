@@ -68,40 +68,36 @@ public class SignUp implements Initializable {
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
-            system_user u = new system_user();
-        PrjIdBO b = new PrjIdBO();
-          
-        u.setUser_name(TxtName.getText());
-        
-        
+        system_user u = new system_user();
+        PrjIdBO b = new PrjIdBO();          
+        u.setUser_name(TxtName.getText());       
         u.setEmail(TxtEmail.getText());
         u.setU_Name(TxtUser.getText());
         u.setBirthdate( TxtBirthDate.getValue());
        
-        if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText())){
-       
-       u.setUser_Password(TxtPassword.getText());
-       if(TxtM == null || TxtF == null){
-           if(TxtM != null){
-               u.setSex("Masculino");
-           }
-           else{
-               u.setSex("Feminino");
-           }
-           
-             b.SaveUser(u);
-           Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));
-           Scene scene = new Scene(Login_Parent);
-           Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-           app_stage.setScene(scene);
-           app_stage.show();
-           }
-       }
-      
+        if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText()))
+        {       
+            u.setUser_Password(TxtPassword.getText());
+            if(TxtM == null || TxtF == null)
+            {
+                if(TxtM != null)
+                {
+                    u.setSex("Masculino");
+                }
+                else
+                {
+                    u.setSex("Feminino");
+                }
+                b.SaveUser(u);
+                Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));
+                Scene scene = new Scene(Login_Parent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.setScene(scene);
+                app_stage.show();
             }
+       }      
+    }
     
-   
-
     @FXML
     private void BtnHome(ActionEvent event) throws IOException 
     {
@@ -111,5 +107,4 @@ public class SignUp implements Initializable {
         app_stage.setScene(scene);
         app_stage.show();
     }
-    
 }

@@ -28,20 +28,20 @@ public class PrjIdDAO {
         conn = new Conexao().conectar();
     }   
     
-    public void SaveUser(system_user u) {
+    public void SaveUser(system_user u) 
+    {
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
            ("INSERT INTO system_user(User_name, User_password,Email, birthdate, Sex, Username) values(?,?)");
-            
+
             ppStmt.setString(1, u.getUser_name());
             ppStmt.setString(2, u.getUser_Password());          
             ppStmt.setString(3, u.getEmail()); 
             ppStmt.setDate(4, Date.valueOf(u.getBirthdate())); 
             ppStmt.setString(5, u.getSex()); 
             ppStmt.setString(6, u.getU_Name()); 
-            ppStmt.execute();
-            
+            ppStmt.execute();            
         }
         catch(SQLException ex)
         {
@@ -49,29 +49,28 @@ public class PrjIdDAO {
         }
     }
 
-    public boolean compareUser(system_user u) 
-
+    public boolean compareUser(system_user u)
+    {
+        boolean rs = false;  
+        try
         {
-          boolean rs = false;  
-            try{
             PreparedStatement ppStmt = conn.prepareStatement
             ("SELECT User_Name FROM system_user WHERE User_name = ? AND User_Password = ?");
             ppStmt.setString(1, u.getU_Name());
             ppStmt.setString(2, u.getUser_Password());          
-               rs =   ppStmt.execute();
-   
-            }
-                catch(SQLException ex)
+            rs =   ppStmt.execute();
+        }
+        catch(SQLException ex)
         {
             ex.printStackTrace();
         }
-             return rs;
-        }
+            return rs;
+    }
 
-    public void SaveExpense(Expense e) {
+    public void SaveExpense(Expense e) 
+    {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-      
-    }
+    }      
+}
     
 

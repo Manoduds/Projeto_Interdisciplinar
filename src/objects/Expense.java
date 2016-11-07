@@ -13,11 +13,9 @@ import java.time.LocalDate;
  * @author paulo
  */
 public class Expense {
- 
-
     private String Description;
     private String Price;
-    private LocalDate   Expense_Date;
+    private LocalDate Expense_Date;
     private String Establishment_Name;
     private String City;
     private String Category;

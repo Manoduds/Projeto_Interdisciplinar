@@ -15,22 +15,19 @@ import objects.system_user;
  */
 public class PrjIdBO {
     DAO.PrjIdDAO d = new PrjIdDAO();
-    public void SaveUser(system_user u) {
-   
+    public void SaveUser(system_user u) 
+    {   
        d.SaveUser(u);
     }
 
-    public boolean compareUser(system_user u) {
-   
-        
+    public boolean compareUser(system_user u) 
+    {      
         boolean rs = d.compareUser(u);
-       return rs;
+        return rs;
     }
 
-    public void saveExpense(Expense e) {
-     d.SaveExpense(e);   
+    public void saveExpense(Expense e) 
+    {
+        d.SaveExpense(e);   
     }
-
-    
-    
 }

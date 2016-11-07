@@ -14,7 +14,7 @@ import javafx.scene.control.DatePicker;
  * @author paulo
  */
 public class system_user {
-       private String User_name;
+    private String User_name;
     private String User_Password;
     private String U_Name;
     private String Email;
@@ -28,9 +28,7 @@ public class system_user {
 
     public void setBirthdate(LocalDate birthdate) {
         this.birthdate = birthdate;
-    }
-
-   
+    } 
 
     public String getUser_name() {
         return User_name;
@@ -79,9 +77,5 @@ public class system_user {
 
     public void setCod_User(int Cod_User) {
         this.Cod_User = Cod_User;
-    }
-
-
-    
-    
+    }    
 }
