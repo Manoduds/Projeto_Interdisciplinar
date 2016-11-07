@@ -1,0 +1,107 @@
+DROP DATABASE db;
+
+CREATE DATABASE db;
+
+USE db;
+
+
+
+CREATE TABLE System_User(
+
+ Cod_Prod INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+User_Name VARCHAR(20) UNIQUE NOT NULL,
+
+User_Password VARCHAR(20) NOT NULL,
+
+U_Name VARCHAR(50) NOT NULL,
+
+Email VARCHAR(50) UNIQUE NOT NULL,
+
+Age int NOT NULL,
+
+Sex VARCHAR(1) NOT NULL
+
+);
+
+
+
+CREATE TABLE Establishment(
+Cod_Establishment int AUTO_INCREMENT PRIMARY KEY,
+E_Name VARCHAR(50) NOT NULL,
+
+Nature VARCHAR(50) NOT NULL,
+
+City VARCHAR(50) NOT NULL,
+
+State VARCHAR(2) NOT NULL,
+
+Country VARCHAR(50) NOT NULL
+);
+
+
+CREATE TABLE RSS(
+Cod_RSS int NOT NULL,
+RSS_Name VARCHAR(50) NOT NULL,
+Category VARCHAR(50) NOT NULL,
+URL 
+VARCHAR(2083) NOT NULL,
+PRIMARY KEY (Cod_RSS)
+);
+
+
+
+CREATE TABLE Expense(
+
+
+Cod_Expense int AUTO_INCREMENT PRIMARY KEY,
+Cod_User int,
+
+Cod_Establishment int,
+
+Description VARCHAR(50) NOT NULL,
+
+Price REAL NOT NULL,
+
+Payment_Method VARCHAR(50) NOT NULL,
+
+Frequency VARCHAR(15) NOT NULL,
+
+Category VARCHAR(50) NOT NULL,
+
+Expense_Date DATETIME,
+
+FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User),
+
+FOREIGN KEY (Cod_Establishment) REFERENCES Establishment(Cod_Establishment)
+
+);
+
+
+
+CREATE TABLE Profile(
+
+Cod_Profile int AUTO_INCREMENT PRIMARY KEY,
+Cod_User int,
+
+Cod_Establishment int,
+
+Cod_Expense int,
+
+Cod_RSS int,
+
+Frequent_Category VARCHAR(50) NOT NULL,
+
+Frequent_Nature VARCHAR(50) NOT NULL,
+
+RSS_Category VARCHAR(50) NOT NULL,
+
+Profile_Date DATETIME,
+
+FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User),
+
+FOREIGN KEY (Cod_Establishment) REFERENCES Establishment(Cod_Establishment),
+
+FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
+
+FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
+);

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Main">
+   <children>
+      <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="266.0" layoutY="39.0" prefHeight="426.0" prefWidth="459.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+            <TableColumn prefWidth="75.0" text="C3" />
+            <TableColumn prefWidth="75.0" text="C4" />
+            <TableColumn prefWidth="75.0" text="C5" />
+        </columns>
+      </TableView>
+      <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />
+      <Accordion prefHeight="294.0" prefWidth="248.0">
+        <panes>
+          <TitledPane animated="false" prefHeight="185.0" prefWidth="248.0" text="Gastos">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="167.0" prefWidth="246.0">
+                     <children>
+                        <Button id="BtnAddExpense" fx:id="BtnAddExpense" layoutX="-2.0" mnemonicParsing="false" onAction="#BtnAddExpense" prefHeight="50.0" prefWidth="250.0" text="Adicionar" />
+                        <Button id="BtnEditExpense" fx:id="BtnEditExpense" layoutX="-2.0" layoutY="50.0" mnemonicParsing="false" onAction="#BtnEditExpense" prefHeight="50.0" prefWidth="250.0" text="Alterar/Remover" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="195.0" prefWidth="248.0" text="Relatórios">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Button" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="111.0" prefWidth="248.0" text="Dados Cadastrais">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button id="BtnAccountDetails" fx:id="BtnAccountDetails" layoutX="-2.0" mnemonicParsing="false" onAction="#BtnEditAccount" prefHeight="50.0" prefWidth="250.0" text="Editar Dados Cadastrais" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="60.0" prefHeight="111.0" prefWidth="248.0" text="Conteúdo Adicional">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button id="BtnPersonalFinance" fx:id="BtnPersonalFinance" layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Finanças Pessoais" />
+                        <Button id="BtnEconomyNews" fx:id="BtnEconomyNews" layoutX="-2.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Economia" />
+                        <Button id="BtnBudgetTips" fx:id="BtnBudgetTips" layoutX="-2.0" layoutY="98.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Dicas de Orçamento" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+            <TitledPane animated="false" layoutX="10.0" layoutY="85.0" prefHeight="111.0" prefWidth="248.0" text="Ajuda">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button id="BtnTutorial" fx:id="BtnTutorial" layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Tutorial Passo a Passo" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </TitledPane>
+        </panes>
+      </Accordion>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="441.0" layoutY="13.0" text="Últimos Lançamentos" textAlignment="CENTER" />
+      <Separator layoutX="1.0" layoutY="476.0" prefHeight="19.0" prefWidth="1000.0" />
+      <Separator layoutX="746.0" layoutY="214.0" prefHeight="19.0" prefWidth="254.0" />
+      <Separator layoutX="739.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="761.0" layoutY="110.0" text="Espaço para Gráfico de Pizza do Mês Atual" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="760.0" layoutY="339.0" text="Espaço para Gráfico de Pizza do Ano Atual" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="260.0" layoutY="487.0" prefHeight="17.0" prefWidth="481.0" text="Últimas Notícias e Dicas Personalizadas (RSS Feed)" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="356.0" prefHeight="17.0" prefWidth="178.0" text="Foto do Usuário" textAlignment="CENTER" />
+   </children>
+</AnchorPane>
