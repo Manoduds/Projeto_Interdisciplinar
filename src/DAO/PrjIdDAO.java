@@ -68,7 +68,23 @@ public class PrjIdDAO {
     }
 
     public void SaveExpense(Expense e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     /*       try
+        {
+            PreparedStatement ppStmt = conn.prepareStatement
+           ("INSERT INTO system_user(User, User_password,Email, birthdate, Sex, User_name) values(?,?,?,?,?,?)");
+
+            ppStmt.setString(1, u.getUser_name());
+            ppStmt.setString(2, u.getUser_Password());          
+            ppStmt.setString(3, u.getEmail()); 
+            ppStmt.setDate(4, Date.valueOf(u.getBirthdate())); 
+            ppStmt.setString(5, u.getSex()); 
+            ppStmt.setString(6, u.getU_Name()); 
+            ppStmt.execute();            
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        */
     }
 
 
