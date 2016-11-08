@@ -14,11 +14,11 @@
    <children>
       <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="266.0" layoutY="39.0" prefHeight="426.0" prefWidth="459.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
+          <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descrição" />
+          <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="columnCategory" prefWidth="75.0" text="Categoria" />
+            <TableColumn fx:id="columnEstablishment" prefWidth="107.0" text="Estabelecimento" />
+            <TableColumn fx:id="columnDate" prefWidth="117.0" text="Data de expediente" />
         </columns>
       </TableView>
       <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />

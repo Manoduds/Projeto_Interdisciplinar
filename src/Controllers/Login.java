@@ -33,7 +33,7 @@ public class Login implements Initializable {
 @FXML
     private TextField TxtPassword;
 
-    static String session;
+    static int session;
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
@@ -45,12 +45,15 @@ public class Login implements Initializable {
          boolean rs = b.compareUser(u);
         
         if( rs = true){
-        session = u.getU_Name();
+       
+        session =  b.selectUser(u);
+        if(session != 0){
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
         app_stage.show();   
+        }
     }
        
     }

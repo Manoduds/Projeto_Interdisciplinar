@@ -6,6 +6,8 @@
 package BO;
 
 import DAO.PrjIdDAO;
+import java.util.List;
+import javafx.collections.ObservableList;
 import objects.Expense;
 import objects.system_user;
 
@@ -30,4 +32,14 @@ public class PrjIdBO {
     {
         d.SaveExpense(e);   
     }
+
+    public int selectUser(system_user u) {
+        
+        return d.SelectUser(u);
+    }
+
+    public ObservableList<Expense> buscarExpense(int session) {
+       return d.FillTable(session);
+    }
+
 }

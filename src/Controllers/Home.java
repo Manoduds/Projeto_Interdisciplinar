@@ -5,9 +5,17 @@
  */
 package Controllers;
 
+import BO.PrjIdBO;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.ListIterator;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +23,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import objects.Expense;
 import objects.system_user;
 
 /**
@@ -28,7 +40,8 @@ public class Home implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @FXML
+  
+  @FXML
     private void BtnLogin(ActionEvent event) throws IOException
     {
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Login.fxml"));        
@@ -51,8 +64,11 @@ public class Home implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-              String session = Login.session;
-
+       
     }    
-    
+   
+        
 }
+    
+
+

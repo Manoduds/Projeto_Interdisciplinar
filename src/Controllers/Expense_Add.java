@@ -8,6 +8,7 @@ package Controllers;
 import BO.PrjIdBO;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -63,11 +64,11 @@ private DatePicker TxtExpense_Date;
 
         
         
-        e.setUserName(Login.session);
+        e.setCod_User(Login.session);
         e.setDescription(TxtDescription.getText());
         e.setCity(TxtCity.getText());
         e.setEstablishment_Name(TxtEstablishment_Name.getText());
-        e.setExpense_Date( TxtExpense_Date.getValue());
+        e.setExpense_Date(Date.valueOf( TxtExpense_Date.getValue()));
         e.setState(TxtState.getSelectionModel().getSelectedItem().toString());
         e.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
         e.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());

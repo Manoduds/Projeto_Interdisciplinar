@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Expense {
     private String Description;
     private String Price;
-    private LocalDate Expense_Date;
+    private Date Expense_Date;
     private String Establishment_Name;
     private String City;
     private String Category;
@@ -23,7 +23,19 @@ public class Expense {
     private String State;
     private String Frequency;
     private String Payment_Method;   
-    private String UserName;
+    private int Cod_User;
+   
+
+    
+    
+    
+    public String getEstablishment_Name() {
+        return Establishment_Name;
+    }
+
+    public void setEstablishment_Name(String Establishment_Name) {
+        this.Establishment_Name = Establishment_Name;
+    }
 
     public String getDescription() {
         return Description;
@@ -41,21 +53,14 @@ public class Expense {
         this.Price = Price;
     }
 
-    public LocalDate getExpense_Date() {
+    public Date getExpense_Date() {
         return Expense_Date;
     }
 
-    public void setExpense_Date(LocalDate Expense_Date) {
+    public void setExpense_Date(Date Expense_Date) {
         this.Expense_Date = Expense_Date;
     }
 
-    public String getEstablishment_Name() {
-        return Establishment_Name;
-    }
-
-    public void setEstablishment_Name(String Establishment_Name) {
-        this.Establishment_Name = Establishment_Name;
-    }
 
     public String getCity() {
         return City;
@@ -105,13 +110,15 @@ public class Expense {
         this.Payment_Method = Payment_Method;
     }
 
-    public String getUserName() {
-        return UserName;
+    public int getCod_User() {
+        return Cod_User;
     }
 
-    public void setUserName(String UserName) {
-        this.UserName = UserName;
+    public void setCod_User(int Cod_User) {
+        this.Cod_User = Cod_User;
     }
+
+
 
     
  

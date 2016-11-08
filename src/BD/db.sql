@@ -8,16 +8,16 @@ USE db;
 
 CREATE TABLE System_User(
 
- Cod_Prod INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- User VARCHAR(20) UNIQUE NOT NULL,
+ Cod_User INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+User_Name VARCHAR(20) UNIQUE NOT NULL,
 
 User_Password VARCHAR(20) NOT NULL,
 
-User_Name VARCHAR(50) NOT NULL,
+U_Name VARCHAR(50) NOT NULL,
 
 Email VARCHAR(50) UNIQUE NOT NULL,
 
-birthdate Date NOT NULL,
+Age int NOT NULL,
 
 Sex VARCHAR(1) NOT NULL
 
@@ -56,7 +56,7 @@ CREATE TABLE Expense(
 Cod_Expense int AUTO_INCREMENT PRIMARY KEY,
 Cod_User int,
 
-Cod_Establishment int,
+Establishment VARCHAR(50) NOT NULL,
 
 Description VARCHAR(50) NOT NULL,
 
@@ -68,12 +68,11 @@ Frequency VARCHAR(15) NOT NULL,
 
 Category VARCHAR(50) NOT NULL,
 
+City VARCHAR(50) NOT NULL,
 Expense_Date DATETIME,
 
-FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User),
-
-FOREIGN KEY (Cod_Establishment) REFERENCES Establishment(Cod_Establishment)
-
+Nature VARCHAR(50) NOT NULL,
+FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User)
 );
 
 
