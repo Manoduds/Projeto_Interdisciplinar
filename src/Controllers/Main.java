@@ -46,11 +46,11 @@ public class Main implements Initializable {
     @FXML
     private void BtnEditExpense(ActionEvent event) throws IOException 
     {
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Edit.fxml"));        
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Add.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
-        app_stage.show();        
+        app_stage.show();   
     }
     
     @FXML
