@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
    <children>
       <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="471.0" layoutY="252.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
       <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="471.0" layoutY="123.0" prefHeight="108.0" prefWidth="200.0" promptText="Descrição" />

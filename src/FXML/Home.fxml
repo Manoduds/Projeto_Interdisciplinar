@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
       <Button id="BtnLogin" fx:id="BtnLogin" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" onAction="#BtnLogin" text="Usuário Com Cadastro" />
       <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="186.0" mnemonicParsing="false" onAction="#BtnSignUp" text="Usuário Sem Cadastro" />

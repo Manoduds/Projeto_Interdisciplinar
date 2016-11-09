@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUp">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUp">
    <children>
       <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="57.0" layoutY="142.0" promptText="Nome" />
       <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="403.0" layoutY="142.0" promptText="Usuário" />
