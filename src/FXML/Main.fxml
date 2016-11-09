@@ -10,7 +10,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Main">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Main">
    <children>
       <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="266.0" layoutY="39.0" prefHeight="426.0" prefWidth="459.0">
         <columns>
@@ -21,7 +21,7 @@
             <TableColumn fx:id="columnDate" prefWidth="117.0" text="Data de expediente" />
         </columns>
       </TableView>
-      <Separator layoutX="242.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />
+      <Separator layoutX="243.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />
       <Accordion prefHeight="294.0" prefWidth="248.0">
         <panes>
           <TitledPane animated="false" prefHeight="185.0" prefWidth="248.0" text="Gastos">

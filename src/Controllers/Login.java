@@ -52,6 +52,7 @@ public class Login implements Initializable {
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
+        app_stage.centerOnScreen();
         app_stage.show();   
         }
     }
@@ -65,6 +66,7 @@ public class Login implements Initializable {
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
+        app_stage.centerOnScreen();
         app_stage.show();
     }
     
@@ -75,6 +77,7 @@ public class Login implements Initializable {
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
+        app_stage.centerOnScreen();
         app_stage.show();
     }
     @Override

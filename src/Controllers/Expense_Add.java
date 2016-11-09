@@ -87,6 +87,7 @@ private DatePicker TxtExpense_Date;
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
+        app_stage.centerOnScreen();
         app_stage.show();        
     }
     

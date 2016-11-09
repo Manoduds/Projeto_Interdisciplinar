@@ -37,12 +37,12 @@
 }
 /*******************************************************************************
  *                                                                             *
- * Table View                                                                  *
+ * Table View and Accordion/Titled Pane                                        *
  *                                                                             *
  ******************************************************************************/
 
 .table-view .table-cell{
-    -fx-text-fill: white;
+    -fx-text-fill: black;
 }
 
 .table-row-cell{
@@ -61,6 +61,10 @@
     -fx-background-color: -flatter-red;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
+}
+
+.accordion .titled-pane .title {
+    -fx-background-color: transparent;
 }
 
 /*******************************************************************************
