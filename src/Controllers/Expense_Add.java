@@ -19,6 +19,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import objects.Expense;
@@ -31,7 +32,8 @@ import objects.Expense;
 public class Expense_Add implements Initializable {
 
 @FXML
-    private TextField TxtDescription;
+ //   private TextField TxtDescription; No FXML, Description é um TextArea, não TextField.
+    private TextArea TxtDescription;
 @FXML
     private TextField TxtPrice;
 @FXML

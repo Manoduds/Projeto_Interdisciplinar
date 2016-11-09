@@ -73,7 +73,7 @@ public class Main implements Initializable {
     @FXML
     private void BtnEditExpense(ActionEvent event) throws IOException 
     {
-       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Add.fxml"));        
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Expense_Edit.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         app_stage.setScene(scene);
@@ -95,9 +95,6 @@ public class Main implements Initializable {
     {
         data = FXCollections.observableArrayList();
         data = new PrjIdBO().buscarExpense(Login.session);
-        
-         
-    
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         columnDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         columnDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
@@ -105,7 +102,6 @@ public class Main implements Initializable {
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
         TableExpenses.setItems(null);
         TableExpenses.setItems(data);
-
     } 
     }
 
