@@ -33,7 +33,7 @@ public class Login implements Initializable {
 @FXML
     private TextField TxtPassword;
 
-    static int session;
+    public static int session;
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {

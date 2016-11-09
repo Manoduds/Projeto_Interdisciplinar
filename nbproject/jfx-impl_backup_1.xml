@@ -1142,8 +1142,8 @@
         <echo message="Warning: Bypassing FX CSS to BSS conversion due to a bug in &lt;fx:csstobin&gt; task in current JDK platform" level="warning"/>
     </target>
     <target name="-copy-binary-css-impl" depends="-init-css-conversion" if="do.copy.binary.css">
-        <property name="cssfileslist" refid="cssfiles"/>
-        <echo message="css files to binary convert: " level="verbose">${cssfileslist}</echo>
+        <property name="cssfilesObservableList" refid="cssfiles"/>
+        <echo message="css files to binary convert: " level="verbose">${cssfilesObservableList}</echo>
         <fx:csstobin outdir="${basedir}${file.separator}${build.classes.dir}">
             <fileset refid="cssfiles"/>
         </fx:csstobin>
@@ -1635,7 +1635,7 @@
         </sequential>
     </macrodef>
 
-    <!-- fx:jar scripted call enables passing of arbitrarily long list of params and fx-version dependent behavior -->
+    <!-- fx:jar scripted call enables passing of arbitrarily long ObservableList of params and fx-version dependent behavior -->
     <macrodef name="deploy-jar">
         <sequential>
             <antcall target="-pre-jfx-jar"/>
@@ -2077,7 +2077,7 @@
         </sequential>
     </macrodef>
 
-    <!-- fx:deploy scripted call enables passing of arbitrarily long lists of params, vmoptions and callbacks and fx-version dependent behavior -->
+    <!-- fx:deploy scripted call enables passing of arbitrarily long ObservableLists of params, vmoptions and callbacks and fx-version dependent behavior -->
     <macrodef name="deploy-deploy">
         <sequential>
             <antcall target="-pre-jfx-deploy"/>

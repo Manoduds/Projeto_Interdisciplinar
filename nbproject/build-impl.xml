@@ -344,7 +344,7 @@ is divided into following sections:
                 <fail unless="javac.includes">Must set javac.includes</fail>
                 <pathconvert pathsep="${line.separator}" property="javac.includes.binary">
                     <path>
-                        <filelist dir="@{destdir}" files="${javac.includes}"/>
+                        <fileObservableList dir="@{destdir}" files="${javac.includes}"/>
                     </path>
                     <globmapper from="*.java" to="*.class"/>
                 </pathconvert>
@@ -451,7 +451,7 @@ is divided into following sections:
                     </fileset>
                 </union>
                 <taskdef classname="org.testng.TestNGAntTask" classpath="${run.test.classpath}" name="testng"/>
-                <testng classfilesetref="test.set" failureProperty="tests.failed" listeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="Projeto_Interdisciplinar" testname="TestNG tests" workingDir="${work.dir}">
+                <testng classfilesetref="test.set" failureProperty="tests.failed" ObservableListeners="org.testng.reporters.VerboseReporter" methods="${testng.methods.arg}" mode="${testng.mode}" outputdir="${build.test.results.dir}" suitename="Projeto_Interdisciplinar" testname="TestNG tests" workingDir="${work.dir}">
                     <xmlfileset dir="${build.test.classes.dir}" includes="@{testincludes}"/>
                     <propertyset>
                         <propertyref prefix="test-sys-prop."/>
@@ -613,7 +613,7 @@ is divided into following sections:
                         <jvmarg value="-ea"/>
                         <arg line="${testng.debug.mode}"/>
                         <arg line="-d ${build.test.results.dir}"/>
-                        <arg line="-listener org.testng.reporters.VerboseReporter"/>
+                        <arg line="-ObservableListener org.testng.reporters.VerboseReporter"/>
                         <arg line="${testng.cmd.args}"/>
                     </customize>
                 </j2seproject3:debug>
@@ -861,7 +861,7 @@ is divided into following sections:
     </target>
     <target name="-init-ap-cmdline-properties">
         <property name="annotation.processing.enabled" value="true"/>
-        <property name="annotation.processing.processors.list" value=""/>
+        <property name="annotation.processing.processors.ObservableList" value=""/>
         <property name="annotation.processing.processor.options" value=""/>
         <property name="annotation.processing.run.all.processors" value="true"/>
         <property name="javac.processorpath" value="${javac.classpath}"/>
@@ -873,7 +873,7 @@ is divided into following sections:
         </condition>
     </target>
     <target depends="-init-ap-cmdline-properties" if="ap.supported.internal" name="-init-ap-cmdline-supported">
-        <condition else="" property="ap.processors.internal" value="-processor ${annotation.processing.processors.list}">
+        <condition else="" property="ap.processors.internal" value="-processor ${annotation.processing.processors.ObservableList}">
             <isfalse value="${annotation.processing.run.all.processors}"/>
         </condition>
         <condition else="" property="ap.proc.none.internal" value="-proc:none">

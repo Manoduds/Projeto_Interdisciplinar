@@ -18,7 +18,7 @@
           <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Preço" />
             <TableColumn fx:id="columnCategory" prefWidth="75.0" text="Categoria" />
             <TableColumn fx:id="columnEstablishment" prefWidth="107.0" text="Estabelecimento" />
-            <TableColumn fx:id="columnDate" prefWidth="117.0" text="Data de expediente" />
+            <TableColumn fx:id="columnDate" prefWidth="117.0" text="Data" />
         </columns>
       </TableView>
       <Separator layoutX="243.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />

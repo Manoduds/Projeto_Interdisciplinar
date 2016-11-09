@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
    <children>
       <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="471.0" layoutY="252.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
       <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="471.0" layoutY="123.0" prefHeight="108.0" prefWidth="200.0" promptText="Descrição" />
@@ -23,13 +23,13 @@
       <Button id="BtnClear" fx:id="BtnClear" layoutX="500.0" layoutY="471.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Limpar" />
       <Button id="BtnMain" fx:id="BtnMain" layoutX="767.0" layoutY="471.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
       <Button id="BtnDelete" fx:id="BtnDelete" layoutX="633.0" layoutY="497.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
-      <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="14.0" layoutY="99.0" prefHeight="439.0" prefWidth="399.0">
+      <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="14.0" layoutY="96.0" prefHeight="442.0" prefWidth="438.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
-            <TableColumn prefWidth="75.0" text="C3" />
-            <TableColumn prefWidth="75.0" text="C4" />
-            <TableColumn prefWidth="75.0" text="C5" />
+          <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descriçao" />
+          <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Preço" />
+            <TableColumn fx:id="columnCategory" prefWidth="75.0" text="Categoria" />
+            <TableColumn fx:id="columnEstablishment" prefWidth="117.0" text="Estabelecimento" />
+            <TableColumn fx:id="columnDate" prefWidth="68.0" text="Data" />
         </columns>
       </TableView>
       <DatePicker id="TxtMonthExpense" fx:id="TxtMonthExpense" layoutX="140.0" layoutY="37.0" promptText="Escolha o mês" />

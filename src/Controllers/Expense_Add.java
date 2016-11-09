@@ -58,6 +58,18 @@ private DatePicker TxtExpense_Date;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    TxtCategory.getItems().removeAll(TxtCategory.getItems());
+    TxtCategory.getItems().addAll("Juros", "Despesa", "Salario");
+    TxtEstablishment_Nature.getItems().removeAll(TxtEstablishment_Nature.getItems());
+    TxtEstablishment_Nature.getItems().addAll("Moradia", "Empresa", "Publico");
+    TxtState.getItems().removeAll(TxtState.getItems());
+    TxtState.getItems().addAll("SP", "MG", "RJ");
+    TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
+    TxtFrequency.getItems().addAll("Diaria", "Semanal", "Mensal");
+    TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
+    TxtPayment_Method.getItems().addAll("Credito", "Debito", "Dinheiro");
+    
+                
     }   
     @FXML
     private void BtnSave(ActionEvent event) throws IOException{
@@ -70,13 +82,13 @@ private DatePicker TxtExpense_Date;
         e.setDescription(TxtDescription.getText());
         e.setCity(TxtCity.getText());
         e.setEstablishment_Name(TxtEstablishment_Name.getText());
-        e.setExpense_Date(Date.valueOf( TxtExpense_Date.getValue()));
+        e.setDate(Date.valueOf( TxtExpense_Date.getValue()));
         e.setState(TxtState.getSelectionModel().getSelectedItem().toString());
         e.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
         e.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
         e.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
         e.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
-        
+        e.setPrice(TxtPrice.getText());
         
         b.saveExpense(e);
     }

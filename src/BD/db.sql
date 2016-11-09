@@ -55,22 +55,15 @@ CREATE TABLE Expense(
 
 Cod_Expense int AUTO_INCREMENT PRIMARY KEY,
 Cod_User int,
-
-Establishment VARCHAR(50) NOT NULL,
-
+Establishment_Name VARCHAR(50) NOT NULL,
 Description VARCHAR(50) NOT NULL,
-
 Price REAL NOT NULL,
-
 Payment_Method VARCHAR(50) NOT NULL,
-
 Frequency VARCHAR(15) NOT NULL,
-
+State VARCHAR(10) NOT NULL,
 Category VARCHAR(50) NOT NULL,
-
 City VARCHAR(50) NOT NULL,
-Expense_Date DATETIME,
-
+Date DATETIME,
 Nature VARCHAR(50) NOT NULL,
 FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User)
 );
@@ -104,3 +97,4 @@ FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
 
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
+

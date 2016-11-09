@@ -15,7 +15,7 @@ import java.time.LocalDate;
 public class Expense {
     private String Description;
     private String Price;
-    private Date Expense_Date;
+    private Date   Date;
     private String Establishment_Name;
     private String City;
     private String Category;
@@ -53,13 +53,14 @@ public class Expense {
         this.Price = Price;
     }
 
-    public Date getExpense_Date() {
-        return Expense_Date;
+    public Date getDate() {
+        return Date;
     }
 
-    public void setExpense_Date(Date Expense_Date) {
-        this.Expense_Date = Expense_Date;
+    public void setDate(Date Date) {
+        this.Date = Date;
     }
+
 
 
     public String getCity() {

@@ -11,9 +11,6 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.ListIterator;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -56,7 +53,7 @@ public class Main implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                 int session = Login.session;
+               
                  preencherTable();
     }   
     
@@ -98,14 +95,15 @@ public class Main implements Initializable {
     public void preencherTable()
     {
         data = FXCollections.observableArrayList();
-        data = new PrjIdBO().buscarExpense(Login.session);
+        data =  new PrjIdBO().buscarExpense();
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         columnDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         columnDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
         columnEstablishment.setCellValueFactory(new PropertyValueFactory<>("Establishment_Name"));
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
+        
         TableExpenses.setItems(null);
-        TableExpenses.setItems(data);
+        TableExpenses.setItems( data);
     } 
     }
 
