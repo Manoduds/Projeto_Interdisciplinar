@@ -148,12 +148,12 @@ public class Expense_Edit implements Initializable {
         columnEstablishment.setCellValueFactory(new PropertyValueFactory<>("Establishment_Name"));
         columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
         TableExpenses.setItems(null);
-        TableRow<Expense> row = new TableRow<>();
+      
         TableExpenses.setRowFactory(tv -> {
-    
+              TableRow<Expense> row = new TableRow<>();
             row.setOnMouseClicked(event -> {
             if (! row.isEmpty() && event.getButton()==MouseButton.PRIMARY 
-                && event.getClickCount() == 2) {
+                && event.getClickCount() == 1) {
                 e = row.getItem();
                 e = new PrjIdBO().selectExpense(e);
                 
