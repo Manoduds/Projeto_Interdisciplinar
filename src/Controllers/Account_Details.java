@@ -56,6 +56,7 @@ public class Account_Details implements Initializable {
         TxtM.setToggleGroup(group);
         TxtF.setToggleGroup(group);
     }   
+    @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
         system_user u = new system_user();

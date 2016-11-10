@@ -10,9 +10,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Account_Details">
    <children>
-      <Button id="BtnSave" fx:id="BtnSave" layoutX="433.0" layoutY="461.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
+      <Button id="BtnSave" fx:id="BtnLogin" layoutX="433.0" layoutY="461.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
       <Button id="BtnMain" fx:id="BtnMain" layoutX="508.0" layoutY="517.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
-      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="360.0" layoutY="517.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
+      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="360.0" layoutY="517.0" mnemonicParsing="false" onAction="#BtnDelete" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
       <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="410.0" layoutY="100.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
       <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="237.0" layoutY="308.0" prefHeight="25.0" prefWidth="150.0" promptText="Data de Nascimento" />
       <Label layoutX="255.0" layoutY="363.0" text="Sexo" />
