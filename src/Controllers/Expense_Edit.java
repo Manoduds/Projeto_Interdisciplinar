@@ -35,6 +35,7 @@ import javafx.scene.input.MouseButton;
 import javafx.stage.Stage;
 import objects.Expense;
 
+
 /**
  * FXML Controller class
  *
@@ -106,6 +107,7 @@ public class Expense_Edit implements Initializable {
         app_stage.centerOnScreen();
         app_stage.show();        
     }
+    @FXML
     private void BtnExcluir(ActionEvent event) throws IOException
     {
         PrjIdBO b = new PrjIdBO();
@@ -114,6 +116,7 @@ public class Expense_Edit implements Initializable {
          
         }
     }
+    @FXML
     private void BtnSave(ActionEvent event) throws IOException
     {
         Expense a = new Expense();
@@ -136,7 +139,7 @@ public class Expense_Edit implements Initializable {
     }
 
     
-    
+    @FXML
     public void preencherTable()
     {
         data = FXCollections.observableArrayList();
@@ -173,9 +176,6 @@ public class Expense_Edit implements Initializable {
                                             }); 
             return row;
             });
-        TableExpenses.setItems( data);
-       
-         
+        TableExpenses.setItems( data);    
     } 
-    
 }
