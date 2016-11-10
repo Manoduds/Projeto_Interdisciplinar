@@ -59,15 +59,15 @@ private DatePicker TxtExpense_Date;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     TxtCategory.getItems().removeAll(TxtCategory.getItems());
-    TxtCategory.getItems().addAll("Juros", "Despesa", "Salario");
+    TxtCategory.getItems().addAll("Alimentação", "Lazer", "Moradia", "Transporte", "Outros");
     TxtEstablishment_Nature.getItems().removeAll(TxtEstablishment_Nature.getItems());
-    TxtEstablishment_Nature.getItems().addAll("Moradia", "Empresa", "Publico");
+    TxtEstablishment_Nature.getItems().addAll("Banco", "Mercado", "Restaurante", "Loja de Utilidades", "Outro");
     TxtState.getItems().removeAll(TxtState.getItems());
     TxtState.getItems().addAll("SP", "MG", "RJ");
     TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
-    TxtFrequency.getItems().addAll("Diaria", "Semanal", "Mensal");
+    TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
-    TxtPayment_Method.getItems().addAll("Credito", "Debito", "Dinheiro");
+    TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
     
                 
     }   

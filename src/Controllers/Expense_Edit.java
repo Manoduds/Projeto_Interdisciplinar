@@ -89,7 +89,7 @@ public class Expense_Edit implements Initializable {
     TxtState.getItems().removeAll(TxtState.getItems());
     TxtState.getItems().addAll("SP", "MG", "RJ");
     TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
-    TxtFrequency.getItems().addAll("Diária", "Semanal", "Mensal");
+    TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
     
