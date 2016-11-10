@@ -42,4 +42,24 @@ public class PrjIdBO {
        return d.FillTable();
     }
 
+    public Expense selectExpense(Expense clickedRow) {
+        return d.getExpense(clickedRow);
+    }
+
+    public void updateExpense(Expense e) {
+        d.UpdateExpense(e);
+    }
+
+    public void DeleteExpense(Expense e) {
+       d.DeleteExpense(e);
+    }
+
+    public void UpdateUser(system_user u) {
+       d.UpdateUser(u);
+    }
+
+    public void DeleteUser() {
+        d.DeleteUser();
+    }
+
 }

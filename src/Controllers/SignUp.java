@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import objects.system_user;
 
@@ -51,13 +52,16 @@ public class SignUp implements Initializable {
     @FXML
     private  RadioButton TxtM;
     @FXML
-        private RadioButton TxtF;
+    private RadioButton TxtF;
+    
+    final ToggleGroup group = new ToggleGroup();
     /**
      * Initializes the controller class.
      */
  
     public void initialize(URL url, ResourceBundle rb) {
-
+        TxtM.setToggleGroup(group);
+        TxtF.setToggleGroup(group);
     }    
         /**
      * Sets the stage of this dialog.

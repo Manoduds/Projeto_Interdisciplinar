@@ -24,18 +24,7 @@ public class Expense {
     private String Frequency;
     private String Payment_Method;   
     private int Cod_User;
-   
-
-    
-    
-    
-    public String getEstablishment_Name() {
-        return Establishment_Name;
-    }
-
-    public void setEstablishment_Name(String Establishment_Name) {
-        this.Establishment_Name = Establishment_Name;
-    }
+    private int Cod_Expense;
 
     public String getDescription() {
         return Description;
@@ -61,7 +50,13 @@ public class Expense {
         this.Date = Date;
     }
 
+    public String getEstablishment_Name() {
+        return Establishment_Name;
+    }
 
+    public void setEstablishment_Name(String Establishment_Name) {
+        this.Establishment_Name = Establishment_Name;
+    }
 
     public String getCity() {
         return City;
@@ -118,6 +113,16 @@ public class Expense {
     public void setCod_User(int Cod_User) {
         this.Cod_User = Cod_User;
     }
+
+    public int getCod_Expense() {
+        return Cod_Expense;
+    }
+
+    public void setCod_Expense(int Cod_Expense) {
+        this.Cod_Expense = Cod_Expense;
+    }
+
+    
 
 
 
