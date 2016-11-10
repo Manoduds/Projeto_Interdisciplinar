@@ -44,7 +44,6 @@
 .table-view .column-header .label {
     -fx-text-fill: -flatter-red;
     -fx-background-color: transparent;
-    
 }
 
 .accordion .titled-pane .title {
