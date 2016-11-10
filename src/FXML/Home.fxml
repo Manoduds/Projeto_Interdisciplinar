@@ -10,23 +10,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
       <Button id="BtnLogin" fx:id="BtnLogin" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" onAction="#BtnLogin" text="Usuário Com Cadastro" />
-      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="186.0" mnemonicParsing="false" onAction="#BtnSignUp" text="Usuário Sem Cadastro" />
-      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="249.0" layoutY="232.0" mnemonicParsing="false" text="Sobre o Sistema" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="49.0" prefHeight="17.0" prefWidth="580.0" text="Pensando sobre o nome do sistema..." textAlignment="CENTER">
+      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="187.0" mnemonicParsing="false" onAction="#BtnSignUp" prefHeight="35.0" prefWidth="137.0" text="Usuário Sem Cadastro" />
+      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="233.0" layoutY="233.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="137.0" text="Sobre o Sistema" />
+      <Label id="LblLogo" fx:id="LblLogo" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="49.0" prefHeight="17.0" prefWidth="580.0" stylesheets="@../Design_Tools/FlatRed.css" text="My Wallet" textAlignment="CENTER" textFill="#0da627">
          <font>
             <Font name="Vivaldi Italic" size="48.0" />
          </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0" startX="0.4523809523809524">
-               <stops>
-                  <Stop color="#9a0000" />
-                  <Stop color="BLACK" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
          <effect>
             <Reflection fraction="0.56" topOffset="-10.0" topOpacity="0.35" />
          </effect>
