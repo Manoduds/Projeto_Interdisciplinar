@@ -38,7 +38,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Button" />
+                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Acesso aos Relatórios" />
                      </children>
                   </AnchorPane>
             </content>
