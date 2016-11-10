@@ -10,17 +10,11 @@ CREATE TABLE System_User(
 
  Cod_User INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 User_Name VARCHAR(20) UNIQUE NOT NULL,
-
 User_Password VARCHAR(20) NOT NULL,
-
 U_Name VARCHAR(50) NOT NULL,
-
 Email VARCHAR(50) UNIQUE NOT NULL,
-
 birthdate DATE NOT NULL,
-
 Sex VARCHAR(1) NOT NULL
-
 );
 
 
@@ -98,3 +92,4 @@ FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
 
+INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values(Mano,,?,?,?,?);

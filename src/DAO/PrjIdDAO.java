@@ -166,7 +166,7 @@ public class PrjIdDAO {
        
      try
         {
-        String SQL = ("Select * FROM Expense WHERE Cod_User ="+ Login.session+"AND Cod_Expense ="+ e.getCod_Expense());            
+        String SQL = ("Select * FROM Expense WHERE Cod_Expense ="+ e.getCod_Expense());            
         ResultSet rs = conn.createStatement().executeQuery(SQL);  
            while(rs.next()){
         e.setDescription(rs.getString("Description"));
@@ -176,7 +176,6 @@ public class PrjIdDAO {
         e.setEstablishment_Nature(rs.getString("Nature"));
         e.setDate(rs.getDate("Date"));
         e.setCategory(rs.getString("Category"));
-       
         e.setCity(rs.getString("City"));
         e.setState(rs.getString("State"));
         e.setFrequency(rs.getString("Frequency"));

@@ -116,22 +116,22 @@ public class Expense_Edit implements Initializable {
     }
     private void BtnSave(ActionEvent event) throws IOException
     {
-        Expense e = new Expense();
+        Expense a = new Expense();
         PrjIdBO b = new PrjIdBO();
         
-        e.setCod_User(Login.session);
-        e.setDescription(TxtDescription.getText());
-        e.setCity(TxtCity.getText());
-        e.setEstablishment_Name(TxtEstablishment_Name.getText());
-        e.setDate(Date.valueOf( TxtExpense_Date.getValue()));
-        e.setState(TxtState.getSelectionModel().getSelectedItem().toString());
-        e.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
-        e.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
-        e.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
-        e.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
-        e.setPrice(TxtPrice.getText());
+        a.setCod_User(Login.session);
+        a.setDescription(TxtDescription.getText());
+        a.setCity(TxtCity.getText());
+        a.setEstablishment_Name(TxtEstablishment_Name.getText());
+        a.setDate(Date.valueOf( TxtExpense_Date.getValue()));
+        a.setState(TxtState.getSelectionModel().getSelectedItem().toString());
+        a.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
+        a.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
+        a.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
+        a.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
+        a.setPrice(TxtPrice.getText());
         
-        b.updateExpense(e);
+        b.updateExpense(a);
         
     }
 

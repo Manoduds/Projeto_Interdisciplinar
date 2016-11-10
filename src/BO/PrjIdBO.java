@@ -42,8 +42,8 @@ public class PrjIdBO {
        return d.FillTable();
     }
 
-    public Expense selectExpense(Expense clickedRow) {
-        return d.getExpense(clickedRow);
+    public Expense selectExpense(Expense e) {
+        return d.getExpense(e);
     }
 
     public void updateExpense(Expense e) {
