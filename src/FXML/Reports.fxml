@@ -6,7 +6,10 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="Controllers.Reports">
-    
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Reports">
+   <children>
+      <Button id="BtnMain" fx:id="BtnMain" focusTraversable="false" layoutX="458.0" layoutY="551.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="35.0" prefWidth="85.0" text="Voltar" />
+      <ComboBox id="TxtInterval" fx:id="TxtInterval" focusTraversable="false" layoutX="426.0" layoutY="14.0" prefWidth="150.0" promptText="Intervalo" />
+      <DatePicker id="TxtDate" fx:id="TxtDate" layoutX="426.0" layoutY="57.0" prefHeight="35.0" prefWidth="150.0" promptText="Data do gasto" />
+   </children>
 </AnchorPane>

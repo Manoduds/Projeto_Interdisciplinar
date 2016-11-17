@@ -7,7 +7,11 @@ package Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+
 
 /**
  * FXML Controller class
@@ -15,13 +19,16 @@ import javafx.fxml.Initializable;
  * @author aluno
  */
 public class Reports implements Initializable {
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
+    @FXML 
+    private ComboBox TxtInterval;
+    
+    @FXML
+    private DatePicker TxtInterval_Date;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {        
+    TxtInterval.getItems().removeAll(TxtInterval.getItems());
+    TxtInterval.getItems().addAll("Diário", "Mensal", "Anual");
+    }      
 }

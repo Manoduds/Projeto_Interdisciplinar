@@ -13,7 +13,7 @@
       <Button id="BtnSave" fx:id="BtnLogin" layoutX="436.0" layoutY="484.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
       <Button id="BtnMain" fx:id="BtnMain" layoutX="511.0" layoutY="540.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
       <Button id="BtnDelete" fx:id="BtnDelete" layoutX="363.0" layoutY="540.0" mnemonicParsing="false" onAction="#BtnDelete" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
-      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="411.0" layoutY="43.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
+      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="412.0" layoutY="43.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
       <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="287.0" layoutY="221.0" prefHeight="35.0" prefWidth="170.0" promptText="Data de Nascimento" />
       <Label layoutX="312.0" layoutY="398.0" text="Sexo" />
       <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="369.0" layoutY="410.0" mnemonicParsing="false" text="Feminino" />
