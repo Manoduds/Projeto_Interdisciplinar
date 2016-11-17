@@ -81,6 +81,39 @@ public class Main implements Initializable {
     }
     
     @FXML
+    private void BtnPersonalFinance(ActionEvent event) throws IOException 
+    {
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Personal_Finance.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();   
+    }
+    
+    @FXML
+    private void BtnEconomyNews(ActionEvent event) throws IOException 
+    {
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Economy_News.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();   
+    }
+    
+    @FXML
+    private void BtnBudgetTips(ActionEvent event) throws IOException 
+    {
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Budget_Tips.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();   
+    }
+    
+    @FXML
     private void BtnEditAccount(ActionEvent event) throws IOException 
     {
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Account_Details.fxml"));        
@@ -91,6 +124,16 @@ public class Main implements Initializable {
         app_stage.show();        
     }
     
+    @FXML
+    private void BtnReports(ActionEvent event) throws IOException 
+    {
+       Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Reports.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();   
+    }
 
     public void preencherTable()
     {

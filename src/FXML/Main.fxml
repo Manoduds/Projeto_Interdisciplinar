@@ -38,7 +38,7 @@
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Acesso aos Relatórios" />
+                        <Button id="BtnReports" fx:id="BtnReports" layoutX="-2.0" mnemonicParsing="false" onAction="#BtnReports" prefHeight="50.0" prefWidth="250.0" text="Gerar Relatórios de Gastos" />
                      </children>
                   </AnchorPane>
             </content>
@@ -56,9 +56,9 @@
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Button id="BtnPersonalFinance" fx:id="BtnPersonalFinance" layoutX="-2.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Finanças Pessoais" />
-                        <Button id="BtnEconomyNews" fx:id="BtnEconomyNews" layoutX="-2.0" layoutY="49.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Economia" />
-                        <Button id="BtnBudgetTips" fx:id="BtnBudgetTips" layoutX="-2.0" layoutY="98.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Dicas de Orçamento" />
+                        <Button id="BtnPersonalFinance" fx:id="BtnPersonalFinance" layoutX="-2.0" onAction="#BtnPersonalFinance" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Finanças Pessoais" />
+                        <Button id="BtnEconomyNews" fx:id="BtnEconomyNews" layoutX="-2.0" layoutY="49.0" onAction="#BtnEconomyNews" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Notícias Sobre Economia" />
+                        <Button id="BtnBudgetTips" fx:id="BtnBudgetTips" layoutX="-2.0" layoutY="98.0" onAction="#BtnBudgetTips" mnemonicParsing="false" prefHeight="50.0" prefWidth="250.0" text="Dicas Orçamentárias" />
                      </children>
                   </AnchorPane>
                </content>
