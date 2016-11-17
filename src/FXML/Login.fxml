@@ -7,13 +7,12 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Login">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Login">
     <children>
-       <Label fx:id="label" alignment="CENTER" layoutX="152.0" layoutY="64.0" minHeight="16" minWidth="69" prefHeight="17.0" prefWidth="149.0" textAlignment="CENTER" />
-      <Button id="BtnHome" fx:id="BtnHome" focusTraversable="false" layoutX="334.0" layoutY="247.0" mnemonicParsing="false" onAction="#BtnHome" prefHeight="35.0" prefWidth="75.0" text="Voltar" />
-      <Button id="BtnLogin" fx:id="BtnLogin" focusTraversable="false" layoutX="206.0" layoutY="247.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="35.0" prefWidth="75.0" text="Entrar" textAlignment="CENTER" />
-      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="209.0" layoutY="130.0" prefHeight="35.0" prefWidth="200.0" promptText="Usuário" />
-      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="209.0" layoutY="172.0" prefHeight="35.0" prefWidth="200.0" promptText="Senha" />
-      <Hyperlink id="HLForgot" fx:id="HLForgot" alignment="CENTER" contentDisplay="CENTER" layoutX="209.0" layoutY="215.0" onAction="#HLForgot" prefHeight="23.0" prefWidth="200.0" text="Esqueci a senha ou usuário" textAlignment="CENTER" />
+      <Button id="BtnHome" fx:id="BtnHome" focusTraversable="false" layoutX="527.0" layoutY="341.0" mnemonicParsing="false" onAction="#BtnHome" prefHeight="35.0" prefWidth="75.0" text="Voltar" />
+      <Button id="BtnLogin" fx:id="BtnLogin" focusTraversable="false" layoutX="399.0" layoutY="341.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="35.0" prefWidth="75.0" text="Entrar" textAlignment="CENTER" />
+      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="402.0" layoutY="224.0" prefHeight="35.0" prefWidth="200.0" promptText="Usuário" />
+      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="402.0" layoutY="266.0" prefHeight="35.0" prefWidth="200.0" promptText="Senha" />
+      <Hyperlink id="HLForgot" fx:id="HLForgot" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="309.0" onAction="#HLForgot" prefHeight="23.0" prefWidth="200.0" text="Esqueci a senha ou usuário" textAlignment="CENTER" />
     </children>
 </AnchorPane>
