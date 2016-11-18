@@ -10,24 +10,24 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Account_Details">
    <children>
-      <Button id="BtnSave" fx:id="BtnLogin" layoutX="433.0" layoutY="461.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
-      <Button id="BtnMain" fx:id="BtnMain" layoutX="508.0" layoutY="517.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
-      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="360.0" layoutY="517.0" mnemonicParsing="false" onAction="#BtnDelete" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
-      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="410.0" layoutY="100.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
-      <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="200.0" layoutY="308.0" prefHeight="35.0" prefWidth="170.0" promptText="Data de Nascimento" />
-      <Label layoutX="218.0" layoutY="363.0" text="Sexo" />
-      <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="275.0" layoutY="375.0" mnemonicParsing="false" text="Feminino" />
-      <RadioButton id="TxtM" fx:id="TxtM" focusTraversable="false" layoutX="275.0" layoutY="349.0" mnemonicParsing="false" text="Masculino" />
-      <Button id="BtnChoosePicture" fx:id="BtnChoosePicture" focusTraversable="false" layoutX="614.0" layoutY="359.0" mnemonicParsing="false" onAction="#BtnLogin" text="Escolher Foto" />
-      <Separator layoutX="404.0" layoutY="400.0" prefWidth="150.0" />
-      <Separator layoutX="404.0" layoutY="198.0" prefWidth="150.0" />
-      <Separator layoutX="402.0" layoutY="201.0" orientation="VERTICAL" prefHeight="200.0" />
-      <Separator layoutX="554.0" layoutY="199.0" orientation="VERTICAL" prefHeight="200.0" />
-      <ImageView id="Img3x4" fx:id="Img3x4" fitHeight="200.0" fitWidth="150.0" layoutX="404.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" />
-      <TextField id="TxtEmail" fx:id="TxtEmail1" alignment="CENTER" focusTraversable="false" layoutX="200.0" layoutY="271.0" prefWidth="170.0" promptText="E-mail" />
-      <PasswordField id="TxtRepeatPassword" fx:id="TxtRepeatPassword" alignment="CENTER" focusTraversable="false" layoutX="583.0" layoutY="308.0" prefWidth="170.0" promptText="Repetir Senha" />
-      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="583.0" layoutY="271.0" prefWidth="170.0" promptText="Senha" />
-      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="583.0" layoutY="235.0" prefWidth="170.0" promptText="Usuário" />
-      <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="200.0" layoutY="235.0" prefWidth="170.0" promptText="Nome" />
+      <Button id="BtnSave" fx:id="BtnLogin" layoutX="436.0" layoutY="484.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
+      <Button id="BtnMain" fx:id="BtnMain" layoutX="511.0" layoutY="540.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
+      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="363.0" layoutY="540.0" mnemonicParsing="false" onAction="#BtnDelete" prefHeight="36.0" prefWidth="100.0" text="Excluir Conta" />
+      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="411.0" layoutY="43.0" prefHeight="17.0" prefWidth="149.0" text="Cadastro do Usuário" textAlignment="CENTER" />
+      <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="287.0" layoutY="220.0" prefHeight="35.0" prefWidth="170.0" promptText="Data de Nascimento" />
+      <Label layoutX="312.0" layoutY="398.0" text="Sexo" />
+      <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="369.0" layoutY="410.0" mnemonicParsing="false" text="Feminino" />
+      <RadioButton id="TxtM" fx:id="TxtM" focusTraversable="false" layoutX="369.0" layoutY="384.0" mnemonicParsing="false" text="Masculino" />
+      <Button id="BtnChoosePicture" fx:id="BtnChoosePicture" focusTraversable="false" layoutX="576.0" layoutY="390.0" mnemonicParsing="false" onAction="#BtnLogin" text="Escolher Foto" />
+      <Separator layoutX="545.0" layoutY="353.0" prefWidth="150.0" />
+      <Separator layoutX="545.0" layoutY="151.0" prefWidth="150.0" />
+      <Separator layoutX="543.0" layoutY="154.0" orientation="VERTICAL" prefHeight="200.0" />
+      <Separator layoutX="695.0" layoutY="152.0" orientation="VERTICAL" prefHeight="200.0" />
+      <ImageView id="Img3x4" fx:id="Img3x4" fitHeight="200.0" fitWidth="150.0" layoutX="545.0" layoutY="154.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField id="TxtEmail" fx:id="TxtEmail1" alignment="CENTER" focusTraversable="false" layoutX="287.0" layoutY="183.0" prefWidth="170.0" promptText="E-mail" />
+      <PasswordField id="TxtRepeatPassword" fx:id="TxtRepeatPassword" alignment="CENTER" focusTraversable="false" layoutX="286.0" layoutY="333.0" prefWidth="170.0" promptText="Repetir Senha" />
+      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="286.0" layoutY="296.0" prefWidth="170.0" promptText="Senha" />
+      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="286.0" layoutY="260.0" prefWidth="170.0" promptText="Usuário" />
+      <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="287.0" layoutY="147.0" prefWidth="170.0" promptText="Nome" />
    </children>
 </AnchorPane>
