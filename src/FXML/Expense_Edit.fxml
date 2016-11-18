@@ -10,7 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
    <children>
       <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="516.0" layoutY="250.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
-      <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="516.0" layoutY="121.0" prefHeight="108.0" prefWidth="200.0" promptText="Descrição" />
+      <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="516.0" layoutY="121.0" prefHeight="117.0" prefWidth="200.0" promptText="Descrição" />
       <ComboBox id="TxtPayment_Method" fx:id="TxtPayment_Method" focusTraversable="false" layoutX="741.0" layoutY="164.0" prefHeight="25.0" prefWidth="200.0" promptText="Forma de Pagamento" />
       <ComboBox id="TxtFrequency" fx:id="TxtFrequency" focusTraversable="false" layoutX="741.0" layoutY="204.0" prefHeight="25.0" prefWidth="200.0" promptText="Frequência" />
       <ComboBox id="TxtCategory" fx:id="TxtCategory" focusTraversable="false" layoutX="741.0" layoutY="123.0" prefHeight="25.0" prefWidth="200.0" promptText="Categoria" />
@@ -24,7 +24,7 @@
       <Button id="BtnDelete" fx:id="BtnDelete" layoutX="678.0" layoutY="495.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
       <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="59.0" layoutY="94.0" prefHeight="442.0" prefWidth="438.0">
         <columns>
-          <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descriçao" />
+          <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descrição" />
           <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Preço" />
             <TableColumn fx:id="columnCategory" prefWidth="75.0" text="Categoria" />
             <TableColumn fx:id="columnEstablishment" prefWidth="117.0" text="Estabelecimento" />
