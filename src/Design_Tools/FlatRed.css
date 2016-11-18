@@ -6,9 +6,9 @@
      -fx-background-color: -dark;
     
     /*default font */
-    -fx-font-family: 'Helvetica Neue';
+    -fx-font-family: 'Sans Serif';
     -fx-font-size: 12.0px;
-    -fx-font-weight: 600;
+    -fx-font-weight: 900;
     -fx-disabled-opacity: 0.6; 
     
     -flatter-red: rgb(237.0, 68.0, 37.0);

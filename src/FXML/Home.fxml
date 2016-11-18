@@ -12,9 +12,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
-      <Button id="BtnLogin" fx:id="BtnLogin" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" onAction="#BtnLogin" text="Usuário Com Cadastro" />
-      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="187.0" mnemonicParsing="false" onAction="#BtnSignUp" prefHeight="35.0" prefWidth="137.0" text="Usuário Sem Cadastro" />
-      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="233.0" layoutY="233.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="137.0" text="Sobre o Sistema" />
+      <Button id="BtnLogin" fx:id="BtnLogin" layoutX="233.0" layoutY="142.0" mnemonicParsing="false" onAction="#BtnLogin" prefWidth="145.0" text="Usuário Com Cadastro" />
+      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="233.0" layoutY="187.0" mnemonicParsing="false" onAction="#BtnSignUp" prefHeight="35.0" prefWidth="145.0" text="Usuário Sem Cadastro" />
+      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="233.0" layoutY="233.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Sobre o Sistema" />
       <Label id="LblLogo" fx:id="LblLogo" alignment="CENTER" contentDisplay="CENTER" layoutX="11.0" layoutY="49.0" prefHeight="17.0" prefWidth="580.0" stylesheets="@../Design_Tools/FlatRed.css" text="My Wallet" textAlignment="CENTER" textFill="#0da627">
          <font>
             <Font name="Vivaldi Italic" size="48.0" />
