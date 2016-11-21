@@ -17,6 +17,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,13 +28,19 @@ import objects.system_user;
  * @author MSB
  */
 public class Login implements Initializable {
-        
+@FXML
+    private Label LabelWarn;
 @FXML
     private TextField TxtUser;
 @FXML
     private TextField TxtPassword;
 
     public static int session;
+    
+       @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        LabelWarn.setVisible(false);
+    }    
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
@@ -54,6 +61,9 @@ public class Login implements Initializable {
         app_stage.setScene(scene);
         app_stage.centerOnScreen();
         app_stage.show();   
+        }
+        else{
+            LabelWarn.setVisible(true);
         }
     }
        
@@ -80,8 +90,5 @@ public class Login implements Initializable {
         app_stage.centerOnScreen();
         app_stage.show();
     }
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+ 
 }

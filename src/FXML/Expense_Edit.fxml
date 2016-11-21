@@ -34,5 +34,6 @@
       </TableView>
       <DatePicker id="TxtMonthExpense" fx:id="TxtMonthExpense" layoutX="185.0" layoutY="35.0" promptText="Escolha o mês" />
       <Button id="BtnSave" fx:id="BtnSave" layoutX="678.0" layoutY="443.0" mnemonicParsing="false" onAction="#BtnSave" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
+      <Label fx:id="LabSuc" layoutX="678.0" layoutY="77.0" text="Sucesso" />
    </children>
 </AnchorPane>

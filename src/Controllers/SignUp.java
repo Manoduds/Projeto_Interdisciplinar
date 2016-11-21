@@ -20,6 +20,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
@@ -36,19 +37,36 @@ import objects.system_user;
  * @author MSB
  */
 public class SignUp implements Initializable {
-
+    //Labels
+    @FXML
+    private Label ErrName;
+    @FXML
+    private Label ErrEmail;
+    @FXML
+    private Label ErrUser;
+    @FXML
+    private Label ErrPass;
+    @FXML
+    private Label ErrSexo;
+    @FXML
+    private Label ErrRepPass;
+    @FXML
+    private Label ErrDate;
+    //TextFields
     @FXML
     private TextField TxtName;
     @FXML
     private TextField TxtEmail;
-    @FXML
-    private DatePicker TxtBirthDate;
-    @FXML
+     @FXML
     private TextField TxtUser;
     @FXML
     private TextField TxtPassword;
     @FXML
     private TextField TxtRepeatPassword;
+    //Datepicker
+    @FXML
+    private DatePicker TxtBirthDate;
+   //RadioButtons
     @FXML
     private  RadioButton TxtM;
     @FXML
@@ -62,13 +80,120 @@ public class SignUp implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         TxtM.setToggleGroup(group);
         TxtF.setToggleGroup(group);
+        ErrName.setVisible(false);
     }    
         /**
      * Sets the stage of this dialog.
      * 
      * @param dialogStage
      */
-
+    @FXML
+    private void NameCheck(ActionEvent event) throws IOException{
+        String Name;
+        boolean result;
+        PrjIdBO b = new PrjIdBO();
+        Name = TxtName.getText();
+   
+        if(Name != null){
+         result = b.VerifyName(Name);
+            if(result = true){
+                ErrName.setVisible(true);
+                ErrName.setText("Esse nome já está em uso!");
+            }
+            else{
+                ErrName.setVisible(false);
+            }
+        }
+        else{
+            ErrName.setVisible(true);
+            ErrName.setText("Esse campo é obrigatório");
+        }
+  }
+    
+    
+    @FXML
+    private void EmailCheck(ActionEvent event) throws IOException{
+        String Email;
+        boolean result;
+        PrjIdBO b = new PrjIdBO();
+        Email = TxtEmail.getText();
+   
+        if(Email != null){
+         result = b.VerifyEmail(Email);
+            if(result = true){
+                ErrEmail.setText("Esse email já está em uso!");
+            }
+            if(result = false){
+                result = b.validateEmail(Email);
+                if(result = false){
+                    ErrEmail.setVisible(true);
+                    ErrEmail.setText("Esse email é invalido");
+                }
+                else{
+                    ErrEmail.setVisible(false);
+                }
+            }
+        }
+        else{
+            ErrEmail.setVisible(true);
+            ErrEmail.setText("Esse campo é obrigatório");
+        }
+  }
+  @FXML
+  private void UserCheck(ActionEvent event) throws IOException{
+        String User;
+        boolean result;
+        PrjIdBO b = new PrjIdBO();
+        User = TxtUser.getText();
+   
+        if(User != null){
+         result = b.VerifyUser(User);
+            if(result = true){
+                ErrUser.setText("Esse usuário já está em uso!");
+                 ErrUser.setVisible(true);
+            }
+            else{
+                ErrUser.setVisible(false);
+            }
+        }
+        else{
+            ErrUser.setVisible(true);
+            ErrUser.setText("Esse campo é obrigatório");
+        }
+      
+  }
+  
+  @FXML
+  private void PassCheck(ActionEvent event) throws IOException{
+      String Pass = TxtPassword.getText();
+      String RepPass = TxtRepeatPassword.getText();
+      if(Pass.length()<3){
+          ErrPass.setVisible(true);
+          ErrPass.setText("A senha precisa ter no mínimo 4 caracteres");
+      }
+      else{
+           ErrPass.setVisible(false);
+          if(!Pass.equals(RepPass) && RepPass != null){     
+             ErrRepPass.setVisible(true);
+             ErrRepPass.setText("As senhas precisam ser iguais");
+          }
+          else{
+              ErrRepPass.setVisible(false);
+             
+          }
+      }
+  }
+  
+  @FXML
+  private void PassRepCheck(ActionEvent event) throws IOException{
+       String Pass = TxtPassword.getText();
+      String RepPass = TxtRepeatPassword.getText();
+         if(!Pass.equals(RepPass) && RepPass != null){
+             ErrRepPass.setVisible(true);
+             ErrRepPass.setText("As senhas precisam ser iguais");
+          }
+      
+  }
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
@@ -78,31 +203,40 @@ public class SignUp implements Initializable {
     
         u.setEmail(TxtEmail.getText());
         u.setU_Name(TxtUser.getText());
+        if(TxtBirthDate.getValue() != null){
         u.setBirthdate( TxtBirthDate.getValue());
-      
-        if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText()))
-        {       
-            u.setUser_Password(TxtPassword.getText());
-            if(TxtM != null || TxtF != null)
-            {
-                if(TxtM != null)
-                {
-                    u.setSex("M");
+        
+            if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText()))
+            {       
+                u.setUser_Password(TxtPassword.getText());
+                if(TxtF != null || TxtM != null){
+                   if(TxtM != null)
+                    {
+                       u.setSex("M");
+                    }
+                    else
+                    {
+                        u.setSex("F");
+                    }
+                    b.SaveUser(u);
+                    Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
+                    Scene scene = new Scene(Login_Parent);
+                    Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    app_stage.setScene(scene);
+                    app_stage.centerOnScreen();
+                    app_stage.show();
+                
                 }
-                else
-                {
-                    u.setSex("F");
+                else{
+                ErrSexo.setVisible(true);
+                ErrSexo.setText("Você precisa declarar seu sexo!");
                 }
-                b.SaveUser(u);
-               Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
-               Scene scene = new Scene(Login_Parent);
-               Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-               app_stage.setScene(scene);
-               app_stage.centerOnScreen();
-               app_stage.show();
             }
         }
-
+        else{
+            ErrDate.setVisible(true);
+            ErrDate.setText("Voce precisa escolher um dia!");
+        }
      
     }
     

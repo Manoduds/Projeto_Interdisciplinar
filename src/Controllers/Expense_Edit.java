@@ -13,6 +13,7 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +26,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
@@ -42,7 +44,9 @@ import objects.Expense;
  * @author MSB
  */
 public class Expense_Edit implements Initializable {
-@FXML
+  @FXML
+  private Label LabSuc;
+  @FXML
   private TableColumn<Expense, String> columnDesc;
   @FXML
   private TableColumn<Expense, String> columnPrice;
@@ -88,12 +92,13 @@ public class Expense_Edit implements Initializable {
     TxtEstablishment_Nature.getItems().removeAll(TxtEstablishment_Nature.getItems());
     TxtEstablishment_Nature.getItems().addAll("Banco", "Mercado", "Restaurante", "Loja de Utilidades", "Outro");
     TxtState.getItems().removeAll(TxtState.getItems());
-    TxtState.getItems().addAll("SP", "MG", "RJ");
+    TxtState.getItems().addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP","SE", "TO");
+
     TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
     TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
-    
+    LabSuc.setVisible(false);   
           preencherTable();
     }    
     
@@ -117,26 +122,82 @@ public class Expense_Edit implements Initializable {
         }
     }
     @FXML
-    private void BtnSave(ActionEvent event) throws IOException
-    {
-        Expense a = new Expense();
+    private void BtnSave(ActionEvent event) throws IOException{
+        Expense e = new Expense();
         PrjIdBO b = new PrjIdBO();
+        boolean check = true;
         
-        a.setCod_User(Login.session);
-        a.setDescription(TxtDescription.getText());
-        a.setCity(TxtCity.getText());
-        a.setEstablishment_Name(TxtEstablishment_Name.getText());
-        a.setDate(Date.valueOf( TxtExpense_Date.getValue()));
-        a.setState(TxtState.getSelectionModel().getSelectedItem().toString());
-        a.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
-        a.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
-        a.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
-        a.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
-        a.setPrice(TxtPrice.getText());
         
-        b.updateExpense(a);
+        e.setCod_User(Login.session);
+        if(TxtDescription.getText() != null){
+            e.setDescription(TxtDescription.getText()); 
+        }
+        else{ 
+            check = false;
+        } 
+        
+        if(TxtCity.getText() != null){
+        e.setCity(TxtCity.getText());
+        } else { 
+            check = false;
+        }        
+        if(TxtEstablishment_Name.getText()!= null){   
+            e.setEstablishment_Name(TxtEstablishment_Name.getText());
+        }else{
+            check = false;
+        }
+       
+        if(TxtExpense_Date.getValue() != null){
+            e.setDate(Date.valueOf( TxtExpense_Date.getValue()));
+        }else{
+            check = false;
+        }
+        if(TxtState.getSelectionModel().getSelectedItem().toString() != "Estado"){
+        e.setState(TxtState.getSelectionModel().getSelectedItem().toString());  
+        }else{
+            check = false;
+            
+        }
+        if(TxtCategory.getSelectionModel().getSelectedItem().toString() != "Categoria"){
+        e.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
+        }
+        else{
+            check = false;
+        }
+        if(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString() != "Natureza"){   
+            e.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
+        }
+        else{
+            check = false;
+        }
+        if(TxtFrequency.getSelectionModel().getSelectedItem().toString() != "Frequencia"){
+            e.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
+            
+        } else{
+            check = false;
+        }
+        if(TxtPayment_Method.getSelectionModel().getSelectedItem().toString() != "Forma de Pagamento"){
+        e.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
+        } else{
+           check = false;
+        }
+        if(TxtPrice.getText() == null){
+        e.setPrice(TxtPrice.getText());
+        }else{
+            check = false;
+        }
+        if(check = true){
+        b.updateExpense(e);
+            LabSuc.setVisible(true);
+            LabSuc.setText("Despesa realizada com sucesso!");
+        }
+        else{
+              LabSuc.setVisible(true);
+            LabSuc.setText("Houve um erro ao atualizar a despesa");
+        }
         
     }
+     
 
     
     @FXML

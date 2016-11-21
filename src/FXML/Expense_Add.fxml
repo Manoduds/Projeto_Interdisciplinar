@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8"  stylesheets="@../Design_Tools/FlatRed.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Add">
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Add">
    <children>
       <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="262.0" layoutY="294.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
       <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="262.0" layoutY="159.0" prefHeight="109.0" prefWidth="200.0" promptText="Descrição" />
@@ -21,5 +21,16 @@
       <Button id="BtnSave" fx:id="BtnSave" layoutX="450.0" layoutY="464.0" mnemonicParsing="false" onAction="#BtnSave" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
       <Button id="BtnClear" fx:id="BtnClear" layoutX="369.0" layoutY="516.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Limpar" />
       <Button id="BtnMain" fx:id="BtnMain" layoutX="532.0" layoutY="516.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
+      <Label fx:id="ErrDesc" layoutX="160.0" layoutY="211.0" text="ErrDesc" />
+      <Label fx:id="ErrPrec" layoutX="160.0" layoutY="303.0" text="ErrPrec" />
+      <Label fx:id="ErrEstab" layoutX="160.0" layoutY="349.0" text="ErrEstab" />
+      <Label fx:id="ErrNature" layoutX="160.0" layoutY="396.0" text="ErrNature" />
+      <Label fx:id="ErrForm" layoutX="793.0" layoutY="170.0" text="ErrForm" />
+      <Label fx:id="ErrFreq" layoutX="793.0" layoutY="211.0" text="ErrFreq" />
+      <Label fx:id="ErrCat" layoutX="793.0" layoutY="252.0" text="ErrCat" />
+      <Label fx:id="ErrDat" layoutX="793.0" layoutY="303.0" text="ErrDat" />
+      <Label fx:id="ErrCity" layoutX="793.0" layoutY="358.0" text="ErrCity" />
+      <Label fx:id="ErrState" layoutX="796.0" layoutY="396.0" text="ErrState" />
+      <Label fx:id="LabSuc" layoutX="448.0" layoutY="99.0" text="Sucesso" />
    </children>
 </AnchorPane>
