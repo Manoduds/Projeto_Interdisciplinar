@@ -195,18 +195,21 @@ private DatePicker TxtExpense_Date;
            ErrForm.setVisible(true);
            ErrForm.setText("A forma de pagamento é obrigatória!");
         }
-        if(TxtPrice.getText() == null){
+        if(TxtPrice.getText() != null){
         e.setPrice(TxtPrice.getText());
         }else{
             check = false;
             ErrPrec.setVisible(true);
             ErrPrec.setText("O preço é obrigatório!");
         }
-        if(check = true){
+        if(check == true){
             b.saveExpense(e);
             LabSuc.setVisible(true);
             LabSuc.setText("Despesa realizada com sucesso!");
         } 
+        else{
+            check = true;
+        }
     }
     
     

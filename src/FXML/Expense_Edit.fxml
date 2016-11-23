@@ -21,7 +21,7 @@
       <ComboBox id="TxtState" fx:id="TxtState" focusTraversable="false" layoutX="741.0" layoutY="342.0" prefHeight="25.0" prefWidth="200.0" promptText="Estado" />
       <Button id="BtnClear" fx:id="BtnClear" layoutX="545.0" layoutY="469.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Limpar" />
       <Button id="BtnMain" fx:id="BtnMain" layoutX="812.0" layoutY="469.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
-      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="678.0" layoutY="495.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
+      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="678.0" layoutY="495.0" mnemonicParsing="false" onAction="#BtnExcluir" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
       <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="59.0" layoutY="94.0" prefHeight="442.0" prefWidth="438.0">
         <columns>
           <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descrição" />
@@ -29,7 +29,10 @@
             <TableColumn fx:id="columnCategory" prefWidth="75.0" text="Categoria" />
             <TableColumn fx:id="columnEstablishment" prefWidth="117.0" text="Estabelecimento" />
             <TableColumn fx:id="columnDate" prefWidth="68.0" text="Data" />
-            <TableColumn fx:id="columnId" prefWidth="75.0" text="id" />
+            <TableColumn fx:id="columnId" prefWidth="75.0" text="id">
+               <columns>
+                  <TableColumn fx:id="Cod_col" prefWidth="26.0" text="cod" />
+               </columns></TableColumn>
         </columns>
       </TableView>
       <DatePicker id="TxtMonthExpense" fx:id="TxtMonthExpense" layoutX="185.0" layoutY="35.0" promptText="Escolha o mês" />

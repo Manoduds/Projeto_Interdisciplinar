@@ -60,7 +60,7 @@ public class ExpenseDAO {
     {
           
         Expense e = new Expense();
-        
+        e.setCod_Expense(rs.getInt("Cod_Expense"));
         e.setDescription(rs.getString("Description"));
         e.setDate(rs.getDate("Date"));
        e.setCategory(rs.getString("Category"));
@@ -96,6 +96,7 @@ public class ExpenseDAO {
         String SQL = ("Select * FROM Expense WHERE Cod_Expense ="+ e.getCod_Expense());            
         ResultSet rs = conn.createStatement().executeQuery(SQL);  
            while(rs.next()){
+        e.setCod_Expense(rs.getInt("Cod_Expense"));
         e.setDescription(rs.getString("Description"));
         e.setPrice(String.valueOf(  rs.getFloat("Price")));
         e.setPayment_Method(rs.getString("Payment_Method"));
@@ -122,9 +123,9 @@ public class ExpenseDAO {
     public void DeleteExpense(Expense e) {
        try{
             PreparedStatement ppStmt = conn.prepareStatement
-           ("DELETE Expense WHERE Cod_Expense = ?");
+           ("DELETE FROM Expense WHERE Cod_Expense = ?");
             ppStmt.setInt(1, e.getCod_Expense());
-            ppStmt.executeQuery();
+            ppStmt.executeUpdate();
             
             
        }
@@ -138,8 +139,8 @@ public class ExpenseDAO {
             try
         {
             PreparedStatement ppStmt = conn.prepareStatement
-           ("UPDATE Expense SET (Cod_User,Establishment_Name,Description,Price, Payment_Method, Frequency,Category, Date,Nature, State, City) values(?,?,?,?,?,?,?,?,?,?,?) WHERE Cod_Expense = ?");
-      
+           ("UPDATE Expense SET Cod_User =?, Establishment_Name =?, Description =?,Price =?, Payment_Method =?, Frequency =?,Category =?, Date=?,Nature=?, State=?, City=? WHERE Cod_Expense = ?");
+        
             ppStmt.setInt(1, e.getCod_User());
             ppStmt.setString(2, e.getEstablishment_Name());
             ppStmt.setString(3, e.getDescription());          
@@ -153,7 +154,7 @@ public class ExpenseDAO {
             ppStmt.setString(11, e.getCity());
             ppStmt.setInt(12, e.getCod_Expense());  
             
-            ppStmt.execute();            
+            ppStmt.executeUpdate();            
         }
         catch(SQLException ex)
         {
@@ -161,4 +162,31 @@ public class ExpenseDAO {
         }
     }
 
-}
+    public float countexpense(String cat) {
+        float gasto = 0;
+        String SQL;
+        try
+        {
+            if(cat != "*"){
+               SQL = ("Select PRICE  FROM Expense WHERE Cod_User = " + Login.session +" AND Category = '"+ cat +"'"); 
+            }
+            else{
+               SQL = ("Select PRICE FROM Expense WHERE Cod_User ="+ Login.session); 
+
+            }
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+              while(rs.next()){
+           gasto = gasto + rs.getFloat("Price");
+            }  
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return gasto;
+    }
+    
+    }
+
+
+

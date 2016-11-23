@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -11,5 +12,6 @@
       <Button id="BtnMain" fx:id="BtnMain" focusTraversable="false" layoutX="458.0" layoutY="551.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="35.0" prefWidth="85.0" text="Voltar" />
       <ComboBox id="TxtInterval" fx:id="TxtInterval" focusTraversable="false" layoutX="426.0" layoutY="14.0" prefWidth="150.0" promptText="Intervalo" />
       <DatePicker id="TxtDate" fx:id="TxtDate" layoutX="426.0" layoutY="57.0" prefHeight="35.0" prefWidth="150.0" promptText="Data do gasto" />
+      <PieChart fx:id="PieReport" layoutX="151.0" layoutY="110.0" />
    </children>
 </AnchorPane>

@@ -6,6 +6,7 @@
 package Controllers;
 
 import BO.PrjIdBO;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -46,6 +47,8 @@ import objects.Expense;
 public class Expense_Edit implements Initializable {
   @FXML
   private Label LabSuc;
+  @FXML
+  private TableColumn<Expense, Integer> Cod_col;
   @FXML
   private TableColumn<Expense, String> columnDesc;
   @FXML
@@ -118,7 +121,10 @@ public class Expense_Edit implements Initializable {
         PrjIdBO b = new PrjIdBO();
         if( e != null){
         b.DeleteExpense(e);
-         
+            LabSuc.setVisible(true);
+            LabSuc.setText("Despesa excluida com sucesso!");
+
+         preencherTable();
         }
     }
     @FXML
@@ -126,8 +132,6 @@ public class Expense_Edit implements Initializable {
         Expense e = new Expense();
         PrjIdBO b = new PrjIdBO();
         boolean check = true;
-        
-        
         e.setCod_User(Login.session);
         if(TxtDescription.getText() != null){
             e.setDescription(TxtDescription.getText()); 
@@ -135,7 +139,6 @@ public class Expense_Edit implements Initializable {
         else{ 
             check = false;
         } 
-        
         if(TxtCity.getText() != null){
         e.setCity(TxtCity.getText());
         } else { 
@@ -146,7 +149,6 @@ public class Expense_Edit implements Initializable {
         }else{
             check = false;
         }
-       
         if(TxtExpense_Date.getValue() != null){
             e.setDate(Date.valueOf( TxtExpense_Date.getValue()));
         }else{
@@ -181,17 +183,19 @@ public class Expense_Edit implements Initializable {
         } else{
            check = false;
         }
-        if(TxtPrice.getText() == null){
+        if(TxtPrice.getText() != null){
         e.setPrice(TxtPrice.getText());
         }else{
             check = false;
         }
         if(check = true){
-        b.updateExpense(e);
+            b.updateExpense(e);
             LabSuc.setVisible(true);
             LabSuc.setText("Despesa realizada com sucesso!");
+            preencherTable();
         }
         else{
+            check = true;
               LabSuc.setVisible(true);
             LabSuc.setText("Houve um erro ao atualizar a despesa");
         }
@@ -205,7 +209,8 @@ public class Expense_Edit implements Initializable {
     {
         data = FXCollections.observableArrayList();
         data =  new PrjIdBO().buscarExpense();
-        PropertyValueFactory<Object, Object> propertyValueFactory = new PropertyValueFactory<>("Cod_Expense");
+        Cod_col.setCellValueFactory(new PropertyValueFactory<>("Cod_Expense"));
+        Cod_col.setVisible(false);
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));
         columnDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         columnDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
@@ -218,9 +223,9 @@ public class Expense_Edit implements Initializable {
             row.setOnMouseClicked(event -> {
             if (! row.isEmpty() && event.getButton()==MouseButton.PRIMARY 
                 && event.getClickCount() == 1) {
-                e = row.getItem();
-                e = new PrjIdBO().selectExpense(e);
-                
+                Expense e2 = row.getItem();
+             e = new PrjIdBO().selectExpense(e2);
+             e.setCod_Expense(e2.getCod_Expense());
              TxtDescription.setText(e.getDescription());
              TxtPrice.setText(e.getPrice());
              TxtEstablishment_Name.setText(e.getEstablishment_Name());
@@ -231,10 +236,10 @@ public class Expense_Edit implements Initializable {
              TxtPayment_Method.getSelectionModel().select(e.getPayment_Method());
              TxtCategory.getSelectionModel().select(e.getCategory());
              TxtFrequency.getSelectionModel().select(e.getFrequency());
-             
-             
+             LabSuc.setVisible(true);
+             LabSuc.setText(Integer.toString(e.getCod_Expense()));
                                                 }
-                                            }); 
+                                           }); 
             return row;
             });
         TableExpenses.setItems( data);    

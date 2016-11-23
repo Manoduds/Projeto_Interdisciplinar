@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -45,7 +46,8 @@ public class Main implements Initializable {
   private TableColumn<Expense, String> columnCategory;
   @FXML
   private TableView<Expense> TableExpenses;
-  
+  @FXML
+  private PieChart PieReport;
   private ObservableList<Expense> data;
   
     /**
@@ -53,7 +55,7 @@ public class Main implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-               
+                   FillYearPie();
                  preencherTable();
     }   
     
@@ -147,6 +149,19 @@ public class Main implements Initializable {
         
         TableExpenses.setItems(null);
         TableExpenses.setItems( data);
-    } 
+    }
+    
+    
+    
+     
+    private void FillYearPie() {
+        PrjIdBO b = new PrjIdBO();
+                ObservableList<PieChart.Data> pieChartData = b.getPie();
+                        
+        PieReport.setData(pieChartData);
+        PieReport.setTitle("Gastos anuais");
+
+        
+    }
     }
 

@@ -6,9 +6,10 @@
 package BO;
 
 import DAO.ExpenseDAO;
-import DAO.PrjIdDAO;
 import DAO.UserDAO;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.chart.PieChart;
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
@@ -91,6 +92,25 @@ public class PrjIdBO {
 
     public void DeleteExpense(Expense e) {
        de.DeleteExpense(e);
+    }
+
+    public ObservableList<PieChart.Data> getPie() {
+        float total = de.countexpense("*");
+        float al = (de.countexpense("Alimentaçao")*100/total);
+        float laz = (de.countexpense("Lazer")*100/total);
+        float Mor = (de.countexpense("Moradia")*100/total);
+        float Tan = (de.countexpense("Transporte")*100/total);
+        float Outros = (de.countexpense("Outros")*100/total);
+        ObservableList<PieChart.Data> pieChartData =
+                FXCollections.observableArrayList(
+               
+                new PieChart.Data("Alimentação", al),
+                new PieChart.Data("Lazer", laz),
+                new PieChart.Data("Moradia",Mor),
+                new PieChart.Data("Transporte",Tan),
+                new PieChart.Data("Outros",Outros));
+
+                return pieChartData;
     }
 
   
