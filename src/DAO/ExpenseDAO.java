@@ -6,10 +6,14 @@
 package DAO;
 
 import Controllers.Login;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import objects.Expense;
@@ -161,7 +165,7 @@ public class ExpenseDAO {
             ex.printStackTrace();
         }
     }
-
+     
     public float countexpense(String cat) {
         float gasto = 0;
         String SQL;
@@ -186,6 +190,33 @@ public class ExpenseDAO {
         return gasto;
     }
     
+      public float countexpense(String cat, String Dat) {
+        float gasto = 0;
+        String SQL;
+
+        try
+        {
+            if(cat != "*"){
+               SQL = ("Select PRICE  FROM Expense WHERE Date between '"+ Dat + "' AND curdate() AND Cod_User = " + Login.session +" AND Category = '"+ cat +"'");
+             // SELECT Date,Description FROM Expense WHERE Date between '2016/11/26' and curdate()      
+              //syntax to use near 'Date between'2016/10/28' AND curdate()' at line 1
+
+            }
+            else{
+               SQL = ("Select PRICE FROM Expense WHERE Cod_User ="+ Login.session  +" AND Date between '"+ Dat +"' AND curdate()"); 
+
+            }
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+              while(rs.next()){
+           gasto = gasto + rs.getFloat("Price");
+            }  
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return gasto;
+    }
     }
 
 

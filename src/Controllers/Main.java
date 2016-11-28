@@ -11,6 +11,9 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -47,7 +50,10 @@ public class Main implements Initializable {
   @FXML
   private TableView<Expense> TableExpenses;
   @FXML
-  private PieChart PieReport;
+  private PieChart PieMonthReport;
+  @FXML
+  private PieChart PieYearReport;
+  
   private ObservableList<Expense> data;
   
     /**
@@ -55,7 +61,8 @@ public class Main implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-                   FillYearPie();
+                FillYearPie();
+                FillMonthPie();
                  preencherTable();
     }   
     
@@ -156,10 +163,29 @@ public class Main implements Initializable {
      
     private void FillYearPie() {
         PrjIdBO b = new PrjIdBO();
-                ObservableList<PieChart.Data> pieChartData = b.getPie();
-                        
-        PieReport.setData(pieChartData);
-        PieReport.setTitle("Gastos anuais");
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+  
+    Date date = new Date();
+    date.setYear(date.getYear()-1);
+        ObservableList<PieChart.Data> pieChartData = b.getPie(dateFormat.format(date));
+    System.out.println(dateFormat.format(date));
+
+        PieYearReport.setData(pieChartData);
+        PieYearReport.setTitle("Gastos anuais");
+
+        
+    }
+      private void FillMonthPie() {
+        PrjIdBO b = new PrjIdBO();
+            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+  
+    Date date = new Date();
+    date.setMonth(date.getMonth()-1);
+        ObservableList<PieChart.Data> pieChartData = b.getPie(dateFormat.format(date));
+    System.out.println(dateFormat.format(date));
+
+        PieMonthReport.setData(pieChartData);
+        PieMonthReport.setTitle("Gastos Mensais");
 
         
     }

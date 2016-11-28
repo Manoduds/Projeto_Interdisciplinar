@@ -18,9 +18,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
@@ -31,10 +36,12 @@ import javafx.stage.Stage;
  */
 public class Reports implements Initializable {
     
+    @FXML
+    private BarChart<String, Number> RepBar;
+
     @FXML 
     private ComboBox TxtInterval;
-    @FXML
-    private PieChart PieReport;
+
     @FXML
     private DatePicker TxtInterval_Date;
     
@@ -42,20 +49,17 @@ public class Reports implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {        
     TxtInterval.getItems().removeAll(TxtInterval.getItems());
     TxtInterval.getItems().addAll("Diário", "Mensal", "Anual");
-    FillPie();
+    FillBar();
     }      
     
-    
+    @FXML
+      private void FillBar() {
+          PrjIdBO b = new PrjIdBO();
+              ObservableList<XYChart.Series<String, Number>> BarData = b.AddBarData();
+           RepBar.setData(BarData);
+           RepBar.setTitle("Reportagem de gastos");
+    } 
      
-    private void FillPie() {
-        PrjIdBO b = new PrjIdBO();
-                ObservableList<PieChart.Data> pieChartData = b.getPie();
-                        
-        PieReport.setData(pieChartData);
-        PieReport.setTitle("Gastos");
-
-        
-    }
     
      @FXML
     private void BtnMain(ActionEvent event) throws IOException 
@@ -67,5 +71,11 @@ public class Reports implements Initializable {
         app_stage.centerOnScreen();
         app_stage.show();        
     }
+    
+ 
+    
+    
+    
+    
     
 }

@@ -6,12 +6,16 @@
 package Controllers;
 
 import BO.PrjIdBO;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -24,7 +28,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javax.imageio.ImageIO;
 import objects.system_user;
 
 
@@ -52,6 +61,7 @@ public class SignUp implements Initializable {
     private Label ErrRepPass;
     @FXML
     private Label ErrDate;
+   
     //TextFields
     @FXML
     private TextField TxtName;
@@ -72,6 +82,10 @@ public class SignUp implements Initializable {
     @FXML
     private RadioButton TxtF;
     
+    @FXML
+    private ImageView IMGView;
+    @FXML
+    private File IMGF;
     final ToggleGroup group = new ToggleGroup();
     /**
      * Initializes the controller class.
@@ -81,6 +95,12 @@ public class SignUp implements Initializable {
         TxtM.setToggleGroup(group);
         TxtF.setToggleGroup(group);
         ErrName.setVisible(false);
+        ErrEmail.setVisible(false);
+        ErrDate.setVisible(false);
+        ErrUser.setVisible(false);
+        ErrPass.setVisible(false);
+        ErrRepPass.setVisible(false);
+        ErrSexo.setVisible(false);
     }    
         /**
      * Sets the stage of this dialog.
@@ -241,7 +261,19 @@ public class SignUp implements Initializable {
     }
     
     
-
+   @FXML
+    public void imagepicker(ActionEvent t) throws IOException{
+       FileChooser filechooser = new FileChooser();
+    IMGF = filechooser.showOpenDialog(null);
+    if (IMGF != null) {
+      BufferedImage bufferedImage = ImageIO.read(IMGF);
+      WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
+      IMGView.setImage(image);
+    }
+    
+    }
+    
+    
     @FXML
     private void BtnHome(ActionEvent event) throws IOException 
     {

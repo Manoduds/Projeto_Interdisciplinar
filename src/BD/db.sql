@@ -14,7 +14,8 @@ User_Password VARCHAR(20) NOT NULL,
 U_Name VARCHAR(50) NOT NULL,
 Email VARCHAR(50) UNIQUE NOT NULL,
 birthdate DATE NOT NULL,
-Sex VARCHAR(1) NOT NULL
+Sex VARCHAR(1) NOT NULL,
+photo mediumblob
 );
 
 
@@ -92,4 +93,7 @@ FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
 
-INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values(Mano,,?,?,?,?);
+INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values('Mano','slim','pauloeduardomf@gmail.com','1997-11-16','M','Mano');
+
+INSERT INTO expense(Cod_User, Establishment_Name,Description,Price,Payment_Method,Frequency,State,Category,City,Date,Nature) values
+('1','Rua','Carona','100.00','Dinheiro','Mensal','SP','Transporte','Boituva','2016-11-20','Outro')
