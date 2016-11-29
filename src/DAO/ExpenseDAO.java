@@ -17,6 +17,7 @@ import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import objects.Expense;
+import objects.RSSFeed;
 import utilitarios.conexao;
 
 /**
@@ -217,7 +218,23 @@ public class ExpenseDAO {
         }
         return gasto;
     }
+
+    public RSSFeed getRSS(String Cat) {
+        RSSFeed r = new RSSFeed();
+        try{
+        String SQL = ("Select * FROM RSS WHERE Category ='"+ Cat +"' LIMIT 1 ORDER BY Date");
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+        rs.next();
+        r.setRSS_Name(rs.getString("RSS_Name"));
+        r.setURL(rs.getString("URL"));
+         }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return r;
     }
+  }
 
 
 

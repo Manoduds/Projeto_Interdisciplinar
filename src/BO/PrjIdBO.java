@@ -7,6 +7,7 @@ package BO;
 
 import DAO.ExpenseDAO;
 import DAO.UserDAO;
+import java.text.DateFormat.Field;
 import java.util.Date;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +21,7 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 
 import objects.Expense;
+import objects.RSSFeed;
 import objects.system_user;
 
 /**
@@ -139,7 +141,32 @@ public class PrjIdBO {
                 Chart.addAll(SeriesA);
                 return Chart;
       }
-    
-  
-}
 
+    public RSSFeed getRSS() {
+      float al = (de.countexpense("Alimentaçao"));
+      float laz = (de.countexpense("Lazer"));
+      float Mor = (de.countexpense("Moradia"));
+      float Tran = (de.countexpense("Transporte"));
+      float Outros = (de.countexpense("Outros"));  
+      String largestField ="al";
+      float largestValue = al;
+      if(laz>largestValue){
+        largestField ="laz";
+        largestValue = laz;
+      }
+        if(Mor>largestValue){
+        largestField ="Mor";
+        largestValue = Mor;
+      }
+        if(Tran>largestValue){
+        largestField ="Tran";
+        largestValue = Tran;
+      }
+        if(Outros>largestValue){
+        largestField ="Outros";
+        largestValue = Outros;
+      }
+    return de.getRSS(largestField);
+    }
+
+}

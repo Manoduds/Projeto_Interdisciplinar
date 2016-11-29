@@ -25,11 +25,16 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
+import javafx.scene.control.Hyperlink;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import objects.Expense;
+import objects.RSSFeed;
 
 /**
  * FXML Controller class
@@ -37,7 +42,9 @@ import objects.Expense;
  * @author MSB
  */
 public class Main implements Initializable {
-@FXML
+  @FXML
+  private Hyperlink RSSLink;
+  @FXML
   private TableColumn<Expense, String> columnDesc;
   @FXML
   private TableColumn<Expense, String> columnPrice;
@@ -55,7 +62,9 @@ public class Main implements Initializable {
   private PieChart PieYearReport;
   
   private ObservableList<Expense> data;
-  
+  final WebView browser = new WebView();
+  final WebEngine webEngine = browser.getEngine();
+  RSSFeed r = new RSSFeed();
     /**
      * Initializes the controller class.
      */
@@ -63,7 +72,8 @@ public class Main implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
                 FillYearPie();
                 FillMonthPie();
-                 preencherTable();
+                preencherTable();
+                FillLink();
     }   
     
     
@@ -177,17 +187,28 @@ public class Main implements Initializable {
     }
       private void FillMonthPie() {
         PrjIdBO b = new PrjIdBO();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-  
-    Date date = new Date();
-    date.setMonth(date.getMonth()-1);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+        Date date = new Date();
+        date.setMonth(date.getMonth()-1);
         ObservableList<PieChart.Data> pieChartData = b.getPie(dateFormat.format(date));
-    System.out.println(dateFormat.format(date));
-
+        System.out.println(dateFormat.format(date));
         PieMonthReport.setData(pieChartData);
-        PieMonthReport.setTitle("Gastos Mensais");
+        PieMonthReport.setTitle("Gastos Mensais");   
+      }
+      
+     
+      private void FillLink(){
+         PrjIdBO b = new PrjIdBO();
+         r = b.getRSS();
+         RSSLink.setText(r.getRSS_Name());
+      }
+      
+      private void WebLoad(ActionEvent event) throws IOException{        
+          webEngine.load(r.getURL());
+      }
+    
+    }
 
-        
-    }
-    }
+
+    
 
