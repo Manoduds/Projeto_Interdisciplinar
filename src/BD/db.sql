@@ -37,8 +37,7 @@ CREATE TABLE RSS(
 Cod_RSS int AUTO_INCREMENT PRIMARY KEY,
 RSS_Name VARCHAR(50) NOT NULL,
 Category VARCHAR(50) NOT NULL,
-URL VARCHAR(2083) NOT NULL,
-Profile_Date DATETIME
+URL VARCHAR(2083) NOT NULL
 );
 
 
@@ -67,30 +66,38 @@ CREATE TABLE Profile(
 
 Cod_Profile int AUTO_INCREMENT PRIMARY KEY,
 Cod_User int,
-
 Cod_Establishment int,
-
 Cod_Expense int,
-
 Cod_RSS int,
-
 Frequent_Category VARCHAR(50) NOT NULL,
-
 Frequent_Nature VARCHAR(50) NOT NULL,
-
 RSS_Category VARCHAR(50) NOT NULL,
-
 Profile_Date DATETIME,
-
 FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User),
-
 FOREIGN KEY (Cod_Establishment) REFERENCES Establishment(Cod_Establishment),
-
 FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
-
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
 
+
+
+CREATE TABLE RSS(
+Cod_RSS int AUTO_INCREMENT PRIMARY KEY,
+RSS_Name VARCHAR(50) NOT NULL,
+Category VARCHAR(50) NOT NULL,
+URL VARCHAR(2083) NOT NULL
+);
+
+INSERT INTO RSS(RSS_Name, Category, URL) values ('atWar', 'Outros', 'http://atwar.blogs.nytimes.com/feed/');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Transporte', 'http://intransit.blogs.nytimes.com/feed/');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Lazer', 'http://intransit.blogs.nytimes.com/feed/');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Moradia', 'http://intransit.blogs.nytimes.com/feed/');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Alimentação', 'http://intransit.blogs.nytimes.com/feed/');
+
+
+    TxtCategory.getItems().addAll("Alimentação", "Lazer", "Moradia", "Transporte", "Outros");
+
+http://intransit.blogs.nytimes.com/feed/
 INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values('Mano','slim','pauloeduardomf@gmail.com','1997-11-16','M','Mano');
 
 INSERT INTO expense(Cod_User, Establishment_Name,Description,Price,Payment_Method,Frequency,State,Category,City,Date,Nature) values

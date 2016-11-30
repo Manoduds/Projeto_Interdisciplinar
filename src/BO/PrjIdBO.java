@@ -89,6 +89,10 @@ public class PrjIdBO {
     public ObservableList<Expense> buscarExpense() {
        return de.FillTable();
     }
+    
+    public ObservableList<Expense> buscarExpense(String dat){
+        return de.FillTable();
+    }
 
     public Expense selectExpense(Expense e) {
         return de.getExpense(e);
@@ -110,63 +114,93 @@ public class PrjIdBO {
         float Mor = (de.countexpense("Moradia",dat)*100/total);
         float Tran = (de.countexpense("Transporte",dat)*100/total);
         float Outros = (de.countexpense("Outros",dat)*100/total);
+        
         ObservableList<PieChart.Data> pieChartData =
-                FXCollections.observableArrayList(
-               
+        FXCollections.observableArrayList(
                 new PieChart.Data("Alimentação", al),
                 new PieChart.Data("Lazer", laz),
                 new PieChart.Data("Moradia",Mor),
                 new PieChart.Data("Transporte",Tran),
-                new PieChart.Data("Outros",Outros));
+                new PieChart.Data("Outros",Outros)
+        );
 
-                return pieChartData;
+        return pieChartData;
     }
     
       public ObservableList<Series<String,Number>>AddBarData() {
          
- ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
+        ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
                 
-               Series<String,Number> SeriesA = new Series<>();
+        Series<String,Number> SeriesA = new Series<>();
          
         float al = (de.countexpense("Alimentaçao"));
         float laz = (de.countexpense("Lazer"));
         float Mor = (de.countexpense("Moradia"));
         float Tran = (de.countexpense("Transporte"));
         float Outros = (de.countexpense("Outros"));
-                SeriesA.getData().add(new XYChart.Data("Alimentação", al));
-                SeriesA.getData().add(new XYChart.Data("Lazer", laz));
-                SeriesA.getData().add(new XYChart.Data("Moradia", Mor));
-                SeriesA.getData().add(new XYChart.Data("Transporte", Tran));
-                SeriesA.getData().add(new XYChart.Data("Outros", Outros));
-                Chart.addAll(SeriesA);
-                return Chart;
+        
+        SeriesA.getData().add(new XYChart.Data("Alimentação", al));
+        SeriesA.getData().add(new XYChart.Data("Lazer", laz));
+        SeriesA.getData().add(new XYChart.Data("Moradia", Mor));
+        SeriesA.getData().add(new XYChart.Data("Transporte", Tran));
+        SeriesA.getData().add(new XYChart.Data("Outros", Outros));
+        
+        Chart.addAll(SeriesA);
+        
+        return Chart;
       }
 
+         public ObservableList<Series<String,Number>>AddBarData(String dat1, String dat2) {
+         
+        ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
+                
+        Series<String,Number> SeriesA = new Series<>();
+         
+        float al = (de.countexpense("Alimentaçao", dat1, dat2));
+        float laz = (de.countexpense("Lazer",dat1,dat2));
+        float Mor = (de.countexpense("Moradia",dat1,dat2));
+        float Tran = (de.countexpense("Transporte",dat1,dat2));
+        float Outros = (de.countexpense("Outros",dat1,dat2));
+        
+        SeriesA.getData().add(new XYChart.Data("Alimentação", al));
+        SeriesA.getData().add(new XYChart.Data("Lazer", laz));
+        SeriesA.getData().add(new XYChart.Data("Moradia", Mor));
+        SeriesA.getData().add(new XYChart.Data("Transporte", Tran));
+        SeriesA.getData().add(new XYChart.Data("Outros", Outros));
+
+        Chart.addAll(SeriesA);
+        
+        return Chart;
+      }
+         
     public RSSFeed getRSS() {
       float al = (de.countexpense("Alimentaçao"));
       float laz = (de.countexpense("Lazer"));
       float Mor = (de.countexpense("Moradia"));
       float Tran = (de.countexpense("Transporte"));
       float Outros = (de.countexpense("Outros"));  
-      String largestField ="al";
+      String largestField ="Alimentaçao";
       float largestValue = al;
       if(laz>largestValue){
-        largestField ="laz";
+        largestField ="Lazer";
         largestValue = laz;
       }
         if(Mor>largestValue){
-        largestField ="Mor";
+        largestField ="Moradia";
         largestValue = Mor;
       }
         if(Tran>largestValue){
-        largestField ="Tran";
+        largestField ="Transporte";
         largestValue = Tran;
       }
         if(Outros>largestValue){
         largestField ="Outros";
         largestValue = Outros;
       }
-    return de.getRSS(largestField);
+        
+       RSSFeed re = de.getRSS(largestField);
+
+       return re;
     }
 
 }

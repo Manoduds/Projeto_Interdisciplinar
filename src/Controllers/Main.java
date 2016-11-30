@@ -6,7 +6,9 @@
 package Controllers;
 
 import BO.PrjIdBO;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -15,9 +17,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,7 +48,19 @@ import objects.RSSFeed;
  */
 public class Main implements Initializable {
   @FXML
+  Hyperlink[] RSSLinks;
+  @FXML
   private Hyperlink RSSLink;
+  @FXML
+  private Hyperlink RSSLink1;
+  @FXML
+  private Hyperlink RSSLink2;
+  @FXML
+  private Hyperlink RSSLink3;
+  @FXML
+  private Hyperlink RSSLink4;
+  @FXML
+  private Hyperlink RSSLink5;
   @FXML
   private TableColumn<Expense, String> columnDesc;
   @FXML
@@ -65,6 +82,18 @@ public class Main implements Initializable {
   final WebView browser = new WebView();
   final WebEngine webEngine = browser.getEngine();
   RSSFeed r = new RSSFeed();
+  String[] Link = new String[20];
+
+    public Main() {
+        this.RSSLinks = new Hyperlink[]{
+            RSSLink,
+            RSSLink1,
+            RSSLink2,
+            RSSLink3,
+            RSSLink4,
+            RSSLink5
+        };
+    }
     /**
      * Initializes the controller class.
      */
@@ -198,16 +227,66 @@ public class Main implements Initializable {
       
      
       private void FillLink(){
-         PrjIdBO b = new PrjIdBO();
-         r = b.getRSS();
-         RSSLink.setText(r.getRSS_Name());
+      try {
+          PrjIdBO b = new PrjIdBO();
+          r = b.getRSS();
+          final String title[] = readRSS(r.getURL());
+          for (int i = 0; i < 6; i++){
+              final Hyperlink RSS = RSSLinks[i];
+              final String url = Link[i];
+              RSS.setText(title[i]);
+              RSS.setOnAction(new EventHandler<ActionEvent>() {
+                  @Override
+                  public void handle(ActionEvent e) {
+                      webEngine.load(url);
+                  }
+              });
+              
+          }
+      } catch (IOException ex) {
+          Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+      }
+         
       }
       
-      private void WebLoad(ActionEvent event) throws IOException{        
-          webEngine.load(r.getURL());
-      }
-    
+    private String[] readRSS(String urlAddress) throws IOException{
+    URL rssUrl = new URL(urlAddress);
+    BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+    int limit = 0;
+    int t = 0;
+    int l = 0;
+    final String title[] = new String[20];
+    String line;
+    while((line = in.readLine())!= null && limit <11){
+
+        if(line.contains("<title>")){
+            int firstPos = line.indexOf("<title>");
+            String temp = line.substring(firstPos);
+            temp = temp.replace("<title>", "");
+            int lastPos = temp.indexOf("</title>");
+            temp = temp.substring(0, lastPos);
+            title[t] = temp+"\n";
+            limit++;
+            t++;
+        }
+          if(line.contains("<link>")){
+            int firstPos = line.indexOf("<link>");
+            String temp = line.substring(firstPos);
+            temp = temp.replace("<link>", "");
+            int lastPos = temp.indexOf("</link>");
+            temp = temp.substring(0, lastPos);
+            Link[l] = temp+"\n";
+            limit++;
+            l++;
+        }
     }
+    
+    return title;
+    }
+    
+     
+    
+ }
 
 
     

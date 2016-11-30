@@ -199,9 +199,6 @@ public class ExpenseDAO {
         {
             if(cat != "*"){
                SQL = ("Select PRICE  FROM Expense WHERE Date between '"+ Dat + "' AND curdate() AND Cod_User = " + Login.session +" AND Category = '"+ cat +"'");
-             // SELECT Date,Description FROM Expense WHERE Date between '2016/11/26' and curdate()      
-              //syntax to use near 'Date between'2016/10/28' AND curdate()' at line 1
-
             }
             else{
                SQL = ("Select PRICE FROM Expense WHERE Cod_User ="+ Login.session  +" AND Date between '"+ Dat +"' AND curdate()"); 
@@ -218,15 +215,40 @@ public class ExpenseDAO {
         }
         return gasto;
     }
+   public float countexpense(String cat, String Dat, String Dat2) {
+        float gasto = 0;
+        String SQL;
 
+        try
+        {
+            if(cat != "*"){
+               SQL = ("Select PRICE  FROM Expense WHERE Date between '"+ Dat + "' AND '"+ Dat2 +"' AND Cod_User = " + Login.session +" AND Category = '"+ cat +"'");
+            }
+            else{
+               SQL = ("Select PRICE FROM Expense WHERE Cod_User ="+ Login.session  +" AND Date between '"+ Dat +"' AND'"+ Dat2 +"'"); 
+
+            }
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+              while(rs.next()){
+           gasto = gasto + rs.getFloat("Price");
+            }  
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return gasto;
+    }
+   
     public RSSFeed getRSS(String Cat) {
         RSSFeed r = new RSSFeed();
         try{
-        String SQL = ("Select * FROM RSS WHERE Category ='"+ Cat +"' LIMIT 1 ORDER BY Date");
+        String SQL = ("Select * FROM RSS WHERE Category ='"+ Cat +"'");
         ResultSet rs = conn.createStatement().executeQuery(SQL);  
-        rs.next();
+        while(rs.next()){
         r.setRSS_Name(rs.getString("RSS_Name"));
         r.setURL(rs.getString("URL"));
+        }
          }
         catch(SQLException ex)
         {
