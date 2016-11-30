@@ -6,9 +6,12 @@
 package Controllers;
 
 import BO.PrjIdBO;
+import java.awt.Desktop;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -82,17 +85,9 @@ public class Main implements Initializable {
   final WebView browser = new WebView();
   final WebEngine webEngine = browser.getEngine();
   RSSFeed r = new RSSFeed();
-  String[] Link = new String[20];
 
     public Main() {
-        this.RSSLinks = new Hyperlink[]{
-            RSSLink,
-            RSSLink1,
-            RSSLink2,
-            RSSLink3,
-            RSSLink4,
-            RSSLink5
-        };
+      
     }
     /**
      * Initializes the controller class.
@@ -226,62 +221,71 @@ public class Main implements Initializable {
       }
       
      
-      private void FillLink(){
-      try {
-          PrjIdBO b = new PrjIdBO();
-          r = b.getRSS();
-          final String title[] = readRSS(r.getURL());
-          for (int i = 0; i < 6; i++){
-              final Hyperlink RSS = RSSLinks[i];
-              final String url = Link[i];
-              RSS.setText(title[i]);
-              RSS.setOnAction(new EventHandler<ActionEvent>() {
-                  @Override
-                  public void handle(ActionEvent e) {
-                      webEngine.load(url);
-                  }
-              });
+    private void FillLink(){
+        try {
+            this.RSSLinks = new Hyperlink[]{
+                RSSLink,
+                RSSLink1,
+                RSSLink2,
+                RSSLink3,
+                RSSLink4,
+                RSSLink5
+            };
+            PrjIdBO b = new PrjIdBO();
+            r = b.getRSS();
+            System.out.println(r.getURL());
+            final String title[] = readRSS(r.getURL(),"title>");
+            final String Link[] = readRSS(r.getURL(),"link>");
+
+            for (int i = 0; i < 6; i++){
+                String l = Link[i];
+                Hyperlink RSS = RSSLinks[i];
+                RSS.setText(title[i]);
+                RSS.setOnAction(new EventHandler<ActionEvent>() {         
+                    @Override
+                    public void handle(ActionEvent e) {
+                        try {
+                            Desktop.getDesktop().browse(new URI(l));
+                        } catch (IOException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        } catch (URISyntaxException ex) {
+                            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                
+                });
               
-          }
-      } catch (IOException ex) {
+            }
+        } catch (IOException ex) {
           Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-      }
+        }
          
-      }
+    }
       
-    private String[] readRSS(String urlAddress) throws IOException{
+    private String[] readRSS(String urlAddress, String Line) throws IOException{
     URL rssUrl = new URL(urlAddress);
     BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
     int limit = 0;
-    int t = 0;
-    int l = 0;
-    final String title[] = new String[20];
+    int r = 0;
+
+    final String result[] = new String[20];
     String line;
     while((line = in.readLine())!= null && limit <11){
 
-        if(line.contains("<title>")){
-            int firstPos = line.indexOf("<title>");
+        if(line.contains("<"+Line)){
+            int firstPos = line.indexOf("<"+Line);
             String temp = line.substring(firstPos);
-            temp = temp.replace("<title>", "");
-            int lastPos = temp.indexOf("</title>");
+            temp = temp.replace("<"+Line, "");
+            int lastPos = temp.indexOf("</"+Line);
             temp = temp.substring(0, lastPos);
-            title[t] = temp+"\n";
+            result[r] = temp;
             limit++;
-            t++;
-        }
-          if(line.contains("<link>")){
-            int firstPos = line.indexOf("<link>");
-            String temp = line.substring(firstPos);
-            temp = temp.replace("<link>", "");
-            int lastPos = temp.indexOf("</link>");
-            temp = temp.substring(0, lastPos);
-            Link[l] = temp+"\n";
-            limit++;
-            l++;
+            r++;
         }
     }
     
-    return title;
+    return result;
     }
     
      
