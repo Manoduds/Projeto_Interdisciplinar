@@ -78,7 +78,6 @@
       <Separator layoutX="1.0" layoutY="476.0" prefHeight="19.0" prefWidth="1000.0" />
       <Separator layoutX="746.0" layoutY="214.0" prefHeight="19.0" prefWidth="254.0" />
       <Separator layoutX="739.0" orientation="VERTICAL" prefHeight="485.0" prefWidth="16.0" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="356.0" prefHeight="17.0" prefWidth="178.0" text="Foto do Usuário" textAlignment="CENTER" />
       <PieChart fx:id="PieYearReport" layoutX="741.0" layoutY="260.0" prefHeight="226.0" prefWidth="248.0" />
       <PieChart fx:id="PieMonthReport" layoutX="752.0" layoutY="30.0" prefHeight="226.0" prefWidth="241.0" />
       <Hyperlink fx:id="RSSLink" layoutX="382.0" layoutY="526.0" text="Últimas Notícias e Dicas Personalizadas (RSS Feed)" />
@@ -87,5 +86,6 @@
       <Hyperlink fx:id="RSSLink3" layoutX="382.0" layoutY="549.0" text="Últimas Notícias e Dicas Personalizadas (RSS Feed)" />
       <Hyperlink fx:id="RSSLink4" layoutX="657.0" layoutY="526.0" text="Últimas Notícias e Dicas Personalizadas (RSS Feed)" />
       <Hyperlink fx:id="RSSLink5" layoutX="657.0" layoutY="549.0" text="Últimas Notícias e Dicas Personalizadas (RSS Feed)" />
+      <Button fx:id="BtnLogoff" layoutX="14.0" layoutY="430.0" mnemonicParsing="false" onAction="#BtnLogoff" text="Deslogar" />
    </children>
 </AnchorPane>

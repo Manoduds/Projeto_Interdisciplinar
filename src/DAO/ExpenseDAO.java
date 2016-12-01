@@ -6,7 +6,6 @@
 package DAO;
 
 import Controllers.Login;
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,6 +34,7 @@ public class ExpenseDAO {
     
     
       public void SaveExpense(Expense e) {
+          //Salva o Expense na tabela.
           try
         {
             PreparedStatement ppStmt = conn.prepareStatement
@@ -63,7 +63,7 @@ public class ExpenseDAO {
       
     private Expense buscarExp(ResultSet rs) throws SQLException
     {
-          
+       //Retorna os valores selecionados, bseado no resultset enviado.
         Expense e = new Expense();
         e.setCod_Expense(rs.getInt("Cod_Expense"));
         e.setDescription(rs.getString("Description"));
@@ -78,7 +78,8 @@ public class ExpenseDAO {
     
     
     public ObservableList<Expense> FillTable() {
-             ObservableList<Expense> data = FXCollections.observableArrayList();
+        //Preenche a tabela com todos os gastos.
+        ObservableList<Expense> data = FXCollections.observableArrayList();
         try
         {
         String SQL = ("Select * FROM Expense WHERE Cod_User ="+ Login.session);            
@@ -95,7 +96,7 @@ public class ExpenseDAO {
     }
     
     public Expense getExpense(Expense e) {
-       
+       //Retorna todos os campos do Expense selecionado, baseado na primary key.
      try
         {
         String SQL = ("Select * FROM Expense WHERE Cod_Expense ="+ e.getCod_Expense());            
@@ -126,6 +127,7 @@ public class ExpenseDAO {
         return e;
     }
     public void DeleteExpense(Expense e) {
+        //Deleta o Gasto com o valor Cod_Expense inserido.
        try{
             PreparedStatement ppStmt = conn.prepareStatement
            ("DELETE FROM Expense WHERE Cod_Expense = ?");
@@ -140,24 +142,23 @@ public class ExpenseDAO {
         }
     }
      public void UpdateExpense(Expense e) {
-        
+        //Update na tabela 'Expense' com os valores inseridos, baseado no Cod_Expense.
             try
         {
             PreparedStatement ppStmt = conn.prepareStatement
-           ("UPDATE Expense SET Cod_User =?, Establishment_Name =?, Description =?,Price =?, Payment_Method =?, Frequency =?,Category =?, Date=?,Nature=?, State=?, City=? WHERE Cod_Expense = ?");
+           ("UPDATE Expense SET  Establishment_Name =?, Description =?,Price =?, Payment_Method =?, Frequency =?,Category =?, Date=?,Nature=?, State=?, City=? WHERE Cod_Expense = ?");
         
-            ppStmt.setInt(1, e.getCod_User());
-            ppStmt.setString(2, e.getEstablishment_Name());
-            ppStmt.setString(3, e.getDescription());          
-            ppStmt.setFloat(4, Float.valueOf(e.getPrice())); 
-            ppStmt.setString(5, e.getPayment_Method()); 
-            ppStmt.setString(6, e.getFrequency());
-            ppStmt.setString(7, e.getCategory()); 
-            ppStmt.setDate(8, e.getDate()); 
-            ppStmt.setString(9, e.getEstablishment_Nature()); 
-            ppStmt.setString(10, e.getState());
-            ppStmt.setString(11, e.getCity());
-            ppStmt.setInt(12, e.getCod_Expense());  
+            ppStmt.setString(1, e.getEstablishment_Name());
+            ppStmt.setString(2, e.getDescription());          
+            ppStmt.setFloat(3, Float.valueOf(e.getPrice())); 
+            ppStmt.setString(4, e.getPayment_Method()); 
+            ppStmt.setString(5, e.getFrequency());
+            ppStmt.setString(6, e.getCategory()); 
+            ppStmt.setDate(7, e.getDate()); 
+            ppStmt.setString(8, e.getEstablishment_Nature()); 
+            ppStmt.setString(9, e.getState());
+            ppStmt.setString(10, e.getCity());
+            ppStmt.setInt(11, e.getCod_Expense());  
             
             ppStmt.executeUpdate();            
         }
@@ -166,8 +167,11 @@ public class ExpenseDAO {
             ex.printStackTrace();
         }
     }
-     
+     /*
+     Countexpense utilizou o método de polimorphismo, para conseguir enviar sem data, com uma data, e com duas datas.
+     */
     public float countexpense(String cat) {
+        //Retorna a soma dos gastos em todos os periodos.
         float gasto = 0;
         String SQL;
         try
@@ -191,7 +195,8 @@ public class ExpenseDAO {
         return gasto;
     }
     
-      public float countexpense(String cat, String Dat) {
+      public float countexpense(String cat, Date Dat) {
+          //Retorna a soma dos gastos entre a data selecionada e a data atual.
         float gasto = 0;
         String SQL;
 
@@ -215,7 +220,8 @@ public class ExpenseDAO {
         }
         return gasto;
     }
-   public float countexpense(String cat, String Dat, String Dat2) {
+   public float countexpense(String cat, Date Dat, Date Dat2) {
+       //Retorna a soma dos gastos do período selecionado.
         float gasto = 0;
         String SQL;
 
@@ -241,6 +247,7 @@ public class ExpenseDAO {
     }
    
     public RSSFeed getRSS(String Cat) {
+        //Obtém RSS de acordo com a categoria enviada.
         RSSFeed r = new RSSFeed();
         try{
         String SQL = ("Select * FROM RSS WHERE Category ='"+ Cat +"'");

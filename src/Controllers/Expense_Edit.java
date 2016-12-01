@@ -46,7 +46,9 @@ import objects.Expense;
  */
 public class Expense_Edit implements Initializable {
   @FXML
-  private Label LabSuc;
+  private Label TxtAte;
+  @FXML
+  private Label LabSuccess;
   @FXML
   private TableColumn<Expense, Integer> Cod_col;
   @FXML
@@ -81,7 +83,10 @@ public class Expense_Edit implements Initializable {
   private ComboBox TxtFrequency;
   @FXML
   private ComboBox TxtPayment_Method;
-  
+  @FXML
+  private DatePicker TxtDate1;
+  @FXML
+  private DatePicker TxtDate2;
   private ObservableList<Expense> data;
   
   private Expense e;
@@ -90,6 +95,7 @@ public class Expense_Edit implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //Preenche as tabelas, comboboxes e também esconde dois labels junto com o Datepicker2
     TxtCategory.getItems().removeAll(TxtCategory.getItems());
     TxtCategory.getItems().addAll("Alimentação", "Lazer", "Moradia", "Transporte", "Outros");
     TxtEstablishment_Nature.getItems().removeAll(TxtEstablishment_Nature.getItems());
@@ -101,8 +107,10 @@ public class Expense_Edit implements Initializable {
     TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
-    LabSuc.setVisible(false);   
-          preencherTable();
+    LabSuccess.setVisible(false);
+    TxtDate1.setVisible(false);
+    TxtAte.setVisible(false);
+    preencherTable();
     }    
     
     @FXML
@@ -118,17 +126,38 @@ public class Expense_Edit implements Initializable {
     @FXML
     private void BtnExcluir(ActionEvent event) throws IOException
     {
+     /*
+         Exclui a despesa selecionada,depois de verificar se tem uma despesa selecionada
+        em primeiro lugar.
+     */
         PrjIdBO b = new PrjIdBO();
         if( e != null){
         b.DeleteExpense(e);
-            LabSuc.setVisible(true);
-            LabSuc.setText("Despesa excluida com sucesso!");
+            LabSuccess.setVisible(true);
+            LabSuccess.setText("Despesa excluida com sucesso!");
 
          preencherTable();
         }
     }
+        
+    
+    @FXML
+    private void Datecheck(){
+        if(TxtDate1.getValue() == null){
+            TxtDate2.setVisible(false);
+            TxtDate2.setValue(null);
+            TxtAte.setVisible(false);
+            preencherTable();
+        }
+        else{
+            TxtDate2.setVisible(true);
+            TxtAte.setVisible(true);
+            preencherTable();
+        }
+    }
     @FXML
     private void BtnSave(ActionEvent event) throws IOException{
+        //Validação básica ao dar update no expense.
         Expense e = new Expense();
         PrjIdBO b = new PrjIdBO();
         boolean check = true;
@@ -190,14 +219,14 @@ public class Expense_Edit implements Initializable {
         }
         if(check = true){
             b.updateExpense(e);
-            LabSuc.setVisible(true);
-            LabSuc.setText("Despesa realizada com sucesso!");
+            LabSuccess.setVisible(true);
+            LabSuccess.setText("Despesa realizada com sucesso!");
             preencherTable();
         }
         else{
             check = true;
-              LabSuc.setVisible(true);
-            LabSuc.setText("Houve um erro ao atualizar a despesa");
+              LabSuccess.setVisible(true);
+            LabSuccess.setText("Houve um erro ao atualizar a despesa");
         }
         
     }
@@ -207,7 +236,31 @@ public class Expense_Edit implements Initializable {
     @FXML
     public void preencherTable()
     {
+    /*
+         Procura no banco de dados todas as expenses relacionadas ao usuário, e retorna 
+        uma lista, que é inserida e exibida na tabela. Não só isso, mas também
+        adiciona a função 'onclick' em cada linha da tabela, e ao clicá-la, 
+        preenche os campos com o valores da expense selecionado.
+        
+         Também esconde o valor Id, que é necessário para identificar os gastos,
+        mas não pode ser exibido ao usuário.
+    */
         data = FXCollections.observableArrayList();
+           if(TxtDate1.getValue() == null && TxtDate2.getValue() == null){
+           data =  new PrjIdBO().buscarExpense();
+          }
+          else{
+              if(TxtDate1.getValue() != null && TxtDate2.getValue() != null){
+               data =  new PrjIdBO().buscarExpense();
+              }
+              else{
+                  if(TxtDate1.getValue()!= null){
+                       data =  new PrjIdBO().buscarExpense();
+                      
+                  }
+               
+              }
+          }
         data =  new PrjIdBO().buscarExpense();
         Cod_col.setCellValueFactory(new PropertyValueFactory<>("Cod_Expense"));
         Cod_col.setVisible(false);
@@ -236,8 +289,7 @@ public class Expense_Edit implements Initializable {
              TxtPayment_Method.getSelectionModel().select(e.getPayment_Method());
              TxtCategory.getSelectionModel().select(e.getCategory());
              TxtFrequency.getSelectionModel().select(e.getFrequency());
-             LabSuc.setVisible(true);
-             LabSuc.setText(Integer.toString(e.getCod_Expense()));
+             
                                                 }
                                            }); 
             return row;

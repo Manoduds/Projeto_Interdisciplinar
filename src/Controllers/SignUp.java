@@ -76,22 +76,20 @@ public class SignUp implements Initializable {
     //Datepicker
     @FXML
     private DatePicker TxtBirthDate;
+  
    //RadioButtons
     @FXML
     private  RadioButton TxtM;
     @FXML
     private RadioButton TxtF;
     
-    @FXML
-    private ImageView IMGView;
-    @FXML
-    private File IMGF;
     final ToggleGroup group = new ToggleGroup();
     /**
      * Initializes the controller class.
      */
  
     public void initialize(URL url, ResourceBundle rb) {
+        //Criar o grupo de botões, e esconder as menssagens de erro.
         TxtM.setToggleGroup(group);
         TxtF.setToggleGroup(group);
         ErrName.setVisible(false);
@@ -109,6 +107,7 @@ public class SignUp implements Initializable {
      */
     @FXML
     private void NameCheck(ActionEvent event) throws IOException{
+        //validação do nome do usuário, verificando se o nome está em uso ou não.
         String Name;
         boolean result;
         PrjIdBO b = new PrjIdBO();
@@ -133,6 +132,7 @@ public class SignUp implements Initializable {
     
     @FXML
     private void EmailCheck(ActionEvent event) throws IOException{
+        //Validação do email, verificando se não tem um no banco de dados ou se é válido.
         String Email;
         boolean result;
         PrjIdBO b = new PrjIdBO();
@@ -161,6 +161,7 @@ public class SignUp implements Initializable {
   }
   @FXML
   private void UserCheck(ActionEvent event) throws IOException{
+      //Validação do usuário, verificando se não tem um igual no banco de dados.
         String User;
         boolean result;
         PrjIdBO b = new PrjIdBO();
@@ -185,6 +186,7 @@ public class SignUp implements Initializable {
   
   @FXML
   private void PassCheck(ActionEvent event) throws IOException{
+      //validação do campo senha, verificando se a senha é curta demais, e se a senha é diferente do campo 'repetir senha'
       String Pass = TxtPassword.getText();
       String RepPass = TxtRepeatPassword.getText();
       if(Pass.length()<3){
@@ -206,6 +208,7 @@ public class SignUp implements Initializable {
   
   @FXML
   private void PassRepCheck(ActionEvent event) throws IOException{
+      //Validação do campo 'repetir senha'
        String Pass = TxtPassword.getText();
       String RepPass = TxtRepeatPassword.getText();
          if(!Pass.equals(RepPass) && RepPass != null){
@@ -217,10 +220,13 @@ public class SignUp implements Initializable {
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
+    /*
+        Salva o usuário no banco de dados, após verificar se a senha repetida é igual a senha normal, e validação dos campos do sexo do usuário.
+    */
+        
         system_user u = new system_user();
-        PrjIdBO b = new PrjIdBO();          
-        u.setUser_name(TxtName.getText()); 
-    
+        PrjIdBO b = new PrjIdBO();      
+        u.setUser_name(TxtName.getText());
         u.setEmail(TxtEmail.getText());
         u.setU_Name(TxtUser.getText());
         if(TxtBirthDate.getValue() != null){
@@ -261,22 +267,13 @@ public class SignUp implements Initializable {
     }
     
     
-   @FXML
-    public void imagepicker(ActionEvent t) throws IOException{
-       FileChooser filechooser = new FileChooser();
-    IMGF = filechooser.showOpenDialog(null);
-    if (IMGF != null) {
-      BufferedImage bufferedImage = ImageIO.read(IMGF);
-      WritableImage image = SwingFXUtils.toFXImage(bufferedImage, null);
-      IMGView.setImage(image);
-    }
-    
-    }
-    
     
     @FXML
     private void BtnHome(ActionEvent event) throws IOException 
     {
+        /*
+        Função para mudar de tela.
+        */
         Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
         Scene scene = new Scene(Login_Parent);
         Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

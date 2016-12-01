@@ -10,8 +10,7 @@
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Reports">
    <children>
       <Button id="BtnMain" fx:id="BtnMain" focusTraversable="false" layoutX="458.0" layoutY="551.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="35.0" prefWidth="85.0" text="Voltar" />
-      <ComboBox id="TxtInterval" fx:id="TxtInterval" focusTraversable="false" layoutX="426.0" layoutY="14.0" onAction="#FillBar" prefWidth="150.0" promptText="Intervalo" />
-      <DatePicker id="TxtDate" fx:id="TxtDate" layoutX="426.0" layoutY="57.0" prefHeight="35.0" prefWidth="150.0" promptText="Data do gasto" />
+      <DatePicker id="TxtDate" fx:id="TxtDate1" layoutX="258.0" layoutY="65.0" onAction="#FillBar" prefHeight="35.0" prefWidth="150.0" promptText="Dia inicial" />
       <BarChart fx:id="RepBar" layoutX="147.0" layoutY="100.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
@@ -20,5 +19,8 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
+      <DatePicker id="TxtDate" fx:id="TxtDate2" layoutX="487.0" layoutY="65.0" onAction="#FillBar" prefHeight="35.0" prefWidth="150.0" promptText="Dia final" />
+      <Label fx:id="TxtAte" layoutX="430.0" layoutY="74.0" text="até" />
+      <Label fx:id="TxtWarn" layoutX="394.0" layoutY="28.0" text="Label" />
    </children>
 </AnchorPane>

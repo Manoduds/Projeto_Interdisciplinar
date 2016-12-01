@@ -201,7 +201,7 @@ public class Main implements Initializable {
   
     Date date = new Date();
     date.setYear(date.getYear()-1);
-        ObservableList<PieChart.Data> pieChartData = b.getPie(dateFormat.format(date));
+        ObservableList<PieChart.Data> pieChartData = b.getPie(date);
     System.out.println(dateFormat.format(date));
 
         PieYearReport.setData(pieChartData);
@@ -214,7 +214,7 @@ public class Main implements Initializable {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
         date.setMonth(date.getMonth()-1);
-        ObservableList<PieChart.Data> pieChartData = b.getPie(dateFormat.format(date));
+        ObservableList<PieChart.Data> pieChartData = b.getPie(date);
         System.out.println(dateFormat.format(date));
         PieMonthReport.setData(pieChartData);
         PieMonthReport.setTitle("Gastos Mensais");   
@@ -222,6 +222,11 @@ public class Main implements Initializable {
       
      
     private void FillLink(){
+        
+    /* Obtém o código RSS baseado no valor de categorias, e preenche cada um dos
+    hyperlinks com o titulo ou link. Caso acontecer um erro(Rede desconnectada)
+    Os labels não aparecerão, e mostrará um aviso ao usuário.
+    */
         try {
             this.RSSLinks = new Hyperlink[]{
                 RSSLink,
@@ -231,9 +236,11 @@ public class Main implements Initializable {
                 RSSLink4,
                 RSSLink5
             };
+            for(int i = 0; i<6; i++){
+                RSSLinks[i].setVisible(false);
+            }
             PrjIdBO b = new PrjIdBO();
             r = b.getRSS();
-            System.out.println(r.getURL());
             final String title[] = readRSS(r.getURL(),"title>");
             final String Link[] = readRSS(r.getURL(),"link>");
 
@@ -255,15 +262,18 @@ public class Main implements Initializable {
                     }
                 
                 });
-              
+              RSS.setVisible(true);
             }
         } catch (IOException ex) {
+          RSSLinks[0].setVisible(true);
+          RSSLinks[0].setText("Você está desconnectado, e portanto, não poderá receber feeds até se reconnectar");
           Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
          
     }
       
     private String[] readRSS(String urlAddress, String Line) throws IOException{
+    //Utilizando o endereço do RSS, essa função lê as ultimas 6 notícias, retornando o título e o link.
     URL rssUrl = new URL(urlAddress);
     BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
     int limit = 0;
@@ -284,12 +294,21 @@ public class Main implements Initializable {
             r++;
         }
     }
-    
+   
     return result;
     }
-    
-     
-    
+   
+      
+     @FXML
+    private void  BtnLogoff(ActionEvent event) throws IOException 
+    {
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();
+    }
  }
 
 

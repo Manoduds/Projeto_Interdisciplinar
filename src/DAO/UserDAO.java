@@ -28,6 +28,7 @@ public class UserDAO {
     
         public void SaveUser(system_user u) 
     {
+        //Insere o novo usuário no banco de dados, validação feita nas outras funções.
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
@@ -49,11 +50,12 @@ public class UserDAO {
     
     public boolean compareUser(system_user u)
     {
+        //Pesquisa se tem uma combinação de senha e username enviada, e retorna valor 'false' e 'true' baseado no resultado.
         boolean rs = false;  
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
-            ("SELECT User_Name FROM system_user WHERE User_name = ? AND User_Password = ?");
+            ("SELECT * FROM system_user WHERE User_name = ? AND User_Password = ?");
             ppStmt.setString(1, u.getU_Name());
             ppStmt.setString(2, u.getUser_Password());          
             rs =   ppStmt.execute();
@@ -88,7 +90,7 @@ public class UserDAO {
     
         
     public void UpdateUser(system_user u) {
-      
+      //Dá update ao Usuário com o mesmo Cod_User que a sessão.
         try
         {
             PreparedStatement ppStmt = conn.prepareStatement
@@ -109,7 +111,9 @@ public class UserDAO {
         }
     }
     
-    public void DeleteUser() {
+    public void DeleteUser() 
+    {
+//Deleta o Usuário, junto com todos os gastos relacionado a ele.
       try{
             PreparedStatement ppStmt = conn.prepareStatement
            ("DELETE Expense WHERE Cod_User = ?");
@@ -129,6 +133,7 @@ public class UserDAO {
     }
     
     public boolean VerifyName(String Name) {
+        //Verifica se já existe um usuário com o mesmo nome no banco de dados.
         boolean result = false;
         try{
             PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE User_Name = ?");
@@ -152,6 +157,7 @@ public class UserDAO {
     }
     
     public boolean VerifyEmail(String Email) {
+        //Verfica se o E-mail inserido já está sendo usado no banco de dados.
         boolean result = false;
         try{
             PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE Email = ?");
@@ -175,6 +181,7 @@ public class UserDAO {
     }
     
     public boolean VerifyUser(String Username) {
+        //Verifica se já existe um Username no banco de dados com o mesmo UserName inserido.
           boolean result = false;
       try{
             PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE U_Name = ?");

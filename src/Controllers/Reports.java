@@ -8,6 +8,8 @@ package Controllers;
 import BO.PrjIdBO;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -25,6 +27,7 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -38,24 +41,60 @@ public class Reports implements Initializable {
     
     @FXML
     private BarChart<String, Number> RepBar;
-
     @FXML 
-    private ComboBox TxtInterval;
-
+    private Label TxtWarn;
     @FXML
-    private DatePicker TxtInterval_Date;
+    private DatePicker TxtDate1;
+    @FXML
+    private DatePicker TxtDate2;
+    @FXML
+    private Label TxtAte;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {        
-    TxtInterval.getItems().removeAll(TxtInterval.getItems());
-    TxtInterval.getItems().addAll("Diário", "Mensal", "Anual");
+        TxtWarn.setVisible(false);
+        TxtDate2.setVisible(false);
+        TxtAte.setVisible(false);
     FillBar();
     }      
     
     @FXML
+    private void Datecheck(){
+        if(TxtDate1.getValue() == null){
+            TxtDate2.setVisible(false);
+            TxtDate2.setValue(null);
+            TxtAte.setVisible(false);
+        }
+        else{
+            TxtDate2.setVisible(true);
+            TxtAte.setVisible(false);
+        }
+    }
+    @FXML
       private void FillBar() {
+          
+          //Dependendo se o TxtDate2 e TxtDate1 estão 
           PrjIdBO b = new PrjIdBO();
-              ObservableList<XYChart.Series<String, Number>> BarData = b.AddBarData();
+      
+            ObservableList<XYChart.Series<String, Number>> BarData = null;
+          if(TxtDate1.getValue() == null && TxtDate2.getValue() == null){
+           BarData = b.AddBarData();
+          }
+          else{
+              if(TxtDate1.getValue() != null && TxtDate2.getValue() != null){
+                BarData = b.AddBarData(Date.valueOf( TxtDate1.getValue()),Date.valueOf( TxtDate2.getValue()));
+              }
+              else{
+                  if(TxtDate1.getValue()!= null){
+                       BarData = b.AddBarData(Date.valueOf( TxtDate1.getValue()));
+                       TxtWarn.setVisible(false);
+                  }
+                  else{
+                      TxtWarn.setVisible(true);
+                     
+                  }
+              }
+          }
            RepBar.setData(BarData);
            RepBar.setTitle("Reportagem de gastos");
     } 

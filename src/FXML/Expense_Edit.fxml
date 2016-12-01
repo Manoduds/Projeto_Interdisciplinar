@@ -35,8 +35,10 @@
                </columns></TableColumn>
         </columns>
       </TableView>
-      <DatePicker id="TxtMonthExpense" fx:id="TxtMonthExpense" layoutX="185.0" layoutY="35.0" promptText="Escolha o mês" />
       <Button id="BtnSave" fx:id="BtnSave" layoutX="678.0" layoutY="443.0" mnemonicParsing="false" onAction="#BtnSave" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
-      <Label fx:id="LabSuc" layoutX="678.0" layoutY="77.0" text="Sucesso" />
+      <Label fx:id="LabSuccess" layoutX="678.0" layoutY="77.0" text="Sucesso" />
+      <DatePicker fx:id="TxtDate1" layoutX="81.0" layoutY="27.0" onAction="#CheckDate" />
+      <DatePicker fx:id="TxtDate2" layoutX="300.0" layoutY="27.0" onAction="#preencherTable" />
+      <Label fx:id="TxtAte" layoutX="269.0" layoutY="36.0" text="Ate" />
    </children>
 </AnchorPane>

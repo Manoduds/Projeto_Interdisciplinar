@@ -29,6 +29,7 @@ import objects.system_user;
  * @author paulo
  */
 public class PrjIdBO {
+   
     DAO.ExpenseDAO de = new ExpenseDAO();
     DAO.UserDAO du = new UserDAO();
     
@@ -60,7 +61,7 @@ public class PrjIdBO {
         
     }
     public boolean validateEmail(String Email) {
-      
+      //Validação do e-mail.
    boolean result = true;
    try {
       InternetAddress emailAddr = new InternetAddress(Email);
@@ -106,8 +107,8 @@ public class PrjIdBO {
        de.DeleteExpense(e);
     }
 
-    public ObservableList<PieChart.Data> getPie(String dat) {
-       
+    public ObservableList<PieChart.Data> getPie(Date dat) {
+       //verifica a porcentagem de cada gasto entre a data atual e a data inserida.
         float total = de.countexpense("*",dat);
         float al = (de.countexpense("Alimentaçao",dat)*100/total);
         float laz = (de.countexpense("Lazer",dat)*100/total);
@@ -128,7 +129,7 @@ public class PrjIdBO {
     }
     
       public ObservableList<Series<String,Number>>AddBarData() {
-         
+         //verifica o valor de cada gasto, sem se preocupar com o período.
         ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
                 
         Series<String,Number> SeriesA = new Series<>();
@@ -149,9 +150,34 @@ public class PrjIdBO {
         
         return Chart;
       }
-
-         public ObservableList<Series<String,Number>>AddBarData(String dat1, String dat2) {
+      
+      
+ public ObservableList<Series<String,Number>>AddBarData(Date dat) {
+         //verifica o valor de cada gasto, sem se preocupar com o período.
+        ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
+                
+        Series<String,Number> SeriesA = new Series<>();
          
+        float al = (de.countexpense("Alimentaçao",dat));
+        float laz = (de.countexpense("Lazer",dat));
+        float Mor = (de.countexpense("Moradia",dat));
+        float Tran = (de.countexpense("Transporte",dat));
+        float Outros = (de.countexpense("Outros"));
+        
+        SeriesA.getData().add(new XYChart.Data("Alimentação", al));
+        SeriesA.getData().add(new XYChart.Data("Lazer", laz));
+        SeriesA.getData().add(new XYChart.Data("Moradia", Mor));
+        SeriesA.getData().add(new XYChart.Data("Transporte", Tran));
+        SeriesA.getData().add(new XYChart.Data("Outros", Outros));
+        
+        Chart.addAll(SeriesA);
+        
+        return Chart;
+      }
+ 
+ 
+    public ObservableList<Series<String,Number>>AddBarData(Date dat1, Date dat2) {
+         //Verifica o valor de cada gasto durante o periodo inserido.
         ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
                 
         Series<String,Number> SeriesA = new Series<>();
@@ -171,9 +197,14 @@ public class PrjIdBO {
         Chart.addAll(SeriesA);
         
         return Chart;
-      }
+    }
          
     public RSSFeed getRSS() {
+        /*
+        
+        verifica qual é o maior valor em gastos, e retorna RSS relacionado 
+        a esse valor
+        */
       float al = (de.countexpense("Alimentaçao"));
       float laz = (de.countexpense("Lazer"));
       float Mor = (de.countexpense("Moradia"));
