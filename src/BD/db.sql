@@ -1,14 +1,12 @@
-DROP DATABASE db;
+DROP DATABASE IF EXISTS db;
 
 CREATE DATABASE db;
 
 USE db;
 
-
-
 CREATE TABLE System_User(
 
- Cod_User INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+Cod_User INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 User_Name VARCHAR(20) UNIQUE NOT NULL,
 User_Password VARCHAR(20) NOT NULL,
 U_Name VARCHAR(50) NOT NULL,
@@ -17,21 +15,14 @@ birthdate DATE NOT NULL,
 Sex VARCHAR(1) NOT NULL
 );
 
-
-
 CREATE TABLE Establishment(
 Cod_Establishment int AUTO_INCREMENT PRIMARY KEY,
 E_Name VARCHAR(50) NOT NULL,
-
 Nature VARCHAR(50) NOT NULL,
-
 City VARCHAR(50) NOT NULL,
-
 State VARCHAR(2) NOT NULL,
-
 Country VARCHAR(50) NOT NULL
 );
-
 
 CREATE TABLE RSS(
 Cod_RSS int AUTO_INCREMENT PRIMARY KEY,
@@ -40,10 +31,7 @@ Category VARCHAR(50) NOT NULL,
 URL VARCHAR(2083) NOT NULL
 );
 
-
-
 CREATE TABLE Expense(
-
 
 Cod_Expense int AUTO_INCREMENT PRIMARY KEY,
 Cod_User int,
@@ -59,8 +47,6 @@ Date DATETIME,
 Nature VARCHAR(50) NOT NULL,
 FOREIGN KEY (Cod_User) REFERENCES Users(Cod_User)
 );
-
-
 
 CREATE TABLE Profile(
 
@@ -79,25 +65,12 @@ FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
 
-
-
-CREATE TABLE RSS(
-Cod_RSS int AUTO_INCREMENT PRIMARY KEY,
-RSS_Name VARCHAR(50) NOT NULL,
-Category VARCHAR(50) NOT NULL,
-URL VARCHAR(2083) NOT NULL
-);
-
 INSERT INTO RSS(RSS_Name, Category, URL) values ('atWar', 'Outros', 'http://atwar.blogs.nytimes.com/feed/');
 INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Transporte', 'http://intransit.blogs.nytimes.com/feed/');
 INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Lazer', 'http://intransit.blogs.nytimes.com/feed/');
 INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Moradia', 'http://intransit.blogs.nytimes.com/feed/');
 INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Alimentação', 'http://intransit.blogs.nytimes.com/feed/');
 
-
-    TxtCategory.getItems().addAll("Alimentação", "Lazer", "Moradia", "Transporte", "Outros");
-
-http://intransit.blogs.nytimes.com/feed/
 INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values('Mano','slim','pauloeduardomf@gmail.com','1997-11-16','M','Mano');
 
 INSERT INTO expense(Cod_User, Establishment_Name,Description,Price,Payment_Method,Frequency,State,Category,City,Date,Nature) values

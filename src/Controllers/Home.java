@@ -6,6 +6,7 @@
 package Controllers;
 
 import BO.PrjIdBO;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -23,6 +24,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import objects.Expense;
 import objects.system_user;
@@ -36,7 +39,11 @@ public class Home implements Initializable {
 
     /**
      * Initializes the controller class.
-     */
+     */ 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {    
+        
+    }
   
   @FXML
     private void BtnLogin(ActionEvent event) throws IOException
@@ -58,16 +65,5 @@ public class Home implements Initializable {
         app_stage.setScene(scene);
         app_stage.centerOnScreen();
         app_stage.show();
-    }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-       
-    }    
-   
-        
+    }   
 }
-    
-
-

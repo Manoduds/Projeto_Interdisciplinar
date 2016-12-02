@@ -171,11 +171,11 @@ public class Main implements Initializable {
     private void BtnReports(ActionEvent event) throws IOException 
     {
        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Reports.fxml"));        
-        Scene scene = new Scene(Login_Parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.centerOnScreen();
-        app_stage.show();   
+       Scene scene = new Scene(Login_Parent);
+       Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+       app_stage.setScene(scene);
+       app_stage.centerOnScreen();
+       app_stage.show();   
     }
 
     public void preencherTable()
@@ -186,30 +186,24 @@ public class Main implements Initializable {
         columnDesc.setCellValueFactory(new PropertyValueFactory<>("Description"));
         columnDate.setCellValueFactory(new PropertyValueFactory<>("Date"));
         columnEstablishment.setCellValueFactory(new PropertyValueFactory<>("Establishment_Name"));
-        columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));
-        
+        columnCategory.setCellValueFactory(new PropertyValueFactory<>("Category"));        
         TableExpenses.setItems(null);
         TableExpenses.setItems( data);
-    }
-    
-    
-    
+    }   
      
-    private void FillYearPie() {
+    private void FillYearPie() 
+    {
         PrjIdBO b = new PrjIdBO();
-            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
-  
-    Date date = new Date();
-    date.setYear(date.getYear()-1);
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");  
+        Date date = new Date();
+        date.setYear(date.getYear()-1);
         ObservableList<PieChart.Data> pieChartData = b.getPie(date);
-    System.out.println(dateFormat.format(date));
-
+        System.out.println(dateFormat.format(date));
         PieYearReport.setData(pieChartData);
-        PieYearReport.setTitle("Gastos anuais");
-
-        
+        PieYearReport.setTitle("Gastos anuais");        
     }
-      private void FillMonthPie() {
+    private void FillMonthPie() 
+    {
         PrjIdBO b = new PrjIdBO();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
         Date date = new Date();
@@ -218,8 +212,7 @@ public class Main implements Initializable {
         System.out.println(dateFormat.format(date));
         PieMonthReport.setData(pieChartData);
         PieMonthReport.setTitle("Gastos Mensais");   
-      }
-      
+    }      
      
     private void FillLink(){
         
