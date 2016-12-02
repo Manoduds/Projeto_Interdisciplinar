@@ -40,8 +40,8 @@ public class PrjIdBO {
 
     public boolean compareUser(system_user u) 
     {      
-        boolean rs = du.compareUser(u);
-        return rs;
+    
+        return du.compareUser(u);
     }
     
     public int selectUser(system_user u) {

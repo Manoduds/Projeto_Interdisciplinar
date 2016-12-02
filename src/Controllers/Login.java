@@ -45,31 +45,34 @@ public class Login implements Initializable {
     private void BtnLogin(ActionEvent event) throws IOException 
     {
      /*
-        Eu utilizei um 'if' para verificarse tem um usuário com a mesma senha e 
+        Eu utilizei um 'if' para verificar se tem um usuário com a mesma senha e 
         Username no banco de dados, e se a combinação for válida, salva o Cod_User
         e também muda a tela para a principal.
         */
         system_user u = new system_user();
         PrjIdBO b = new PrjIdBO();
         u.setU_Name(TxtUser.getText());
-          u.setUser_Password(TxtPassword.getText());
-         boolean rs = b.compareUser(u);
+        u.setUser_Password(TxtPassword.getText());
+        boolean rs = b.compareUser(u);
         
-        if( rs = true){
+        if( rs == true){
        
-        session =  b.selectUser(u);
-        if(session != 0){
-        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
-        Scene scene = new Scene(Login_Parent);
-        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        app_stage.setScene(scene);
-        app_stage.centerOnScreen();
-        app_stage.show();   
+            session =  b.selectUser(u);
+            if(session != 0){
+                Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
+                Scene scene = new Scene(Login_Parent);
+                Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                app_stage.setScene(scene);
+                app_stage.centerOnScreen();
+                app_stage.show();   
+        }
+            else{
+                LabelWarn.setVisible(true);
+            }
         }
         else{
             LabelWarn.setVisible(true);
         }
-    }
        
     }
     

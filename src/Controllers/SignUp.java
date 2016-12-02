@@ -58,8 +58,6 @@ public class SignUp implements Initializable {
     @FXML
     private Label ErrSexo;
     @FXML
-    private Label ErrRepPass;
-    @FXML
     private Label ErrDate;
    
     //TextFields
@@ -83,21 +81,20 @@ public class SignUp implements Initializable {
     @FXML
     private RadioButton TxtF;
     
-    final ToggleGroup group = new ToggleGroup();
+    final ToggleGroup sexo = new ToggleGroup();
     /**
      * Initializes the controller class.
      */
  
     public void initialize(URL url, ResourceBundle rb) {
         //Criar o grupo de botões, e esconder as menssagens de erro.
-        TxtM.setToggleGroup(group);
-        TxtF.setToggleGroup(group);
+        TxtM.setToggleGroup(sexo);
+        TxtF.setToggleGroup(sexo);
         ErrName.setVisible(false);
         ErrEmail.setVisible(false);
         ErrDate.setVisible(false);
         ErrUser.setVisible(false);
         ErrPass.setVisible(false);
-        ErrRepPass.setVisible(false);
         ErrSexo.setVisible(false);
     }    
         /**
@@ -106,168 +103,194 @@ public class SignUp implements Initializable {
      * @param dialogStage
      */
     @FXML
-    private void NameCheck(ActionEvent event) throws IOException{
+    private boolean NameCheck() throws IOException{
         //validação do nome do usuário, verificando se o nome está em uso ou não.
         String Name;
         boolean result;
         PrjIdBO b = new PrjIdBO();
         Name = TxtName.getText();
    
-        if(Name != null){
+        if(!"".equals(TxtName.getText())){
          result = b.VerifyName(Name);
-            if(result = true){
+            if(result != true){
                 ErrName.setVisible(true);
                 ErrName.setText("Esse nome já está em uso!");
+                result = false;
             }
             else{
                 ErrName.setVisible(false);
-            }
+                result = true;
+            
+        }
         }
         else{
             ErrName.setVisible(true);
             ErrName.setText("Esse campo é obrigatório");
+            result = false;
         }
-  }
-    
+        return result;
+        
+    }
     
     @FXML
-    private void EmailCheck(ActionEvent event) throws IOException{
+    private boolean EmailCheck() throws IOException{
         //Validação do email, verificando se não tem um no banco de dados ou se é válido.
         String Email;
-        boolean result;
+        boolean Check = false;
+        boolean result = false;
         PrjIdBO b = new PrjIdBO();
         Email = TxtEmail.getText();
    
         if(Email != null){
-         result = b.VerifyEmail(Email);
-            if(result = true){
+         Check = b.VerifyEmail(Email);
+            if(Check == true){
                 ErrEmail.setText("Esse email já está em uso!");
+                result = false;
             }
-            if(result = false){
-                result = b.validateEmail(Email);
-                if(result = false){
+            if(result == false){
+                Check = b.validateEmail(Email);
+                if(Check == false){
                     ErrEmail.setVisible(true);
                     ErrEmail.setText("Esse email é invalido");
+                    result = false;
                 }
                 else{
                     ErrEmail.setVisible(false);
+                    result = true;
                 }
             }
+           
         }
         else{
             ErrEmail.setVisible(true);
             ErrEmail.setText("Esse campo é obrigatório");
         }
+        return result;
   }
+    
   @FXML
-  private void UserCheck(ActionEvent event) throws IOException{
+  private boolean UserCheck() throws IOException{
       //Validação do usuário, verificando se não tem um igual no banco de dados.
-        String User;
         boolean result;
         PrjIdBO b = new PrjIdBO();
-        User = TxtUser.getText();
-   
-        if(User != null){
-         result = b.VerifyUser(User);
-            if(result = true){
-                ErrUser.setText("Esse usuário já está em uso!");
+        if(!"".equals(TxtUser.getText())){
+  
+            if(b.VerifyUser(TxtUser.getText()) == true){
+                 ErrUser.setText("Esse usuário já está em uso!");
                  ErrUser.setVisible(true);
+                 result = false;
             }
             else{
                 ErrUser.setVisible(false);
+                result = true;
             }
         }
         else{
             ErrUser.setVisible(true);
             ErrUser.setText("Esse campo é obrigatório");
+            result = false;
         }
-      
+      return result;
   }
   
   @FXML
-  private void PassCheck(ActionEvent event) throws IOException{
+  private boolean PassCheck() throws IOException{
       //validação do campo senha, verificando se a senha é curta demais, e se a senha é diferente do campo 'repetir senha'
       String Pass = TxtPassword.getText();
       String RepPass = TxtRepeatPassword.getText();
+      boolean result;
       if(Pass.length()<3){
           ErrPass.setVisible(true);
           ErrPass.setText("A senha precisa ter no mínimo 4 caracteres");
+          result = false;
       }
       else{
            ErrPass.setVisible(false);
           if(!Pass.equals(RepPass) && RepPass != null){     
-             ErrRepPass.setVisible(true);
-             ErrRepPass.setText("As senhas precisam ser iguais");
+             ErrPass.setVisible(true);
+             ErrPass.setText("As senhas precisam ser iguais");
+             result = false;
           }
           else{
-              ErrRepPass.setVisible(false);
-             
+              ErrPass.setVisible(false);
+             result = true;
           }
       }
+      return result;
   }
   
-  @FXML
-  private void PassRepCheck(ActionEvent event) throws IOException{
-      //Validação do campo 'repetir senha'
-       String Pass = TxtPassword.getText();
-      String RepPass = TxtRepeatPassword.getText();
-         if(!Pass.equals(RepPass) && RepPass != null){
-             ErrRepPass.setVisible(true);
-             ErrRepPass.setText("As senhas precisam ser iguais");
-          }
-      
-  }
+ 
     @FXML
     private void BtnLogin(ActionEvent event) throws IOException 
     {
     /*
         Salva o usuário no banco de dados, após verificar se a senha repetida é igual a senha normal, e validação dos campos do sexo do usuário.
     */
-        
+        boolean exe = true;
         system_user u = new system_user();
-        PrjIdBO b = new PrjIdBO();      
+        PrjIdBO b = new PrjIdBO(); 
+        if(NameCheck() == true){
         u.setUser_name(TxtName.getText());
+        }
+        else{
+            exe = false;
+        }
+        if(EmailCheck() == true ){
         u.setEmail(TxtEmail.getText());
-        u.setU_Name(TxtUser.getText());
+        }
+        else{
+            exe = false;
+        }
+        if(UserCheck() == true){
+            u.setU_Name(TxtUser.getText());
+        }
+        else{
+            exe = false;
+        }
         if(TxtBirthDate.getValue() != null){
         u.setBirthdate( TxtBirthDate.getValue());
+        ErrDate.setVisible(false);
+        }
+        else{
+         exe = false;
+         ErrDate.setVisible(true);
+         ErrDate.setText("Voce precisa escolher um dia!");
+        }
         
-            if( TxtRepeatPassword.getText() == null ? TxtPassword.getText() == null : TxtRepeatPassword.getText().equals(TxtPassword.getText()))
-            {       
-                u.setUser_Password(TxtPassword.getText());
-                if(TxtF != null || TxtM != null){
-                   if(TxtM != null)
-                    {
-                       u.setSex("M");
-                    }
-                    else
-                    {
-                        u.setSex("F");
-                    }
-                    b.SaveUser(u);
-                    Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
-                    Scene scene = new Scene(Login_Parent);
-                    Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    app_stage.setScene(scene);
-                    app_stage.centerOnScreen();
-                    app_stage.show();
-                
-                }
-                else{
-                ErrSexo.setVisible(true);
-                ErrSexo.setText("Você precisa declarar seu sexo!");
-                }
+        if(PassCheck() == true){    
+            u.setUser_Password(TxtPassword.getText());
+        }
+        
+        if(sexo.getSelectedToggle()!= null){
+            if(sexo.getSelectedToggle() == TxtM)
+            {
+                u.setSex("M");
+                ErrSexo.setVisible(false);
+            }
+            else               
+            {
+                u.setSex("F");
+                ErrSexo.setVisible(false);
+
             }
         }
         else{
-            ErrDate.setVisible(true);
-            ErrDate.setText("Voce precisa escolher um dia!");
+        ErrSexo.setVisible(true);
+        ErrSexo.setText("Você precisa declarar seu sexo!");
+        exe = false;
         }
-     
+        
+        if(exe == true){
+        b.SaveUser(u);
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Home.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();
+        }
     }
-    
-    
-    
+           
     @FXML
     private void BtnHome(ActionEvent event) throws IOException 
     {
