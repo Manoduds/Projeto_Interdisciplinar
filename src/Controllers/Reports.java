@@ -41,8 +41,7 @@ public class Reports implements Initializable {
     
     @FXML
     private BarChart<String, Number> RepBar;
-    @FXML 
-    private Label TxtWarn;
+
     @FXML
     private DatePicker TxtDate1;
     @FXML
@@ -52,14 +51,14 @@ public class Reports implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {        
-        TxtWarn.setVisible(false);
+      
         TxtDate2.setVisible(false);
         TxtAte.setVisible(false);
     FillBar();
     }      
     
     @FXML
-    private void Datecheck(){
+    private void DateCheck(){
         if(TxtDate1.getValue() == null){
             TxtDate2.setVisible(false);
             TxtDate2.setValue(null);
@@ -68,6 +67,7 @@ public class Reports implements Initializable {
         else{
             TxtDate2.setVisible(true);
             TxtAte.setVisible(false);
+            FillBar();
         }
     }
     @FXML
@@ -82,18 +82,9 @@ public class Reports implements Initializable {
           }
           else{
               if(TxtDate1.getValue() != null && TxtDate2.getValue() != null){
-                BarData = b.AddBarData(Date.valueOf( TxtDate1.getValue()),Date.valueOf( TxtDate2.getValue()));
+                BarData = b.AddBarData(Date.valueOf(TxtDate1.getValue()),Date.valueOf( TxtDate2.getValue()));
               }
-              else{
-                  if(TxtDate1.getValue()!= null){
-                       BarData = b.AddBarData(Date.valueOf( TxtDate1.getValue()));
-                       TxtWarn.setVisible(false);
-                  }
-                  else{
-                      TxtWarn.setVisible(true);
-                     
-                  }
-              }
+         
           }
            RepBar.setData(BarData);
            RepBar.setTitle("Reportagem de gastos");

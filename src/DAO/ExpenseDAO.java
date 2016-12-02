@@ -95,6 +95,42 @@ public class ExpenseDAO {
         return data;
     }
     
+     public ObservableList<Expense> FillTable(Date Dat) {
+        //Preenche a tabela com todos os gastos.
+        ObservableList<Expense> data = FXCollections.observableArrayList();
+        try
+        {
+        String SQL = ("Select * FROM Expense WHERE Date between '"+ Dat + "' AND curdate() AND Cod_User ="+ Login.session);            
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+           while(rs.next()){
+             data.add(buscarExp(rs));   
+            }  
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return data;
+    }
+    
+      public ObservableList<Expense> FillTable(Date Dat1, Date Dat2) {
+        //Preenche a tabela com todos os gastos.
+        ObservableList<Expense> data = FXCollections.observableArrayList();
+        try
+        {
+        String SQL = ("Select * FROM Expense WHERE Date between '"+ Dat1 + "' AND '"+ Dat2 +"' AND Cod_User ="+ Login.session);            
+        ResultSet rs = conn.createStatement().executeQuery(SQL);  
+           while(rs.next()){
+             data.add(buscarExp(rs));   
+            }  
+        }
+        catch(SQLException ex)
+        {
+            ex.printStackTrace();
+        }
+        return data;
+    }
+    
     public Expense getExpense(Expense e) {
        //Retorna todos os campos do Expense selecionado, baseado na primary key.
      try

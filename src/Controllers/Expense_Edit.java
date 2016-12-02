@@ -11,7 +11,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.time.Instant;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -108,8 +107,9 @@ public class Expense_Edit implements Initializable {
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
     LabSuccess.setVisible(false);
-    TxtDate1.setVisible(false);
+    TxtDate2.setVisible(false);
     TxtAte.setVisible(false);
+
     preencherTable();
     }    
     
@@ -142,7 +142,7 @@ public class Expense_Edit implements Initializable {
         
     
     @FXML
-    private void Datecheck(){
+    private void CheckDate(){
         if(TxtDate1.getValue() == null){
             TxtDate2.setVisible(false);
             TxtDate2.setValue(null);
@@ -251,17 +251,17 @@ public class Expense_Edit implements Initializable {
           }
           else{
               if(TxtDate1.getValue() != null && TxtDate2.getValue() != null){
-               data =  new PrjIdBO().buscarExpense();
+             
+               data =  new PrjIdBO().buscarExpense(Date.valueOf(TxtDate1.getValue()),Date.valueOf( TxtDate2.getValue()));
               }
               else{
                   if(TxtDate1.getValue()!= null){
-                       data =  new PrjIdBO().buscarExpense();
-                      
+                       data =  new PrjIdBO().buscarExpense(Date.valueOf(TxtDate1.getValue()));
                   }
-               
+                
               }
           }
-        data =  new PrjIdBO().buscarExpense();
+        
         Cod_col.setCellValueFactory(new PropertyValueFactory<>("Cod_Expense"));
         Cod_col.setVisible(false);
         columnPrice.setCellValueFactory(new PropertyValueFactory<>("Price"));

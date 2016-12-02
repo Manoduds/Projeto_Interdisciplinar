@@ -91,8 +91,11 @@ public class PrjIdBO {
        return de.FillTable();
     }
     
-    public ObservableList<Expense> buscarExpense(String dat){
-        return de.FillTable();
+    public ObservableList<Expense> buscarExpense(Date dat){
+        return de.FillTable(dat);
+    }
+      public ObservableList<Expense> buscarExpense(Date dat1, Date dat2){
+        return de.FillTable(dat1,dat2);
     }
 
     public Expense selectExpense(Expense e) {
@@ -152,28 +155,6 @@ public class PrjIdBO {
       }
       
       
- public ObservableList<Series<String,Number>>AddBarData(Date dat) {
-         //verifica o valor de cada gasto, sem se preocupar com o período.
-        ObservableList<Series<String,Number>> Chart = FXCollections.observableArrayList();
-                
-        Series<String,Number> SeriesA = new Series<>();
-         
-        float al = (de.countexpense("Alimentaçao",dat));
-        float laz = (de.countexpense("Lazer",dat));
-        float Mor = (de.countexpense("Moradia",dat));
-        float Tran = (de.countexpense("Transporte",dat));
-        float Outros = (de.countexpense("Outros"));
-        
-        SeriesA.getData().add(new XYChart.Data("Alimentação", al));
-        SeriesA.getData().add(new XYChart.Data("Lazer", laz));
-        SeriesA.getData().add(new XYChart.Data("Moradia", Mor));
-        SeriesA.getData().add(new XYChart.Data("Transporte", Tran));
-        SeriesA.getData().add(new XYChart.Data("Outros", Outros));
-        
-        Chart.addAll(SeriesA);
-        
-        return Chart;
-      }
  
  
     public ObservableList<Series<String,Number>>AddBarData(Date dat1, Date dat2) {
