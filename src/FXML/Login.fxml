@@ -15,5 +15,6 @@
       <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="402.0" layoutY="266.0" prefHeight="35.0" prefWidth="200.0" promptText="Senha" />
       <Hyperlink id="HLForgot" fx:id="HLForgot" alignment="CENTER" contentDisplay="CENTER" layoutX="402.0" layoutY="309.0" onAction="#HLForgot" prefHeight="23.0" prefWidth="200.0" text="Esqueci a senha ou usuário" textAlignment="CENTER" />
       <Label fx:id="LabelWarn" layoutX="393.0" layoutY="175.0" text="Combinação de Usuário e Senha inválida." textFill="#252525" />
+      <Label fx:id="FXLabel" alignment="CENTER" layoutX="26.0" layoutY="75.0" prefHeight="17.0" prefWidth="960.0" text="Login" />
     </children>
 </AnchorPane>

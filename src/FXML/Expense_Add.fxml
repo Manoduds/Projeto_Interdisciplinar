@@ -31,6 +31,7 @@
       <Label fx:id="ErrDat" layoutX="793.0" layoutY="303.0" text="ErrDat" />
       <Label fx:id="ErrCity" layoutX="793.0" layoutY="358.0" text="ErrCity" />
       <Label fx:id="ErrState" layoutX="796.0" layoutY="396.0" text="ErrState" />
-      <Label fx:id="LabSuc" layoutX="448.0" layoutY="99.0" text="Sucesso" />
+      <Label fx:id="LabSuc" layoutX="471.0" layoutY="111.0" text="Sucesso" />
+      <Label fx:id="FXLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="68.0" prefHeight="27.0" prefWidth="984.0" text="Adicionar Gasto" textAlignment="CENTER" />
    </children>
 </AnchorPane>

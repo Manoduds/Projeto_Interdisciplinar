@@ -9,20 +9,20 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Expense_Edit">
    <children>
-      <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="516.0" layoutY="250.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
-      <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="516.0" layoutY="121.0" prefHeight="117.0" prefWidth="200.0" promptText="Descrição" />
-      <ComboBox id="TxtPayment_Method" fx:id="TxtPayment_Method" focusTraversable="false" layoutX="741.0" layoutY="164.0" prefHeight="25.0" prefWidth="200.0" promptText="Forma de Pagamento" />
-      <ComboBox id="TxtFrequency" fx:id="TxtFrequency" focusTraversable="false" layoutX="741.0" layoutY="204.0" prefHeight="25.0" prefWidth="200.0" promptText="Frequência" />
-      <ComboBox id="TxtCategory" fx:id="TxtCategory" focusTraversable="false" layoutX="741.0" layoutY="123.0" prefHeight="25.0" prefWidth="200.0" promptText="Categoria" />
-      <DatePicker id="TxtExpense_Date" fx:id="TxtExpense_Date" focusTraversable="false" layoutX="741.0" layoutY="250.0" prefHeight="25.0" prefWidth="200.0" promptText="Data" />
-      <TextField id="TxtEstablishment_Name" fx:id="TxtEstablishment_Name" focusTraversable="false" layoutX="516.0" layoutY="298.0" prefHeight="25.0" prefWidth="200.0" promptText="Estabelecimento" />
-      <ComboBox id="TxtEstablishment_Nature" fx:id="TxtEstablishment_Nature" focusTraversable="false" layoutX="516.0" layoutY="342.0" prefHeight="25.0" prefWidth="200.0" promptText="Natureza" />
-      <TextField id="TxtCity" fx:id="TxtCity" focusTraversable="false" layoutX="741.0" layoutY="298.0" prefHeight="25.0" prefWidth="200.0" promptText="Cidade" />
-      <ComboBox id="TxtState" fx:id="TxtState" focusTraversable="false" layoutX="741.0" layoutY="342.0" prefHeight="25.0" prefWidth="200.0" promptText="Estado" />
-      <Button id="BtnClear" fx:id="BtnClear" layoutX="545.0" layoutY="469.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Limpar" />
-      <Button id="BtnMain" fx:id="BtnMain" layoutX="812.0" layoutY="469.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
-      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="678.0" layoutY="495.0" mnemonicParsing="false" onAction="#BtnExcluir" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
-      <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="59.0" layoutY="94.0" prefHeight="442.0" prefWidth="438.0">
+      <TextField id="TxtPrice" fx:id="TxtPrice" focusTraversable="false" layoutX="521.0" layoutY="314.0" prefHeight="25.0" prefWidth="200.0" promptText="Preço" />
+      <TextArea id="TxtDescription" fx:id="TxtDescription" focusTraversable="false" layoutX="521.0" layoutY="185.0" prefHeight="117.0" prefWidth="200.0" promptText="Descrição" />
+      <ComboBox id="TxtPayment_Method" fx:id="TxtPayment_Method" focusTraversable="false" layoutX="746.0" layoutY="228.0" prefHeight="25.0" prefWidth="200.0" promptText="Forma de Pagamento" />
+      <ComboBox id="TxtFrequency" fx:id="TxtFrequency" focusTraversable="false" layoutX="746.0" layoutY="268.0" prefHeight="25.0" prefWidth="200.0" promptText="Frequência" />
+      <ComboBox id="TxtCategory" fx:id="TxtCategory" focusTraversable="false" layoutX="746.0" layoutY="187.0" prefHeight="25.0" prefWidth="200.0" promptText="Categoria" />
+      <DatePicker id="TxtExpense_Date" fx:id="TxtExpense_Date" focusTraversable="false" layoutX="746.0" layoutY="314.0" prefHeight="25.0" prefWidth="200.0" promptText="Data" />
+      <TextField id="TxtEstablishment_Name" fx:id="TxtEstablishment_Name" focusTraversable="false" layoutX="521.0" layoutY="362.0" prefHeight="25.0" prefWidth="200.0" promptText="Estabelecimento" />
+      <ComboBox id="TxtEstablishment_Nature" fx:id="TxtEstablishment_Nature" focusTraversable="false" layoutX="521.0" layoutY="406.0" prefHeight="25.0" prefWidth="200.0" promptText="Natureza" />
+      <TextField id="TxtCity" fx:id="TxtCity" focusTraversable="false" layoutX="746.0" layoutY="362.0" prefHeight="25.0" prefWidth="200.0" promptText="Cidade" />
+      <ComboBox id="TxtState" fx:id="TxtState" focusTraversable="false" layoutX="746.0" layoutY="406.0" prefHeight="25.0" prefWidth="200.0" promptText="Estado" />
+      <Button id="BtnClear" fx:id="BtnClear" layoutX="538.0" layoutY="524.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="100.0" text="Limpar" />
+      <Button id="BtnMain" fx:id="BtnMain" layoutX="805.0" layoutY="524.0" mnemonicParsing="false" onAction="#BtnMain" prefHeight="36.0" prefWidth="100.0" text="Voltar" />
+      <Button id="BtnDelete" fx:id="BtnDelete" layoutX="671.0" layoutY="550.0" mnemonicParsing="false" onAction="#BtnExcluir" prefHeight="36.0" prefWidth="100.0" text="Excluir" />
+      <TableView id="TableExpenses" fx:id="TableExpenses" layoutX="59.0" layoutY="120.0" prefHeight="416.0" prefWidth="438.0">
         <columns>
           <TableColumn fx:id="columnDesc" prefWidth="75.0" text="Descrição" />
           <TableColumn fx:id="columnPrice" prefWidth="75.0" text="Preço" />
@@ -35,10 +35,12 @@
                </columns></TableColumn>
         </columns>
       </TableView>
-      <Button id="BtnSave" fx:id="BtnSave" layoutX="678.0" layoutY="443.0" mnemonicParsing="false" onAction="#BtnSave" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
+      <Button id="BtnSave" fx:id="BtnSave" layoutX="671.0" layoutY="498.0" mnemonicParsing="false" onAction="#BtnSave" prefHeight="36.0" prefWidth="100.0" text="Salvar" />
       <Label fx:id="LabSuccess" layoutX="678.0" layoutY="77.0" text="Sucesso" />
-      <DatePicker fx:id="TxtDate1" layoutX="81.0" layoutY="27.0" onAction="#CheckDate" />
-      <DatePicker fx:id="TxtDate2" layoutX="300.0" layoutY="27.0" onAction="#preencherTable" />
-      <Label fx:id="TxtAte" layoutX="269.0" layoutY="36.0" text="Ate" />
+      <DatePicker fx:id="TxtDate1" layoutX="519.0" layoutY="120.0" onAction="#CheckDate" prefHeight="35.0" prefWidth="200.0" />
+      <DatePicker fx:id="TxtDate2" layoutX="746.0" layoutY="120.0" onAction="#preencherTable" prefHeight="35.0" prefWidth="200.0" />
+      <Label fx:id="TxtAte" layoutX="579.0" layoutY="103.0" text="Data Inicial" />
+      <Label fx:id="FXLabel" alignment="CENTER" layoutX="10.0" layoutY="43.0" prefHeight="17.0" prefWidth="982.0" text="Alterar/Remover Gasto" />
+      <Label layoutX="820.0" layoutY="103.0" text="Data Final" />
    </children>
 </AnchorPane>

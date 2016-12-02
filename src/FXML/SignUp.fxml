@@ -12,23 +12,23 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUp">
    <children>
-      <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="158.0" onInputMethodTextChanged="#NameCheck" prefWidth="170.0" promptText="Nome" />
-      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="283.0" onInputMethodTextChanged="#UserCheck" prefWidth="170.0" promptText="Usuário" />
-      <Label focusTraversable="false" layoutX="445.0" layoutY="36.0" text="Cadastro de Usuário" />
-      <Button id="BtnLogin" fx:id="BtnLogin" focusTraversable="false" layoutX="426.0" layoutY="513.0" mnemonicParsing="false" onAction="#BtnLogin" text="Confirmar" />
-      <Button id="BtnHome" fx:id="BtnHome" focusTraversable="false" layoutX="506.0" layoutY="513.0" mnemonicParsing="false" onAction="#BtnHome" prefHeight="25.0" prefWidth="69.0" text="Voltar" />
-      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="316.0" onInputMethodTextChanged="#PassCheck" prefWidth="170.0" promptText="Senha" />
+      <TextField id="TxtName" fx:id="TxtName" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="155.0" onInputMethodTextChanged="#NameCheck" prefWidth="170.0" promptText="Nome" />
+      <TextField id="TxtUser" fx:id="TxtUser" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="273.0" onInputMethodTextChanged="#UserCheck" prefWidth="170.0" promptText="Usuário" />
+      <Label fx:id="FXLabel" alignment="CENTER" focusTraversable="false" layoutX="13.0" layoutY="36.0" prefHeight="27.0" prefWidth="976.0" text="Cadastro de Usuário" />
+      <Button id="BtnLogin" fx:id="BtnLogin" focusTraversable="false" layoutX="417.0" layoutY="513.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="35.0" prefWidth="80.0" text="Confirmar" />
+      <Button id="BtnHome" fx:id="BtnHome" focusTraversable="false" layoutX="515.0" layoutY="513.0" mnemonicParsing="false" onAction="#BtnHome" prefHeight="25.0" prefWidth="80.0" text="Voltar" />
+      <PasswordField id="TxtPassword" fx:id="TxtPassword" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="313.0" onInputMethodTextChanged="#PassCheck" prefWidth="170.0" promptText="Senha" />
       <PasswordField id="TxtRepeatPassword" fx:id="TxtRepeatPassword" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="353.0" onInputMethodTextChanged="#PassRepCheck" prefWidth="170.0" promptText="Repetir Senha" />
       <TextField id="TxtEmail" fx:id="TxtEmail" alignment="CENTER" focusTraversable="false" layoutX="421.0" layoutY="195.0" onInputMethodTextChanged="#EmailCheck" prefWidth="170.0" promptText="E-mail" />
-      <RadioButton id="TxtM" fx:id="TxtM" focusTraversable="false" layoutX="468.0" layoutY="404.0" mnemonicParsing="false" text="Masculino" />
-      <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="471.0" layoutY="436.0" mnemonicParsing="false" text="Feminino" />
-      <Label layoutX="408.0" layoutY="422.0" text="Sexo" />
-      <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="421.0" layoutY="239.0" prefHeight="35.0" prefWidth="170.0" promptText="Data de Nascimento" />
-      <Label fx:id="ErrName" layoutX="321.0" layoutY="167.0" text="ErrName" />
-      <Label fx:id="ErrEmail" layoutX="323.0" layoutY="204.0" text="ErrEmail" />
-      <Label fx:id="ErrDate" layoutX="320.0" layoutY="248.0" text="ErrDate" />
-      <Label fx:id="ErrUser" layoutX="320.0" layoutY="292.0" text="ErrUser" />
-      <Label fx:id="ErrPass" layoutX="320.0" layoutY="325.0" text="ErrPass" />
+      <RadioButton id="TxtM" fx:id="TxtM" focusTraversable="false" layoutX="498.0" layoutY="404.0" mnemonicParsing="false" text="Masculino" />
+      <RadioButton id="TxtF" fx:id="TxtF" focusTraversable="false" layoutX="498.0" layoutY="436.0" mnemonicParsing="false" text="Feminino" />
+      <Label layoutX="438.0" layoutY="422.0" text="Sexo" />
+      <DatePicker id="TxtBirthDate" fx:id="TxtBirthDate" focusTraversable="false" layoutX="421.0" layoutY="234.0" prefHeight="35.0" prefWidth="170.0" promptText="Data de Nascimento" />
+      <Label fx:id="ErrName" layoutX="317.0" layoutY="164.0" text="ErrName" />
+      <Label fx:id="ErrEmail" layoutX="320.0" layoutY="204.0" text="ErrEmail" />
+      <Label fx:id="ErrDate" layoutX="320.0" layoutY="243.0" text="ErrDate" />
+      <Label fx:id="ErrUser" layoutX="320.0" layoutY="282.0" text="ErrUser" />
+      <Label fx:id="ErrPass" layoutX="320.0" layoutY="322.0" text="ErrPass" />
       <Label fx:id="ErrRepPass" layoutX="310.0" layoutY="362.0" text="ErrRepPass" />
       <Label fx:id="ErrSexo" layoutX="319.0" layoutY="422.0" text="ErrSexo" />
    </children>

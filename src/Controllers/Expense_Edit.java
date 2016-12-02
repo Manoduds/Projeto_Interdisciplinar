@@ -134,7 +134,7 @@ public class Expense_Edit implements Initializable {
         if( e != null){
         b.DeleteExpense(e);
             LabSuccess.setVisible(true);
-            LabSuccess.setText("Despesa excluida com sucesso!");
+            LabSuccess.setText("Despesa excluída com sucesso!");
 
          preencherTable();
         }
@@ -226,7 +226,7 @@ public class Expense_Edit implements Initializable {
         else{
             check = true;
               LabSuccess.setVisible(true);
-            LabSuccess.setText("Houve um erro ao atualizar a despesa");
+            LabSuccess.setText("Houve um erro ao atualizar a despesa.");
         }
         
     }

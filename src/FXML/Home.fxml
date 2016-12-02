@@ -13,9 +13,9 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1000.0" stylesheets="@../Design_Tools/FlatRed.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.Home">
    <children>
-      <Button id="BtnLogin" fx:id="BtnLogin" layoutX="433.0" layoutY="253.0" mnemonicParsing="false" onAction="#BtnLogin" prefWidth="145.0" text="Usuário Com Cadastro" />
-      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="433.0" layoutY="298.0" mnemonicParsing="false" onAction="#BtnSignUp" prefHeight="35.0" prefWidth="145.0" text="Usuário Sem Cadastro" />
-      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="433.0" layoutY="344.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="145.0" text="Sobre o Sistema" />
+      <Button id="BtnLogin" fx:id="BtnLogin" layoutX="433.0" layoutY="273.0" mnemonicParsing="false" onAction="#BtnLogin" prefHeight="50.0" prefWidth="145.0" text="Usuário Com Cadastro" />
+      <Button id="BtnSignUp" fx:id="BtnSignUp" layoutX="433.0" layoutY="339.0" mnemonicParsing="false" onAction="#BtnSignUp" prefHeight="50.0" prefWidth="145.0" text="Usuário Sem Cadastro" />
+      <Button id="BtnAbout" fx:id="BtnAbout" layoutX="433.0" layoutY="405.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="145.0" text="Sobre o Sistema" />
       <Label id="Lbl1" fx:id="Lbl1" alignment="CENTER" focusTraversable="false" layoutX="211.0" layoutY="391.0" prefHeight="25.0" prefWidth="580.0" text="Desenvolvido por Matheus Bezerra e Paulo Fonseca." textAlignment="CENTER" visible="false" wrapText="true" />
       <Label id="Lbl2" alignment="CENTER" focusTraversable="false" layoutX="210.0" layoutY="416.0" prefHeight="25.0" prefWidth="580.0" text="IFSP Campus Boituva, Projeto Interdisciplinar 2016.2." textAlignment="CENTER" visible="false" wrapText="true" />
       <ImageView fitHeight="202.0" fitWidth="175.0" layoutX="422.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
