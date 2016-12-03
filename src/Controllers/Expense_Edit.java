@@ -45,7 +45,7 @@ import objects.Expense;
  */
 public class Expense_Edit implements Initializable {
   @FXML
-  private Label TxtAte;
+  private Label TxtFinal;
   @FXML
   private Label LabSuccess;
   @FXML
@@ -101,15 +101,13 @@ public class Expense_Edit implements Initializable {
     TxtEstablishment_Nature.getItems().addAll("Banco", "Mercado", "Restaurante", "Loja de Utilidades", "Outro");
     TxtState.getItems().removeAll(TxtState.getItems());
     TxtState.getItems().addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP","SE", "TO");
-
     TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
     TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
     LabSuccess.setVisible(false);
     TxtDate2.setVisible(false);
-    TxtAte.setVisible(false);
-
+    TxtFinal.setVisible(false);
     preencherTable();
     }    
     
@@ -135,7 +133,7 @@ public class Expense_Edit implements Initializable {
         b.DeleteExpense(e);
             LabSuccess.setVisible(true);
             LabSuccess.setText("Despesa excluída com sucesso!");
-
+         BtnClear(event);
          preencherTable();
         }
     }
@@ -146,12 +144,12 @@ public class Expense_Edit implements Initializable {
         if(TxtDate1.getValue() == null){
             TxtDate2.setVisible(false);
             TxtDate2.setValue(null);
-            TxtAte.setVisible(false);
+            TxtFinal.setVisible(false);
             preencherTable();
         }
         else{
             TxtDate2.setVisible(true);
-            TxtAte.setVisible(true);
+            TxtFinal.setVisible(true);
             preencherTable();
         }
     }
@@ -295,5 +293,30 @@ public class Expense_Edit implements Initializable {
             return row;
             });
         TableExpenses.setItems( data);    
-    } 
+    }
+    
+    @FXML
+       private void BtnClear(ActionEvent event) throws IOException
+        {
+            TxtCategory.getItems().removeAll(TxtCategory.getItems());
+            TxtCategory.getItems().addAll("Alimentação", "Lazer", "Moradia", "Transporte", "Outros");
+            TxtEstablishment_Nature.getItems().removeAll(TxtEstablishment_Nature.getItems());
+            TxtEstablishment_Nature.getItems().addAll("Banco", "Mercado", "Restaurante", "Loja de Utilidades", "Outro");
+            TxtState.getItems().removeAll(TxtState.getItems());
+            TxtState.getItems().addAll("AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP","SE", "TO");
+            TxtFrequency.getItems().removeAll(TxtFrequency.getItems());
+            TxtFrequency.getItems().addAll("Única", "Diária", "Semanal", "Mensal");
+            TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
+            TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
+
+            LabSuccess.setVisible(false);
+            TxtDate2.setVisible(false);
+            TxtFinal.setVisible(false);
+            TxtDescription.setText("");
+            TxtPrice.setText("");
+            TxtEstablishment_Name.setText("");
+            TxtCity.setText("");
+            TxtExpense_Date.setValue(null);
+            TxtEstablishment_Nature.getSelectionModel().select("");
+        }
 }

@@ -58,17 +58,14 @@ public class Login implements Initializable {
         if( rs == true){
        
             session =  b.selectUser(u);
-            if(session != 0){
+            
                 Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/Main.fxml"));        
                 Scene scene = new Scene(Login_Parent);
                 Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 app_stage.setScene(scene);
                 app_stage.centerOnScreen();
                 app_stage.show();   
-        }
-            else{
-                LabelWarn.setVisible(true);
-            }
+      
         }
         else{
             

@@ -14,6 +14,8 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -81,7 +83,7 @@ private DatePicker TxtExpense_Date;
     /**
      * Initializes the controller class.
      */
-    @Override
+ @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     TxtCategory.getItems().removeAll(TxtCategory.getItems());
@@ -95,6 +97,8 @@ private DatePicker TxtExpense_Date;
     TxtPayment_Method.getItems().removeAll(TxtPayment_Method.getItems());
     TxtPayment_Method.getItems().addAll("Crédito", "Débito", "Dinheiro");
     
+        
+            
     
     ErrDesc.setVisible(false);
     ErrPrec.setVisible(false);
@@ -107,7 +111,9 @@ private DatePicker TxtExpense_Date;
     ErrCity.setVisible(false);
     ErrState.setVisible(false);
     LabSuc.setVisible(false);     
-    }   
+    }  
+  
+   
     @FXML
     private void BtnSave(ActionEvent event) throws IOException{
         Expense e = new Expense();
@@ -116,7 +122,7 @@ private DatePicker TxtExpense_Date;
         
         
         e.setCod_User(Login.session);
-        if(TxtDescription.getText() != null){
+        if(!"".equals(TxtDescription.getText())){
             e.setDescription(TxtDescription.getText());
             ErrDesc.setVisible(false);
         }
@@ -126,7 +132,7 @@ private DatePicker TxtExpense_Date;
             ErrDesc.setText("A descrição é obrigatória!");
         } 
         
-        if(TxtCity.getText() != null){
+        if(!"".equals(TxtCity.getText())){
              ErrCity.setVisible(false);
         e.setCity(TxtCity.getText());
         } else { 
@@ -135,7 +141,7 @@ private DatePicker TxtExpense_Date;
             ErrCity.setText("A cidade é obrigatória!");
         }
         
-        if(TxtEstablishment_Name.getText()!= null){
+        if(!"".equals(TxtEstablishment_Name.getText())){
             
             ErrEstab.setVisible(false);
             e.setEstablishment_Name(TxtEstablishment_Name.getText());
@@ -153,7 +159,7 @@ private DatePicker TxtExpense_Date;
             ErrDat.setVisible(true);
             ErrDat.setText("A data é obrigatória!");
         }
-        if(TxtState.getSelectionModel().getSelectedItem().toString() != "Estado"){
+        if(TxtState.getSelectionModel().getSelectedItem().toString() != null){
         e.setState(TxtState.getSelectionModel().getSelectedItem().toString());
         ErrState.setVisible(false);
         }else{
@@ -161,7 +167,7 @@ private DatePicker TxtExpense_Date;
             ErrState.setVisible(true);
             ErrState.setText("O estado é obrigatório!");
         }
-        if(TxtCategory.getSelectionModel().getSelectedItem().toString() != "Categoria"){
+        if(TxtCategory.getSelectionModel().getSelectedItem().toString() != null){
         e.setCategory(TxtCategory.getSelectionModel().getSelectedItem().toString());
         ErrCat.setVisible(false);
         }
@@ -170,7 +176,7 @@ private DatePicker TxtExpense_Date;
             ErrCat.setVisible(true);
             ErrCat.setText("A categoria é obrigatória!");
         }
-        if(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString() != "Natureza"){   
+        if(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString() != null){   
             e.setEstablishment_Nature(TxtEstablishment_Nature.getSelectionModel().getSelectedItem().toString());
             ErrNature.setVisible(false);
         }
@@ -179,7 +185,7 @@ private DatePicker TxtExpense_Date;
             ErrNature.setVisible(true);
             ErrNature.setText("A natureza é obrigatória!");
         }
-        if(TxtFrequency.getSelectionModel().getSelectedItem().toString() != "Frequencia"){
+        if(TxtFrequency.getSelectionModel().getSelectedItem().toString() != null){
             e.setFrequency(TxtFrequency.getSelectionModel().getSelectedItem().toString());
             ErrNature.setVisible(false);
         } else{
@@ -187,7 +193,7 @@ private DatePicker TxtExpense_Date;
             ErrFreq.setVisible(true);
             ErrFreq.setText("A frequencia é obrigatória!");
         }
-        if(TxtPayment_Method.getSelectionModel().getSelectedItem().toString() != "Forma de Pagamento"){
+        if(TxtPayment_Method.getSelectionModel().getSelectedItem().toString() != null){
         e.setPayment_Method(TxtPayment_Method.getSelectionModel().getSelectedItem().toString());
            ErrForm.setVisible(false);
         } else{
@@ -195,7 +201,7 @@ private DatePicker TxtExpense_Date;
            ErrForm.setVisible(true);
            ErrForm.setText("A forma de pagamento é obrigatória!");
         }
-        if(TxtPrice.getText() != null){
+        if(TxtPrice.getText() != ""){
         e.setPrice(TxtPrice.getText());
         }else{
             check = false;
@@ -224,6 +230,5 @@ private DatePicker TxtExpense_Date;
         app_stage.show();        
     }
 
-    
     
 }

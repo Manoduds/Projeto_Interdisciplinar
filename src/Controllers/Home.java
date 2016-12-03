@@ -65,5 +65,16 @@ public class Home implements Initializable {
         app_stage.setScene(scene);
         app_stage.centerOnScreen();
         app_stage.show();
-    }   
+    }       
+    
+    @FXML
+    private void BtnAbout(ActionEvent event) throws IOException 
+    {
+        Parent Login_Parent = FXMLLoader.load(getClass().getResource("/FXML/About.fxml"));        
+        Scene scene = new Scene(Login_Parent);
+        Stage app_stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        app_stage.setScene(scene);
+        app_stage.centerOnScreen();
+        app_stage.show();
+    }
 }

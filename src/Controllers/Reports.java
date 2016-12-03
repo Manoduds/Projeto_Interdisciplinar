@@ -47,13 +47,13 @@ public class Reports implements Initializable {
     @FXML
     private DatePicker TxtDate2;
     @FXML
-    private Label TxtAte;
+    private Label TxtFinal;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {        
       
         TxtDate2.setVisible(false);
-        TxtAte.setVisible(false);
+        TxtFinal.setVisible(false);
     FillBar();
     }      
     
@@ -62,11 +62,11 @@ public class Reports implements Initializable {
         if(TxtDate1.getValue() == null){
             TxtDate2.setVisible(false);
             TxtDate2.setValue(null);
-            TxtAte.setVisible(false);
+            TxtFinal.setVisible(false);
         }
         else{
             TxtDate2.setVisible(true);
-            TxtAte.setVisible(false);
+            TxtFinal.setVisible(true);
             FillBar();
         }
     }

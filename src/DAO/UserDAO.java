@@ -69,7 +69,6 @@ public class UserDAO {
         {
             ex.printStackTrace();
         }
-        System.out.println(result);
             return result;
     }
         public int SelectUser(system_user u) {
@@ -82,7 +81,6 @@ public class UserDAO {
             rs = ppStmt.executeQuery();
            while(rs.next()){
             session = rs.getInt("Cod_User");
-            System.out.println(session);
            }
         }
         catch(SQLException ex)
@@ -140,13 +138,11 @@ public class UserDAO {
     public boolean VerifyName(String Name) {
         //Verifica se já existe um usuário com o mesmo nome no banco de dados.
         boolean result = false;
+        String SQL;
         try{
-            PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE User_Name = ?");
-            ppStmt.setString(1, Name);
-            ResultSet rs;
-         
-            rs = ppStmt.executeQuery();
-            if(rs != null){
+            SQL = ("SELECT * FROM system_user WHERE U_Name ='"+ Name + "'");
+            ResultSet rs = conn.createStatement().executeQuery(SQL);  
+            if(rs.next()){
        
             result = true;
             } else {
