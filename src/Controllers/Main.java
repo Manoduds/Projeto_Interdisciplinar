@@ -236,8 +236,14 @@ public class Main implements Initializable {
             final String Link[] = readRSS(r.getURL(),"link>");
 
             for (int i = 0; i < 6; i++){
+            if(title[i] != null && Link[i] != null){
                 String l = Link[i];
+                title[i] = validateString(title[i]);
                 Hyperlink RSS = RSSLinks[i];
+                  if(title[i].length()>45){
+                title[i] = title[i].substring(0,45);
+                title[i] = title[i]+"...";
+            }
                 RSS.setText(title[i]);
                 RSS.setOnAction(new EventHandler<ActionEvent>() {         
                     @Override
@@ -254,6 +260,7 @@ public class Main implements Initializable {
                 
                 });
               RSS.setVisible(true);
+            }
             }
         } catch (IOException ex) {
           RSSLinks[0].setVisible(true);
@@ -277,8 +284,11 @@ public class Main implements Initializable {
             int firstPos = line.indexOf("<"+Line);
             String temp = line.substring(firstPos);
             temp = temp.replace("<"+Line, "");
+            temp = temp.replace("[CDATA[", "");
+            temp = temp.replace("<!","");
             int lastPos = temp.indexOf("</"+Line);
             temp = temp.substring(0, lastPos);
+          
             result[r] = temp;
             limit++;
             r++;
@@ -288,7 +298,13 @@ public class Main implements Initializable {
     return result;
     }
    
-      
+    private String validateString(String s){
+        s = s.replace(">","");
+        s = s.replace("<", "");
+        s = s.replace("[","");
+        s = s.replace("]", "");
+        return s;
+    }
      @FXML
     private void  BtnLogoff(ActionEvent event) throws IOException 
     {

@@ -65,13 +65,14 @@ FOREIGN KEY (Cod_Expense) REFERENCES Expense(Cod_Expense),
 FOREIGN KEY (Cod_RSS) REFERENCES RSS(Cod_RSS)
 );
 
-INSERT INTO RSS(RSS_Name, Category, URL) values ('atWar', 'Outros', 'http://atwar.blogs.nytimes.com/feed/');
-INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Transporte', 'http://intransit.blogs.nytimes.com/feed/');
-INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Lazer', 'http://intransit.blogs.nytimes.com/feed/');
-INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Moradia', 'http://intransit.blogs.nytimes.com/feed/');
-INSERT INTO RSS(RSS_Name, Category, URL) values ('inTransit', 'Alimentação', 'http://intransit.blogs.nytimes.com/feed/');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('Vol_Money', 'Moradia', 'http://rss.uol.com.br/feed/economia.xml');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('Finanças pessoais', 'Moradia', 'http://brasileconomico.ig.com.br/financas/financas-pessoais/rss.xml');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('Isto é dinheiro', 'Transporte', 'http://www.istoedinheiro.com.br/rss/news/rss-news.xml');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('Comida-caseira', 'Alimentação', 'http://comida-caseira.webnode.com.br/rss/all.xml');
+INSERT INTO RSS(RSS_Name, Category, URL) values ('', 'Moradia', 'http://rss.uol.com.br/feed/economia.xml');
 
 INSERT INTO system_user(User_Name, User_password,Email, birthdate, Sex, U_name) values('Mano','slim','pauloeduardomf@gmail.com','1997-11-16','M','Mano');
 
 INSERT INTO expense(Cod_User, Establishment_Name,Description,Price,Payment_Method,Frequency,State,Category,City,Date,Nature) values
 ('1','Rua','Carona','100.00','Dinheiro','Mensal','SP','Transporte','Boituva','2016-11-20','Outro')
+INSERT INTO RSS(RSS_Name, Category, URL) values ('Vol_Money', 'Moradia', 'http://rss.uol.com.br/feed/economia.xml');
