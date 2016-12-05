@@ -23,5 +23,6 @@
             <Image url="@../Design_Tools/MyWallet_Logo.png" />
         </image>
       </ImageView>
+      <Button id="BtnSignUp" fx:id="BtnAbout" layoutX="433.0" layoutY="404.0" mnemonicParsing="false" onAction="#BtnAbout" prefHeight="50.0" prefWidth="145.0" text="Sobre o sistema" />
    </children>
 </AnchorPane>

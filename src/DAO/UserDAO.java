@@ -51,33 +51,36 @@ public class UserDAO {
     public boolean compareUser(system_user u)
     {
         //Pesquisa se tem uma combinação de senha e username enviada, e retorna valor 'false' e 'true' baseado no resultado.
-        boolean rs = false;  
+        ResultSet rs;  
+        boolean result = false;
+        String SQL;
         try
-        {
-            PreparedStatement ppStmt = conn.prepareStatement
-            ("SELECT * FROM system_user WHERE User_name = ? AND User_Password = ?");
-            ppStmt.setString(1, u.getU_Name());
-            ppStmt.setString(2, u.getUser_Password());          
-            rs =   ppStmt.execute();
+        {   
+            SQL = ("SELECT * FROM system_user WHERE User_name ='"+ u.getU_Name() + "' AND User_Password = '"+u.getUser_Password()+"'");
+            rs = conn.createStatement().executeQuery(SQL);  
+
+          
+            if(rs.next()){
+               result = true; 
+            }
+            
         }
         catch(SQLException ex)
         {
             ex.printStackTrace();
         }
-            return rs;
+            return result;
     }
         public int SelectUser(system_user u) {
         int session = 0;
         try
         {
-     
             PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE U_Name = ?");
             ppStmt.setString(1, u.getU_Name());
             ResultSet rs;
             rs = ppStmt.executeQuery();
            while(rs.next()){
             session = rs.getInt("Cod_User");
-            System.out.println(session);
            }
         }
         catch(SQLException ex)
@@ -135,17 +138,15 @@ public class UserDAO {
     public boolean VerifyName(String Name) {
         //Verifica se já existe um usuário com o mesmo nome no banco de dados.
         boolean result = false;
+        String SQL;
         try{
-            PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE User_Name = ?");
-            ppStmt.setString(1, Name);
-            ResultSet rs;
-         
-            rs = ppStmt.executeQuery();
-            if(rs == null){
+            SQL = ("SELECT * FROM system_user WHERE U_Name ='"+ Name + "'");
+            ResultSet rs = conn.createStatement().executeQuery(SQL);  
+            if(rs.next()){
        
-            result = false;
-            } else {
             result = true;
+            } else {
+            result = false;
               }
            
        }
@@ -166,10 +167,9 @@ public class UserDAO {
          
             rs = ppStmt.executeQuery();
             if(rs == null){
-       
-            result = false;
-            } else {
             result = true;
+            } else {
+            result = false;
               }
            
         }
@@ -183,24 +183,21 @@ public class UserDAO {
     public boolean VerifyUser(String Username) {
         //Verifica se já existe um Username no banco de dados com o mesmo UserName inserido.
           boolean result = false;
-      try{
-            PreparedStatement ppStmt = conn.prepareStatement("SELECT * FROM system_user WHERE U_Name = ?");
-            ppStmt.setString(1, Username);
-            ResultSet rs;
-         
-            rs = ppStmt.executeQuery();
-            if(rs == null){
-       
-            result = false;
+          String SQL;
+          ResultSet rs = null;
+          try{
+            SQL = ("SELECT * FROM system_user WHERE U_Name ='"+ Username + "'");
+            rs = conn.createStatement().executeQuery(SQL);  
+            if(!rs.next()){
+                result = false;
             } else {
-            result = true;
-              }
-           
+                result = true;
+            }
        }
         catch(SQLException ex)
         {
             ex.printStackTrace();
-        }  
+        }     
   return result;
     }
 }

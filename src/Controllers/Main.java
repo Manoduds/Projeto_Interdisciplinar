@@ -198,7 +198,6 @@ public class Main implements Initializable {
         Date date = new Date();
         date.setYear(date.getYear()-1);
         ObservableList<PieChart.Data> pieChartData = b.getPie(date);
-        System.out.println(dateFormat.format(date));
         PieYearReport.setData(pieChartData);
         PieYearReport.setTitle("Gastos anuais");        
     }
@@ -209,7 +208,6 @@ public class Main implements Initializable {
         Date date = new Date();
         date.setMonth(date.getMonth()-1);
         ObservableList<PieChart.Data> pieChartData = b.getPie(date);
-        System.out.println(dateFormat.format(date));
         PieMonthReport.setData(pieChartData);
         PieMonthReport.setTitle("Gastos Mensais");   
     }      
@@ -275,7 +273,6 @@ public class Main implements Initializable {
     final String result[] = new String[20];
     String line;
     while((line = in.readLine())!= null && limit <11){
-
         if(line.contains("<"+Line)){
             int firstPos = line.indexOf("<"+Line);
             String temp = line.substring(firstPos);

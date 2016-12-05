@@ -113,7 +113,7 @@ public class ExpenseDAO {
         return data;
     }
     
-      public ObservableList<Expense> FillTable(Date Dat1, Date Dat2) {
+    public ObservableList<Expense> FillTable(Date Dat1, Date Dat2) {
         //Preenche a tabela com todos os gastos.
         ObservableList<Expense> data = FXCollections.observableArrayList();
         try
@@ -177,7 +177,7 @@ public class ExpenseDAO {
             ex.printStackTrace();
         }
     }
-     public void UpdateExpense(Expense e) {
+    public void UpdateExpense(Expense e) {
         //Update na tabela 'Expense' com os valores inseridos, baseado no Cod_Expense.
             try
         {
@@ -231,7 +231,7 @@ public class ExpenseDAO {
         return gasto;
     }
     
-      public float countexpense(String cat, Date Dat) {
+    public float countexpense(String cat, Date Dat) {
           //Retorna a soma dos gastos entre a data selecionada e a data atual.
         float gasto = 0;
         String SQL;
@@ -256,7 +256,7 @@ public class ExpenseDAO {
         }
         return gasto;
     }
-   public float countexpense(String cat, Date Dat, Date Dat2) {
+    public float countexpense(String cat, Date Dat, Date Dat2) {
        //Retorna a soma dos gastos do período selecionado.
         float gasto = 0;
         String SQL;

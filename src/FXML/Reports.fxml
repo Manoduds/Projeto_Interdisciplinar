@@ -19,7 +19,8 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <DatePicker id="TxtDate" fx:id="TxtDate2" layoutX="566.0" layoutY="81.0" onAction="#FillBar" prefHeight="35.0" prefWidth="150.0" promptText="Dia final" />
-      <Label fx:id="TxtAte" layoutX="500.0" layoutY="90.0" text="até" />
+      <DatePicker id="TxtDate" fx:id="TxtDate2" layoutX="549.0" layoutY="81.0" onAction="#FillBar" prefHeight="35.0" prefWidth="150.0" promptText="Dia final" />
+      <Label layoutX="360.0" layoutY="52.0" text="Dia inicial" />
+      <Label fx:id="TxtFinal" layoutX="601.0" layoutY="52.0" text="Dia final" />
    </children>
 </AnchorPane>
